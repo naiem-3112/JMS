@@ -17,5 +17,5 @@ Auth::routes();
 Route::get('todo/index', 'TodoController@index')->name('index');
 Route::get('todo/create', 'TodoController@create')->name('create');
 Route::post('todo/store', 'TodoController@store')->name('store');
-Route::get('todo/edit', 'TodoController@edit')->name('edit');
-Route::post('todo/update', 'TodoController@update')->name('update');
+Route::get('todo/edit/{todo}', 'TodoController@edit')->name('edit');
+Route::post('todo/update/{todo}', 'TodoController@update')->name('update');

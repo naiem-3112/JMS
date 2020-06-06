@@ -26,13 +26,15 @@ class TodoController extends Controller
         return redirect()->back()->with('message', 'Todo added successfully');
     }
 
-    public function edit($id)
+    public function edit(Todo $todo)
     {
-        return view('todo.edit');
+        return view('todo.edit', compact('todo'));
     }
 
-    public function update(Request $request)
+    public function update(CreateTodo $request, Todo $todo)
     {
-        return view('todo.create');
+        $todo->title = $request->title;
+        $todo->save();
+        return redirect()->back()->with('message', 'todo updated successfully');
     }
 }
