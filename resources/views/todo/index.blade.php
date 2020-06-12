@@ -1,40 +1,34 @@
 @extends('todo.layout')
 @section('content')
-    <h1 class="text-2xl border-b pb-4">All Your Todos <a class="py-2 px-2 bg-green-300 border rounded"
-                                                         href="{{ route('todo.create') }}">Create
-            New</a></h1>
+    <h1 class="text-2xl border-b pb-4">All Your Todos <a class="py-2 px-2 text-green-300  " href="{{ route('todo.create') }}"><i class="fa fa-plus-circle"></i></a></h1>
     <x-notification/>
-    @foreach($todos as $todo)
+    @forelse($todos as $todo)
         <ul>
             <li class="my-5">
+
+                @include('todo.complete-button')
+
                 @if($todo->completed)
-                    <p style="display: inline-block; text-decoration: line-through">{{ $todo->title }}</p>
+                    <a href="{{ route('todo.show',$todo->id) }}" style="cursor: pointer; display: inline-block; text-decoration: line-through">{{ $todo->title }}</a>
                 @else
-                    <p style="display: inline-block">{{ $todo->title }}</p>
+                    <a href="{{ route('todo.show',$todo->id) }}" style="cursor: pointer; display: inline-block">{{ $todo->title }}</a>
 
                 @endif
                 <a href="{{ route('todo.edit',$todo->id) }}" class="px-5 text-orange-600 ">
                     <i class="fa fa-edit"></i></a>
-                @if($todo->completed)
-                    <i onclick=" document.getElementById('form-incomplete-{{ $todo->id }}').submit()"
-                       class="fa fa-check px-2 text-green-400 cursor-pointer"></i>
-                    <form style="display: none" id="{{ 'form-incomplete-'. $todo->id }}"
-                          action="{{ route('todo.incomplete', $todo->id) }}" method="post">
-                        @csrf
-                        @method('put')
 
-                    </form>
-                @else
-                    <i onclick=" document.getElementById('form-complete-{{ $todo->id }}').submit()"
-                       class="fa fa-check text-gray-400 px-2 cursor-pointer"></i>
-                    <form style="display: none" id="{{ 'form-complete-'. $todo->id }}"
-                          action="{{ route('todo.complete', $todo->id) }}" method="post">
-                        @csrf
-                        @method('put')
+                <i onclick=" if(confirm('are you sure to delete this task?')){
+                    document.getElementById('form-delete-{{ $todo->id }}').submit()
+                    }" class="fa fa-trash px-2 text-red-400 cursor-pointer"></i>
+                <form style="display: none" id="{{ 'form-delete-'. $todo->id }}"
+                      action="{{ route('todo.destroy', $todo->id) }}" method="post">
+                    @csrf
+                    @method('delete')
 
-                    </form>
-                @endif
+                </form>
             </li>
         </ul>
-    @endforeach
+    @empty
+        <p>No task available, create one</p>
+    @endforelse
 @endsection

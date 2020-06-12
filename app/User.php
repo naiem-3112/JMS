@@ -20,6 +20,10 @@ class User extends Authenticatable
         'name', 'email', 'password', 'avatar'
     ];
 
+    public function todos(){
+        return $this->hasMany(Todo::class);
+    }
+
     public static function uploadAvatar($image){
         $avatar_name = $image->getClientOriginalName();
         auth()->user()->deleteOldImage();
@@ -50,4 +54,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
 }
