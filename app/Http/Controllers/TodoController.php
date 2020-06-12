@@ -27,7 +27,13 @@ class TodoController extends Controller
 
     public function store(CreateTodo $request)
     {
-        auth()->user()->todos()->create($request->all());
+        $todo = auth()->user()->todos()->create($request->all());
+        if($request->steps){
+            foreach ($request->steps as $step){
+                $todo->steps()->create(['name' => $step]);
+            }
+        }
+
         return redirect()->back()->with('message', 'Todo added successfully');
     }
 
@@ -43,6 +49,7 @@ class TodoController extends Controller
     }
 
     public function destroy(Todo $todo){
+        $todo->steps()->delete();
         $todo->delete();
         return redirect()->back()->with('message', 'todo has been deleted successfully');
     }
