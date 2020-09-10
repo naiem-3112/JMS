@@ -13,7 +13,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/upload', 'UserController@upload_avatar');
 
 Auth::routes();
-Route::resource('todo', 'TodoController');
-Route::put('todo/complete/{todo}', 'TodoController@complete')->name('todo.complete');
-Route::delete('todo/incomplete/{todo}', 'TodoController@incomplete')->name('todo.incomplete');
-
