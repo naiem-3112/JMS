@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "761a89f3d5843bdf9d89fb48450e1309",
+    "content-hash": "f85f078323b1f7ef28daf12f951e4110",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1254,6 +1254,7 @@
             "time": "2020-08-09T10:34:01+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "livewire/livewire",
             "version": "v1.3.3",
             "source": {
@@ -1317,6 +1318,8 @@
             "time": "2020-08-21T15:57:49+00:00"
         },
         {
+=======
+>>>>>>> dafa16426a26776f67234df368dc1faffb0d3888
             "name": "monolog/monolog",
             "version": "2.1.1",
             "source": {
