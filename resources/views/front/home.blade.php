@@ -76,7 +76,7 @@
         }
 
         .hr{
-            border-bottom: 5px solid #e74c3c;
+            border-bottom: 15px solid #dae2e9;
             margin-top: 3px
         }
     </style>
@@ -95,14 +95,32 @@
                 </div>
                 <div class="col-8">
                     <div class="log-reg">
-                        <button class="btn btn-info btn-sm l">Login</button>
-                        <button class="btn btn-info btn-sm l">Registration</button>
+                        <a href="{{ route('login') }}"><button class="btn btn-info  l">Login</button></a>
+                        <a href="{{ route('register') }}"><button class="btn btn-info l">Registration</button></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row hr">
             <span ></span>
+        </div>
+
+
+        {{-- main section --}}
+        <div class="row">
+            <div class="col-3">
+                <div class="cover-image">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="content">
+                    <div class="title">
+                        <h2>Journal Title</h2>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, deserunt non expedita laborum dolor eos quia alias magni esse natus itaque aliquam sed minima corrupti numquam nobis deleniti maiores vitae?</p>
+                </div>
+            </div>
         </div>
     </div>
 
