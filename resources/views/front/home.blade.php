@@ -15,7 +15,7 @@
             padding: 0;
         }
         .full{
-            width: 1650px;
+            width: 1140px;
             margin: 0 auto;
         }
 
