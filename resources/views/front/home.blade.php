@@ -10,15 +10,65 @@
 
 
     <style>
-        .full{
-            width: 1140px;
+        *{
+            margin: 0;
+            padding: 0;
         }
-        .container{
-            margin-top: 5px;
+        .full{
+            width: 1650px;
+            margin: 0 auto;
+        }
+
+        .content{
+            margin: 10px;
         }
         
         .social{
             float: left;
+            transition: all 0.5s linear;
+            width: 20px;
+        }
+
+        .social i{
+            background:;
+            float: left;
+            color: #2980b9;
+            width: 20px;
+            -webkit-transition: -webkit-transform .5s ease-in-out;
+                    transition:         transform .5s ease-in-out;
+        }
+
+       .f:hover{
+            color: #e74c3c;
+            -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+       }
+
+       .t:hover{
+        color: #e74c3c;
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    
+        }
+
+    .i:hover{
+        color: #e74c3c;
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+
+        }
+
+       
+        .l{
+            background: #2980b9;
+            border: none;
+
+        }
+        
+        .l:hover{
+            background: #e74c3c;
+            border-color: #e74c3c;
+
         }
 
         .log-reg{
@@ -26,29 +76,34 @@
         }
 
         .hr{
-            
+            border-bottom: 5px solid #e74c3c;
+            margin-top: 3px
         }
     </style>
 
 </head>
 <body>
-    <div class="container full">
-        <div class="row">
-            <div class="col-4">
-                <div class="social">
-                    <i class="fa fa-facebook-square"></i>
-                    <i class="fa fa-twitter-square"></i>
-                    <i class="fa fa-linkedin-square"></i>
+    <div class="full">
+        <div class="content">
+            <div class="row">
+                <div class="col-4">
+                    <div class="social">
+                        <i class="fa fa-facebook-square f"></i>
+                        <i class="fa fa-twitter-square t"></i>
+                        <i class="fa fa-linkedin-square i"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="col-8">
-                <div class="log-reg">
-                    <button class="btn btn-info btn-sm">Login</button>
-                    <button class="btn btn-info btn-sm">Registration</button>
+                <div class="col-8">
+                    <div class="log-reg">
+                        <button class="btn btn-info btn-sm l">Login</button>
+                        <button class="btn btn-info btn-sm l">Registration</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <span class="hr"></span>
+        <div class="row hr">
+            <span ></span>
+        </div>
     </div>
 
 
