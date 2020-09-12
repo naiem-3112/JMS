@@ -132,7 +132,8 @@
                     <div class="title">
                         <h2>Journal Title</h2>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, deserunt non expedita laborum dolor eos quia alias magni esse natus itaque aliquam sed minima corrupti numquam nobis deleniti maiores vitae?</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, deserunt non expedita laborum dolor eos quia alias magni esse natus itaque aliquam sed minima corrupti numquam nobis deleniti maiores vitae?...</p>
+                    <button class="btn btn-sm btn-info l">Read More</button>
                 </div>
             </div>
         </div>
