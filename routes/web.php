@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route:: get('/', 'FrontController@home')->name('journal-front.home');
-
+Route:: get('/front', 'FrontController@home')->name('journal-front.home');
+Route:: get('/admin', 'FrontController@admin')->name('journal.admin');
 Auth::routes();

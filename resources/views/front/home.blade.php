@@ -95,8 +95,22 @@
                 </div>
                 <div class="col-8">
                     <div class="log-reg">
+                         @guest
                         <a href="{{ route('login') }}"><button class="btn btn-info  l">Login</button></a>
+                        @if (Route::has('register'))
                         <a href="{{ route('register') }}"><button class="btn btn-info l">Registration</button></a>
+                        @endif
+                        @else
+                        <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                   <button class="btn btn-info  l">Logout</button>
+                                </a>
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
+                                @endguest
                     </div>
                 </div>
             </div>
