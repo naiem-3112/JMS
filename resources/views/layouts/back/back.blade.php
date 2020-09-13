@@ -19,12 +19,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
      {{--  Favicon  --}}
      <link rel="shortcut icon" type="image/x-icon" href="{{asset('back_temp/dist/img/favicon.png')}}"/>
-    @yield('style')
+    @yield('base.css')
 
 
     <style>
         [class*=sidebar-dark-] {
-            background-color: #131111e3;
+            background-color: #2c3e50;
+        }
+
+        .navbar-white {
+            background-color: #F55;
+        
         }
 
 
@@ -39,10 +44,10 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a style="color: #fff" class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a style="color: #fff"  href="index3.html" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -123,34 +128,31 @@
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
+                        <i style="color: #fff"  class="far fa-bell"></i>
+                        <span style="background: #2C3E50; color: #fff"   class="badge navbar-badge">15</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-header">15 Notifications</span>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <i style="color: #f55"  class="fas fa-envelope mr-2"></i> 4 new messages
                             <span class="float-right text-muted text-sm">3 mins</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <i style="color: #f55"  class="fas fa-users mr-2"></i> 8 friend requests
                             <span class="float-right text-muted text-sm">12 hours</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <i style="color: #f55"  class="fas fa-file mr-2"></i> 3 new reports
                             <span class="float-right text-muted text-sm">2 days</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-                            class="fas fa-th-large"></i></a>
-                </li>
+                
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -173,7 +175,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{Auth::user()->name}}</a>
+                        <a style="text-transform: capitalize;" href="#" class="d-block">{{Auth::user()->name}}</a>
                     </div>
                 </div>
 
@@ -185,20 +187,20 @@
                          with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i class="fas fa-tags"></i>
+                                <i style="color: #f55"  class="fas fa-tags"></i>
                                 <p>Published paper</p>
-                                <i class="right fas fa-angle-left"></i>
+                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
                                         <p>Create</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
 
@@ -208,20 +210,20 @@
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class=" nav-link">
-                                <i class="fas fa-tag"></i>
+                                <i style="color: #f55"  class="fas fa-tag"></i>
                                 <p>Rejected paper</p>
-                                <i class="right fas fa-angle-left"></i>
+                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
                                         <p>Create</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
                                         <p>list</p>
                                     </a>
 
@@ -231,20 +233,20 @@
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class=" nav-link">
-                                <i class="fas fa-tag"></i>
+                                <i style="color: #f55"  class="fas fa-tag"></i>
                                 <p>Approved Paper</p>
-                                <i class="right fas fa-angle-left"></i>
+                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
                                         <p>Create</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
                                         <p>list</p>
                                     </a>
 
@@ -278,19 +280,20 @@
                         <li class="nav-header">Your Account</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-user-circle nav-icon"></i>
+                                <i style="color: #f55" class="far fa-user-circle nav-icon"></i>
                                 <p>Profile</p>
                             </a>
                         </li>
+                        <hr>
                         <li class="nav-item">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();" class="bg-red nav-link">
+                                      document.getElementById('logout-form').submit();" class=" nav-link">
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">
                                     @csrf
                                 </form>
-                                <i class="fas fa-sign-out-alt nav-icon"></i>
-                                <p>Logout</p>
+                                <i style="color: #f55"  class="fas fa-sign-out-alt nav-icon"></i>
+                                <p style="color: #f55; font-weight:bold; text-transform: uppercase" >Logout</p>
                             </a>
 
                         </li>
@@ -322,10 +325,10 @@
         <footer class="main-footer">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
-                Anything you want
+                
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            <strong>Copyright &copy; 2020 <a href="#">Tamim Rahman</a>.</strong> All rights
             reserved.
         </footer>
     </div>
@@ -354,8 +357,7 @@
             bsCustomFileInput.init()
         })
     </script>
-    @yield('script')
+    @yield('base.js')
 </body>
 
 </html>
-© 2020 GitHub, Inc.
