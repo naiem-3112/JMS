@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
      {{--  Favicon  --}}
      <link rel="shortcut icon" type="image/x-icon" href="{{asset('back_temp/dist/img/favicon.png')}}"/>
+
+        {{-- select2 --}}
+
+     {{-- summernote --}}
     @yield('base.css')
 
 
@@ -249,9 +253,7 @@
                                         <i style="color: #f55"  class="far fa-circle nav-icon"></i>
                                         <p>list</p>
                                     </a>
-
                                 </li>
-
                             </ul>
                         </li>
                         {{-- <li class="nav-item has-treeview">
@@ -357,6 +359,9 @@
             bsCustomFileInput.init()
         })
     </script>
+    {{-- select2 --}}
+
+    {{-- summernote --}}
     @yield('base.js')
 </body>
 

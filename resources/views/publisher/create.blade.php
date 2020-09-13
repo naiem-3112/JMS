@@ -11,71 +11,63 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body p-0">
-                        <div class="col-12 col-lg-8 offset-lg-2 col-md-8 offset-md-2 ">
-                            <form action="#" method="post" enctype="multipart/form-data">
+                        <div class="col-12">
+                            <form action="{{ route('publisher.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Your/Author Name</label>
-                                        <input type="text" class="form-control" name="name"
-                                            placeholder="Enter name">
+                                        <label>Title of Manuscript</label>
+                                        <input type="text" class="form-control" name="title" placeholder="Enter title">
                                         @error('name')
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Your/Author Name</label>
+                                                <input type="text" class="form-control" name="name"
+                                                    placeholder="Enter name">
+                                                @error('name')
+                                                <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Author Email</label>
+                                                <input type="email" class="form-control" name="email"
+                                                    placeholder="Enter name">
+                                                @error('name')
+                                                <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Summery</label>
+                                        <textarea name="summery" id="summery" class="form-control"
+                                            placeholder="Write your abstract here"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Your Country</label>
                                         <select class="form-control" name="country">
-                                            <option style= selected disabled>Select Country</option>
+                                            <option style=selected disabled>Select Country</option>
                                             <option value="1">Bangladesh</option>
                                             <option value="0">India</option>
                                         </select>
                                     </div>
+
                                     <div class="form-group">
-                                        <label>Corresponding Author Email</label>
-                                        <input type="email" class="form-control" name="email"
-                                            placeholder="Enter name">
-                                        @error('name')
-                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="image">Image</label>
+                                        <label>Upload Manuscript</label>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="image" id="image">
+                                            <input type="file" class="custom-file-input" name="paper">
                                             <label class="custom-file-label" for="image">Choose file</label>
                                         </div>
-                                        @error('image')
+                                        @error('paper')
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="form-group">
-                                        <label for="description">Description</label>
-                                        <textarea name="description" id="description" rows="4" class="form-control"
-                                            placeholder="Enter Description"></textarea>
-                                        @error('description')
-                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="price">Price</label>
-                                        <input type="number" name="price" id="price" class="form-control"
-                                            placeholder="Enter Price">
-                                        @error('price')
-                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="status">Status</label>
-                                        <select class="form-control" name="status" id="status">
-                                            <option style="display: none" selected>Select Status</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
-                                        </select>
-                                    </div>
-                                    @error('status')
-                                    <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                    @enderror
                                     <div>
                                         <button type="submit" class="btn btn-md btn-primary">Submit</button>
                                         <a href="#" class="btn btn-md btn-info">Back</a>
@@ -92,11 +84,3 @@
 </div>
 
 @endsection
-
-@push('base.js')
-<script>
-    $(document).ready(function () {
-        $('#description').summernote();
-    });
-</script>
-@endpush    
