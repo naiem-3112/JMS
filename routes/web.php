@@ -5,12 +5,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
 Route:: get('/front', 'FrontController@home')->name('journal-front.home');
-Route:: get('/admin', 'FrontController@admin')->name('journal.admin');
+
+
+Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'auth'], function() {
+    Route::get('create', 'PublisherController@create')->name('create');
+});
+
 Auth::routes();
