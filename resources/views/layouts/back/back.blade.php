@@ -192,14 +192,37 @@
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
                                 <i style="color: #f55"  class="fas fa-tags"></i>
-                                <p>Published paper</p>
+                                <p>Registerd Users</p>
                                 <i style="color: #f55"  class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
-                                        <p>Create</p>
+                                        <p>Approved</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                        <p>Pending</p>
+                                    </a>
+
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class=" nav-link">
+                                <i style="color: #f55"  class="fas fa-tag"></i>
+                                <p>Manuscripts</p>
+                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
+                                        <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -207,78 +230,16 @@
                                         <i style="color: #f55"  class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
-
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class=" nav-link">
-                                <i style="color: #f55"  class="fas fa-tag"></i>
-                                <p>Rejected paper</p>
-                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
-                                        <p>Create</p>
-                                    </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i style="color: #f55"  class="far fa-circle nav-icon"></i>
-                                        <p>list</p>
+                                        <p>Rejected</p>
                                     </a>
-
                                 </li>
 
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class=" nav-link">
-                                <i style="color: #f55"  class="fas fa-tag"></i>
-                                <p>Approved Paper</p>
-                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
-                                        <p>Create</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
-                                        <p>list</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        {{-- <li class="nav-item has-treeview">
-                            <a href="#" class="bg-red active nav-link">
-                                <i class="fas fa-user"></i>
-                                <p>User</p>
-                                <i class="right fas fa-angle-left"></i>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-plus nav-icon"></i>
-                                        <p>Create</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-user-circle nav-icon"></i>
-                                        <p>All Users</p>
-                                    </a>
-
-                                </li>
-
-                            </ul>
-                        </li> --}}
                         <li class="nav-header">Your Account</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
