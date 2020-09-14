@@ -1,10 +1,10 @@
 @extends('layouts.back.back')
 @section('back.content')
-<div class="content m-5">
+<div class="content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
+                <div class="card mt-3">
                     <div class="card-header">
                         <h4>Article Submision Form</h4>
                         <small><span style="color: red">*</span>Indicates Required Field</small>
@@ -18,7 +18,7 @@
                                     <div class="form-group">
                                         <label>Title of Manuscript</label>
                                         <input type="text" class="form-control" name="title" placeholder="Enter title">
-                                        @error('name')
+                                        @error('title')
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -38,7 +38,7 @@
                                                 <label>Author Email</label>
                                                 <input type="email" class="form-control" name="email"
                                                     placeholder="Enter name">
-                                                @error('name')
+                                                @error('email')
                                                 <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                                 @enderror
                                             </div>
@@ -51,18 +51,17 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Your Country</label>
-                                        <select class="form-control" name="country">
+                                        <select class="form-control" name="country_id">
                                             <option style=selected disabled>Select Country</option>
                                             <option value="1">Bangladesh</option>
-                                            <option value="0">India</option>
+                                            <option value="2">India</option>
                                         </select>
                                     </div>
-
                                     <div class="form-group">
                                         <label>Upload Manuscript</label>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="paper">
-                                            <label class="custom-file-label" for="image">Choose file</label>
+                                            <input type="file" class="custom-file-input" name="paper_file">
+                                            <label class="custom-file-label">Choose file</label>
                                         </div>
                                         @error('paper')
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>

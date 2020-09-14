@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Publisher;
+use Session;
+use RealRashid\SweetAlert\Facades\Alert;
+use Image;
+use File;
 
 class PublisherController extends Controller
 {
@@ -15,9 +20,7 @@ class PublisherController extends Controller
             'title' => 'required',
             'name' => 'required',
             'email' => 'required',
-            'summery' => 'required',
-            'country' => 'required',
-            'paper' => 'required'
+            'paper_file' => 'required'
         ]);
 
         $publisher = new Publisher();
@@ -25,14 +28,16 @@ class PublisherController extends Controller
         $publisher->name = $r->name;
         $publisher->email = $r->email;
         $publisher->summery = $r->summery;
-        $publisher->country = $r->country;
-        $publisher->save();
+        $publisher->country_id = $r->country_id;
         
-        if($publisher->paper){
-            
+        if ($r->hasFile('paper_file')) {
+            $originalName = $r->paper_file->getClientOriginalName();
+            $uniquePaperName = $r->email.time().$originalName;
+            $publisher->paper = $uniquePaperName;
         }
 
-
+        $publisher->save();
+        Alert::toast('Paper submitted successfully', 'success');
         return back();
     }
 }

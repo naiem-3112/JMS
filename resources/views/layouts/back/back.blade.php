@@ -309,6 +309,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            @include('sweetalert::alert')
             @yield('back.content')
         </div>
         <!-- /.content-wrapper -->
