@@ -29,6 +29,7 @@ class PublisherController extends Controller
         $publisher->email = $r->email;
         $publisher->summery = $r->summery;
         $publisher->country_id = $r->country_id;
+        $publisher->status = 0;
         
         if ($r->hasFile('paper_file')) {
             $originalName = $r->paper_file->getClientOriginalName();
