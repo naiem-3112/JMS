@@ -17,25 +17,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar'
+        'name', 'email', 'password', 'user_type_id', 'status'
     ];
 
-    public function todos(){
-        return $this->hasMany(Todo::class);
-    }
-
-    public static function uploadAvatar($image){
-        $avatar_name = $image->getClientOriginalName();
-        auth()->user()->deleteOldImage();
-        $image->storeAs('public', $avatar_name);
-        auth()->user()->update(['avatar' => $avatar_name]);
-    }
-
-    protected function deleteOldImage(){
-        if($this->avatar){
-            Storage::delete('public/'. $this->avatar);
-        }
-    }
 
     /**
      * The attributes that should be hidden for arrays.

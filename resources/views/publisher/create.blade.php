@@ -3,7 +3,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-10 offset-lg-1">
                 <div class="card mt-3">
                     <div class="card-header">
                         <h4>Article Submision Form</h4>
