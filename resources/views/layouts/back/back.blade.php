@@ -197,13 +197,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
                                         <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('admin.pending.users') }}" class="nav-link">
                                         <i style="color: #f55"  class="far fa-circle nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
