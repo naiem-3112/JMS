@@ -189,6 +189,7 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
+                         @if(Auth::user()->user_type_id == 0)
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
                                 <i style="color: #f55"  class="fas fa-tags"></i>
@@ -197,21 +198,21 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ url('admin/approved/users') }}" class="nav-link">
                                         <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
                                         <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('admin.pending.users') }}" class="nav-link">
                                         <i style="color: #f55"  class="far fa-circle nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
-
                                 </li>
-
                             </ul>
                         </li>
+                        @endif
+                        @if(Auth::user()->user_type_id == 1 && Auth::user()->status == 1)
                         <li class="nav-item has-treeview">
                             <a href="#" class=" nav-link">
                                 <i style="color: #f55"  class="fas fa-tag"></i>
@@ -240,6 +241,7 @@
 
                             </ul>
                         </li>
+                        @endif
                         <li class="nav-header">Your Account</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
