@@ -15,8 +15,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if($pending_users)
-                    @foreach($pending_users as $user)
+                    @if($approved_users)
+                    @foreach($approved_users as $user)
                     <tr>
                         <th>{{ $user->id }}</th>
                         <td>{{ $user->name }}</td>
@@ -52,7 +52,7 @@
                 
                 </tbody>
               </table>
-              {{ $pending_users->links()}}
+              {{ $approved_users->links()}}
         </div>
     </div>
 </div>
