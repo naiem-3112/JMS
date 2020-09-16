@@ -21,9 +21,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::get('menuscript/new', 'AdminController@menuscriptNew')->name('menuscript.new');
     Route::get('menuscript/approved', 'AdminController@menuscriptApproved')->name('menuscript.approved');
     Route::get('menuscript/revision', 'AdminController@menuscriptRevision')->name('menuscript.revision');
-
-
-
+    Route::get('mark/approved/menuscript/{id}', 'AdminController@mark_approveMenuscript')->name('mark-approve.menuscript');
+    Route::get('mark/reject/menuscript/{id}', 'AdminController@mark_rejectMenuscript')->name('mark-reject.menuscript');
 });
 
 
