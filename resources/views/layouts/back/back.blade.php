@@ -221,6 +221,12 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+                                    <a href="{{ route('publisher.create') }}" class="nav-link">
+                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
+                                        <p>Create</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
                                         <p>Approved</p>

@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route:: get('/front', 'FrontController@home')->name('journal-front.home');
+Route::get('/', 'FrontController@home')->name('journal-front.home');
 
+Route::get('/dashboard', 'AdminController@dashboard')->middleware('auth');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
+
     Route::get('approved/users', 'AdminController@approvedUsers')->name('approved.uesrs');
     Route::get('mark/approved/users/{id}', 'AdminController@mark_approveUsers')->name('mark-approve.uesr');
     Route::get('pending/users', 'AdminController@pendingUsers')->name('pending.users');
