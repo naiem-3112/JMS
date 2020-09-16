@@ -34,6 +34,7 @@ class PublisherController extends Controller
         if ($r->hasFile('paper_file')) {
             $originalName = $r->paper_file->getClientOriginalName();
             $uniquePaperName = $r->email.time().$originalName;
+            $r->paper_file->move(public_path('/menuscripts'), $uniquePaperName);
             $publisher->paper = $uniquePaperName;
         }
 
