@@ -11,6 +11,9 @@ Route::get('/dashboard', 'AdminController@dashboard')->middleware('auth');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
 
+    // File download
+    Route::get('/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
+
     Route::get('approved/users', 'AdminController@approvedUsers')->name('approved.uesrs');
     Route::get('mark/approved/users/{id}', 'AdminController@mark_approveUsers')->name('mark-approve.uesr');
     Route::get('pending/users', 'AdminController@pendingUsers')->name('pending.users');
@@ -30,5 +33,7 @@ Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'au
     Route::get('create', 'PublisherController@create')->name('create');
     Route::post('store', 'PublisherController@store')->name('store');
 });
+
+
 
 Auth::routes();

@@ -71,4 +71,10 @@ class AdminController extends Controller
         $menuscripts = Publisher::where('status', 2)->paginate(10);
         return view('admin.menuscript.revision', compact('menuscripts'));
     }
+
+    // File download
+    public function download($file_name) {
+        $file_path = public_path('menuscripts/'.$file_name);
+        return response()->download($file_path);
+      }
 }
