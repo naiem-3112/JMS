@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Publisher;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -38,5 +39,12 @@ class AdminController extends Controller
 
     public function delete($id){
         $user = User::find();
+    }
+
+
+    // menuscrip
+    public function menuscriptNew(){
+        $menuscripts = Publisher::where('status', 0)->paginate(10);
+        return view('admin.menuscript.new', compact('menuscripts'));
     }
 }

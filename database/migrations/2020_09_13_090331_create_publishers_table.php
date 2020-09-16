@@ -21,6 +21,7 @@ class CreatePublishersTable extends Migration
             $table->longText('summery');
             $table->integer('country_id');
             $table->string('paper');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

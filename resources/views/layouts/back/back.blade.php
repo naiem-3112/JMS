@@ -190,6 +190,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                          @if(Auth::user()->user_type_id == 0)
+                         {{--  Users  --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
                                 <i style="color: #f55"  class="fas fa-tags"></i>
@@ -207,6 +208,34 @@
                                     <a href="{{ route('admin.pending.users') }}" class="nav-link">
                                         <i style="color: #f55"  class="far fa-circle nav-icon"></i>
                                         <p>Pending</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        {{--  Manuscripts  --}}
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
+                                <i style="color: #f55"  class="fas fa-tags"></i>
+                                <p>Manuscripts</p>
+                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.menuscript.new') }}" class="nav-link">
+                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
+                                        <p>New Comming</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.menuscript.approved') }}" class="nav-link">
+                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                        <p>Already Approved</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.menuscript.revision') }}" class="nav-link">
+                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                        <p>Under Revision</p>
                                     </a>
                                 </li>
                             </ul>

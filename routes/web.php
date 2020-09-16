@@ -16,6 +16,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::get('pending/users', 'AdminController@pendingUsers')->name('pending.users');
     Route::get('mark/reject/users/{id}', 'AdminController@mark_rejectUsers')->name('mark-reject.users');
     Route::post('delete/user/{id}', 'AdminController@delete')->name('delete.user');
+
+    // Manuscript
+    Route::get('menuscript/new', 'AdminController@menuscriptNew')->name('menuscript.new');
+    Route::get('menuscript/approved', 'AdminController@menuscriptApproved')->name('menuscript.approved');
+    Route::get('menuscript/revision', 'AdminController@menuscriptRevision')->name('menuscript.revision');
+
+
+
 });
 
 
