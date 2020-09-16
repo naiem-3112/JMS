@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Publisher;
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -73,8 +74,12 @@ class AdminController extends Controller
     }
 
     // File download
-    public function download($file_name) {
-        $file_path = public_path('menuscripts/'.$file_name);
-        return response()->download($file_path);
-      }
+    
+        public function download($file_name) {
+            $file_path = public_path('menuscripts/'.$file_name);
+            return response()->download($file_path);
+    }
+    
+
+
 }
