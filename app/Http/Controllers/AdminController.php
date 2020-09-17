@@ -14,13 +14,13 @@ class AdminController extends Controller
         return view('layouts.back.back');
     }
 
-    public function approvedUsers(){
+    public function AllUsers(){
         $approved_users = User::where('status', 1)->where('user_type_id', '!=', 0)->paginate(10);
         return view('admin.approved-users', compact('approved_users'));
     }
 
     public function pendingUsers(){
-        $pending_users = User::where('status', 0)->paginate(10);
+        $pending_users = User::where('status', 0)->where('user_type_id', 1)->paginate(10);
         return view('admin.pending-users', compact('pending_users'));
     }
 

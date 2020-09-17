@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'FrontController@home')->name('journal-front.home');
 
 Route::get('/dashboard', 'AdminController@dashboard')->middleware('auth');
-
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
 
     // File download
