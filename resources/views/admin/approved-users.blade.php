@@ -30,7 +30,7 @@
                             <span class="badge badge-danger">Inactive</span> @endif
                         </td>
                         <td>
-                            <a href="{{ route('admin.mark-approve.uesr', $user->id) }}" class="btn btn-sm btn-warning" title="approve" onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a>
+                            <a href="{{ route('admin.mark-approve.uesr', $user->id) }}" class="btn btn-sm btn-success" title="approve" onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a>
                             <a href="{{ route('admin.mark-reject.users', $user->id) }}" class="btn btn-sm btn-info" title="reject" onclick="alert('Are you sure to reject!')"><i class="fas fa-times-circle"></i></a>
                         
                             <form action="{{ route('admin.delete.user', $user->id) }}" method="post"
