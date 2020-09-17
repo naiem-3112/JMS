@@ -42,4 +42,15 @@ class PublisherController extends Controller
         Alert::toast('Paper submitted successfully', 'success');
         return back();
     }
+
+    public function menuscriptPending(){
+        $menuscripts = Publisher::where('status', 1)->paginate(10);
+        return view('publisher.pending', compact('menuscripts'));
+    }
+
+    public function menuscriptRevision(){
+        $menuscripts = Publisher::where('status', 2)->paginate(10);
+        return view('publisher.revision', compact('menuscripts'));
+    }
+
 }

@@ -256,13 +256,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('publisher.menuscript.pending') }}" class="nav-link">
                                         <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
-                                        <p>Approved</p>
+                                        <p>Pending</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('publisher.menuscript.revision') }}" class="nav-link">
                                         <i style="color: #f55"  class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
