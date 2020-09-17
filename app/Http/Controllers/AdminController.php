@@ -13,9 +13,10 @@ class AdminController extends Controller
     public function dashboard(){
         return view('layouts.back.back');
     }
-
-    public function AllUsers(){
-        $approved_users = User::where('status', 1)->where('user_type_id', '!=', 0)->paginate(10);
+   
+    // user
+    public function approvedUsers(){
+        $approved_users = User::where('user_type_id', 2)->orWhere('status', 1)->where('id', '!=', Auth::user()->id)->paginate(10);
         return view('admin.approved-users', compact('approved_users'));
     }
 
@@ -38,9 +39,16 @@ class AdminController extends Controller
         return back();
     }
 
+    public function user_detail($id){
+        $user = User::find($id);
+        return view('admin.user.detail', compact('user'));
+    }
+
     public function delete($id){
         $user = User::find();
     }
+
+    // user end
 
 
     // menuscrip

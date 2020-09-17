@@ -13,11 +13,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     // File download
     Route::get('/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
 
+    // users
     Route::get('approved/users', 'AdminController@approvedUsers')->name('approved.uesrs');
     Route::get('mark/approved/users/{id}', 'AdminController@mark_approveUsers')->name('mark-approve.uesr');
     Route::get('pending/users', 'AdminController@pendingUsers')->name('pending.users');
     Route::get('mark/reject/users/{id}', 'AdminController@mark_rejectUsers')->name('mark-reject.users');
     Route::post('delete/user/{id}', 'AdminController@delete')->name('delete.user');
+    Route::get('user/detail/{id}', 'AdminController@user_detail')->name('user.detail');
+
 
     // Manuscript
     Route::get('menuscript/new', 'AdminController@menuscriptNew')->name('menuscript.new');
