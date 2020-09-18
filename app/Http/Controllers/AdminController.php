@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Menuscript;
-use App\Publisher;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
