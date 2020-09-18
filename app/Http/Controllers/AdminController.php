@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Menuscript;
 use App\Publisher;
 use Illuminate\Http\Request;
 use App\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -53,31 +54,31 @@ class AdminController extends Controller
 
     // menuscrip
     public function menuscriptNew(){
-        $menuscripts = Publisher::where('status', 0)->paginate(10);
+        $menuscripts = Menuscript::where('status', 0)->paginate(10);
         return view('admin.menuscript.new', compact('menuscripts'));
     }
 
     public function mark_approveMenuscript($id){
-        $menuscript = Publisher::find($id);
+        $menuscript = Menuscript::find($id);
         $menuscript->status = 1;
         $menuscript->save();
         return back();
     }
 
     public function menuscriptApproved(){
-        $menuscripts = Publisher::where('status', 1)->paginate(10);
+        $menuscripts = Menuscript::where('status', 1)->paginate(10);
         return view('admin.menuscript.approve', compact('menuscripts'));
     }
 
     public function mark_rejectMenuscript($id){
-        $menuscript = Publisher::find($id);
+        $menuscript = Menuscript::find($id);
         $menuscript->status = 2;
         $menuscript->save();
         return back();
     }
 
     public function menuscriptRevision(){
-        $menuscripts = Publisher::where('status', 2)->paginate(10);
+        $menuscripts = Menuscript::where('status', 2)->paginate(10);
         return view('admin.menuscript.revision', compact('menuscripts'));
     }
 

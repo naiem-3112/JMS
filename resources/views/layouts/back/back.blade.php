@@ -133,13 +133,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i style="color: #fff"  class="far fa-bell"></i>
-                        <span style="background: #2C3E50; color: #fff"   class="badge navbar-badge">15</span>
+                        <span style="background: #2C3E50; color: #fff"   class="badge navbar-badge"> {{ $menuscript_revision->count() ? $menuscript_revision->count() : '0'}}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-header">15 Notifications</span>
+                        <span class="dropdown-header">15 </span>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i style="color: #f55"  class="fas fa-envelope mr-2"></i> 4 new messages
+                            <i style="color: #f55"  class="fas fa-envelope mr-2"></i>{{ $menuscript_revision->count() }} article in revision
                             <span class="float-right text-muted text-sm">3 mins</span>
                         </a>
                         <div class="dropdown-divider"></div>

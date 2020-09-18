@@ -32,12 +32,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
 
 Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'auth'], function() {
-    Route::get('create', 'PublisherController@create')->name('create');
-    Route::post('store', 'PublisherController@store')->name('store');
+    Route::get('create', 'MenuscriptController@create')->name('create');
+    Route::post('store', 'MenuscriptController@store')->name('store');
 
     // menuscript
-    Route::get('pending/menuscript', 'PublisherController@menuscriptPending')->name('menuscript.pending');
-    Route::get('revision/menuscript', 'PublisherController@menuscriptRevision')->name('menuscript.revision');
+    Route::get('pending/menuscript', 'MenuscriptController@menuscriptPending')->name('menuscript.pending');
+    Route::get('revision/menuscript', 'MenuscriptController@menuscriptRevision')->name('menuscript.revision');
 
 
 });

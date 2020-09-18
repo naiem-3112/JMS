@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Menuscript;
 use Illuminate\Http\Request;
-use App\Publisher;
 use Session;
 use RealRashid\SweetAlert\Facades\Alert;
 use Image;
 use File;
+use Illuminate\Support\Facades\Auth;
 
-class PublisherController extends Controller
+class MenuscriptController extends Controller
 {
     public function create(){
         return view('publisher.create');
@@ -23,13 +24,14 @@ class PublisherController extends Controller
             'paper_file' => 'required'
         ]);
 
-        $publisher = new Publisher();
+        $publisher = new Menuscript();
         $publisher->title = $r->title;
         $publisher->name = $r->name;
         $publisher->email = $r->email;
         $publisher->summery = $r->summery;
         $publisher->country_id = $r->country_id;
         $publisher->status = 0;
+        $publisher->publisher_id  = Auth::id();
         
         if ($r->hasFile('paper_file')) {
             $originalName = $r->paper_file->getClientOriginalName();
@@ -44,12 +46,12 @@ class PublisherController extends Controller
     }
 
     public function menuscriptPending(){
-        $menuscripts = Publisher::where('status', 1)->paginate(10);
+        $menuscripts = Menuscript::where('status', 0)->paginate(10);
         return view('publisher.pending', compact('menuscripts'));
     }
 
     public function menuscriptRevision(){
-        $menuscripts = Publisher::where('status', 2)->paginate(10);
+        $menuscripts = Menuscript::where('status', 1)->paginate(10);
         return view('publisher.revision', compact('menuscripts'));
     }
 
