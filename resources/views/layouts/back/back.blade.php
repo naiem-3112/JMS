@@ -131,29 +131,28 @@
                 </li>
                 @if(auth()->user()->user_type_id == 0)
                 <!-- Notifications Dropdown Menu -->
+                @php
+                    $total = 0;
+                    $total =  $new_publisher->count()+$new_menuscript->count(); 
+                @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i style="color: #fff" class="far fa-bell"></i>
                         <span style="background: #2C3E50; color: #fff" class="badge navbar-badge">
-                            {{ $new_publisher->count()}}</span>
+                            {{ $total }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-header">15 Notifications </span>
+                        <span class="dropdown-header"> {{ $total }} Notifications </span>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-envelope mr-2"></i>{{ $new_publisher->count() }}
+                        <a href="{{ route('admin.pending.users') }}" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_publisher->count() }}
                            Registration
                             <span class="float-right text-muted text-sm"> {{ $new_publisher->first()->created_at->diffForHumans() }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
+                        <a href="{{ route('admin.menuscript.new') }}" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-file mr-2"></i> {{$new_menuscript->count()}} Menuscript
+                            <span class="float-right text-muted text-sm">{{ $new_menuscript->first()->created_at->diffForHumans() }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>

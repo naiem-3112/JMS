@@ -28,8 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $new_publisher = User::where('status', 0)->where('user_type_id', 1)->get();
-
-        $menuscript_revision = Menuscript::where('status', 1)->get();
-        View::share(['menuscript_revision' => $menuscript_revision, 'new_publisher' => $new_publisher]);
+        $new_menuscript = Menuscript::where('status', 0)->get();
+        View::share(['new_menuscript' => $new_menuscript, 'new_publisher' => $new_publisher]);
     }
 }
