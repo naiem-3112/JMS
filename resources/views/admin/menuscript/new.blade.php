@@ -32,7 +32,7 @@
                     <td>{{ $menuscript->title }}</td>
                     <td>{{ $menuscript->email }}</td>
                     <td>{{ $menuscript->summery }}</td>
-                    <td style="width: 20px"><a
+                    <td><a
                             href="{{ route('admin.menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
                     </td>
                     <td>

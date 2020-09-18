@@ -32,7 +32,9 @@
                     <td>{{ $menuscript->title }}</td>
                     <td>{{ $menuscript->email }}</td>
                     <td>{{ $menuscript->summery }}</td>
-                    <td><a href="#">{{ $menuscript->paper }}</a></td>
+                    <td><a
+                        href="{{ route('admin.menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
+                </td>
 
                     <td>
                         @if($menuscript->status == 1) <span class="badge badge-success">Approved</span>@else
