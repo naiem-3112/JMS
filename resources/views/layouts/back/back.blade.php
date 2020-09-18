@@ -164,7 +164,7 @@
                 <!-- Notifications Dropdown Menu -->
                 @php
                     $total = 0;
-                    $total =  $new_publisher->count()+$new_menuscript->count(); 
+                    $total =  $revision_menuscript->count(); 
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -175,15 +175,10 @@
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('admin.pending.users') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_publisher->count() }}
-                           Registration
-                            <span class="float-right text-muted text-sm"> {{ $new_publisher->first()->created_at->diffForHumans() }}</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="{{ route('admin.menuscript.new') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-file mr-2"></i> {{$new_menuscript->count()}} Menuscript
-                            <span class="float-right text-muted text-sm">{{ $new_menuscript->first()->created_at->diffForHumans() }}</span>
+                        <a href="{{ route('publisher.menuscript.revision') }}" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $revision_menuscript->count() }}
+                           Under Revision
+                            <span class="float-right text-muted text-sm"> {{ $revision_menuscript->first()->created_at->diffForHumans() }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>

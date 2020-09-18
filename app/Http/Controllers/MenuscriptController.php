@@ -51,7 +51,7 @@ class MenuscriptController extends Controller
     }
 
     public function menuscriptRevision(){
-        $menuscripts = Menuscript::where('status', 1)->paginate(10);
+        $menuscripts = Menuscript::where('status', 1)->where('publisher_id', Auth::id())->paginate(10);
         return view('publisher.revision', compact('menuscripts'));
     }
 
