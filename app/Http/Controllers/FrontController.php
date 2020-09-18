@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Publisher;
+use App\Menuscript;
 
 class FrontController extends Controller
 {
     public function home(){
-        $menuscripts = Publisher::where('status', 1)->get();
+        $menuscripts = Menuscript::where('status', 1)->get();
         return view('front.home', compact('menuscripts'));
     }
 

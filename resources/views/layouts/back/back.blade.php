@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="{{ asset('back_temp/dist/css/toastr.css') }}">
     {{--    bootstrap 5 cdn--}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
-     {{--  Favicon  --}}
-     <link rel="shortcut icon" type="image/x-icon" href="{{asset('back_temp/dist/img/favicon.png')}}"/>
+    {{--  Favicon  --}}
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('back_temp/dist/img/favicon.png')}}" />
 
-        {{-- select2 --}}
+    {{-- select2 --}}
 
-     {{-- summernote --}}
+    {{-- summernote --}}
     @yield('base.css')
 
 
@@ -33,9 +33,8 @@
 
         .navbar-white {
             background-color: #F55;
-        
-        }
 
+        }
 
     </style>
 </head>
@@ -48,10 +47,11 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a style="color: #fff" class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a style="color: #fff" class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a style="color: #fff"  href="index3.html" class="nav-link">Home</a>
+                    <a style="color: #fff" href="index3.html" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -72,7 +72,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    
+
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
@@ -129,34 +129,38 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
                 </li>
+                @if(auth()->user()->user_type_id == 0)
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i style="color: #fff"  class="far fa-bell"></i>
-                        <span style="background: #2C3E50; color: #fff"   class="badge navbar-badge"> {{ $menuscript_revision->count() ? $menuscript_revision->count() : '0'}}</span>
+                        <i style="color: #fff" class="far fa-bell"></i>
+                        <span style="background: #2C3E50; color: #fff" class="badge navbar-badge">
+                            {{ $new_publisher->count()}}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-header">15 </span>
+                        <span class="dropdown-header">15 Notifications </span>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i style="color: #f55"  class="fas fa-envelope mr-2"></i>{{ $menuscript_revision->count() }} article in revision
-                            <span class="float-right text-muted text-sm">3 mins</span>
+                            <i style="color: #f55" class="fas fa-envelope mr-2"></i>{{ $new_publisher->count() }}
+                           Registration
+                            <span class="float-right text-muted text-sm"> {{ $new_publisher->first()->created_at->diffForHumans() }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i style="color: #f55"  class="fas fa-users mr-2"></i> 8 friend requests
+                            <i style="color: #f55" class="fas fa-users mr-2"></i> 8 friend requests
                             <span class="float-right text-muted text-sm">12 hours</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i style="color: #f55"  class="fas fa-file mr-2"></i> 3 new reports
+                            <i style="color: #f55" class="fas fa-file mr-2"></i> 3 new reports
                             <span class="float-right text-muted text-sm">2 days</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
-                
+                @endif
+
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -189,24 +193,24 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                         @if(Auth::user()->user_type_id == 0)
-                         {{--  Users  --}}
+                        @if(Auth::user()->user_type_id == 0)
+                        {{--  Users  --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i style="color: #f55"  class="fas fa-tags"></i>
+                                <i style="color: #f55" class="fas fa-tags"></i>
                                 <p>Registerd Users</p>
-                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ url('admin/approved/users') }}" class="nav-link">
-                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('admin.pending.users') }}" class="nav-link">
-                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
                                 </li>
@@ -215,26 +219,26 @@
                         {{--  Manuscripts  --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i style="color: #f55"  class="fas fa-tags"></i>
+                                <i style="color: #f55" class="fas fa-tags"></i>
                                 <p>Manuscripts</p>
-                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('admin.menuscript.new') }}" class="nav-link">
-                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>New Comming</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('admin.menuscript.approved') }}" class="nav-link">
-                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Already Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('admin.menuscript.revision') }}" class="nav-link">
-                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
                                 </li>
@@ -244,32 +248,32 @@
                         @if(Auth::user()->user_type_id == 1 && Auth::user()->status == 1)
                         <li class="nav-item has-treeview">
                             <a href="#" class=" nav-link">
-                                <i style="color: #f55"  class="fas fa-tag"></i>
+                                <i style="color: #f55" class="fas fa-tag"></i>
                                 <p>Manuscripts</p>
-                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.create') }}" class="nav-link">
-                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Create</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.menuscript.pending') }}" class="nav-link">
-                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.menuscript.revision') }}" class="nav-link">
-                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Rejected</p>
                                     </a>
                                 </li>
@@ -292,8 +296,8 @@
                                     style="display: none;">
                                     @csrf
                                 </form>
-                                <i style="color: #f55"  class="fas fa-sign-out-alt nav-icon"></i>
-                                <p style="color: #f55; font-weight:bold; text-transform: uppercase" >Logout</p>
+                                <i style="color: #f55" class="fas fa-sign-out-alt nav-icon"></i>
+                                <p style="color: #f55; font-weight:bold; text-transform: uppercase">Logout</p>
                             </a>
 
                         </li>
@@ -326,7 +330,7 @@
         <footer class="main-footer">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
-                
+
             </div>
             <!-- Default to the left -->
             <strong>Copyright &copy; 2020 <a href="#">Tamim Rahman</a>.</strong> All rights
@@ -357,6 +361,7 @@
         $(document).ready(function () {
             bsCustomFileInput.init()
         })
+
     </script>
     {{-- select2 --}}
 
