@@ -61,9 +61,10 @@
                                         <label>Upload Manuscript</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="paper_file">
+                                       
                                             <label class="custom-file-label">Choose file</label>
                                         </div>
-                                        @error('paper')
+                                        @error('paper_file')
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
                                     </div>

@@ -21,7 +21,7 @@ class MenuscriptController extends Controller
             'title' => 'required',
             'name' => 'required',
             'email' => 'required',
-            'paper_file' => 'required'
+            'paper_file' => 'required|mimes:pdf'
         ]);
 
         $publisher = new Menuscript();
