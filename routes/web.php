@@ -6,10 +6,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'FrontController@home')->name('journal-front.home');
-
 Route::get('/dashboard', 'AdminController@dashboard')->middleware('auth');
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
 
+// Amdin
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
+    
     // File download
     Route::get('/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
 
@@ -21,7 +22,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::post('delete/user/{id}', 'AdminController@delete')->name('delete.user');
     Route::get('user/detail/{id}', 'AdminController@user_detail')->name('user.detail');
 
-
     // Manuscript
     Route::get('new/menuscript', 'AdminController@menuscriptNew')->name('menuscript.new');
     Route::get('approved/menuscript', 'AdminController@menuscriptApproved')->name('menuscript.approved');
@@ -30,18 +30,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::get('mark/reject/menuscript/{id}', 'AdminController@mark_rejectMenuscript')->name('mark-reject.menuscript');
 });
 
-
-Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'auth'], function() {
+// menuscript
+Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => 'auth'], function() {
     Route::get('create', 'MenuscriptController@create')->name('create');
     Route::post('store', 'MenuscriptController@store')->name('store');
-
-    // menuscript
     Route::get('pending/menuscript', 'MenuscriptController@menuscriptPending')->name('menuscript.pending');
     Route::get('revision/menuscript', 'MenuscriptController@menuscriptRevision')->name('menuscript.revision');
 
 
 });
-
-
 
 Auth::routes();

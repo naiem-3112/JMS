@@ -28,15 +28,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // admin notification
-        $new_publisher = User::where('status', 0)->where('user_type_id', 1)->get();
+        $new_author = User::where('status', 0)->where('user_type_id', 1)->get();
         $new_menuscript = Menuscript::where('status', 0)->get();
 
         // publisher notification
         view()->composer('*', function ($view) {
-        $revision_menuscript = Menuscript::where('status', 1)->where('publisher_id', Auth::id())->get();
+        $revision_menuscript = Menuscript::where('status', 1)->where('author_id', Auth::id())->get();
         $view->with('revision_menuscript', $revision_menuscript );    
     });  
 
-        View::share(['new_menuscript' => $new_menuscript, 'new_publisher' => $new_publisher]);
+        View::share(['new_menuscript' => $new_menuscript, 'new_author' => $new_author]);
     }
 }

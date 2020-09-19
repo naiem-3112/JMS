@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class MenuscriptController extends Controller
 {
     public function create(){
-        return view('publisher.create');
+        return view('menuscript.create');
     }
 
     public function store(Request $r){
@@ -24,35 +24,35 @@ class MenuscriptController extends Controller
             'paper_file' => 'required|mimes:pdf'
         ]);
 
-        $publisher = new Menuscript();
-        $publisher->title = $r->title;
-        $publisher->name = $r->name;
-        $publisher->email = $r->email;
-        $publisher->summery = $r->summery;
-        $publisher->country_id = $r->country_id;
-        $publisher->status = 0;
-        $publisher->publisher_id  = Auth::id();
+        $menuscript= new Menuscript();
+        $menuscript->title = $r->title;
+        $menuscript->name = $r->name;
+        $menuscript->email = $r->email;
+        $menuscript->summery = $r->summery;
+        $menuscript->country_id = $r->country_id;
+        $menuscript->status = 0;
+        $menuscript->author_id  = Auth::id();
         
         if ($r->hasFile('paper_file')) {
             $originalName = $r->paper_file->getClientOriginalName();
             $uniquePaperName = $r->email.time().$originalName;
             $r->paper_file->move(public_path('/menuscripts'), $uniquePaperName);
-            $publisher->paper = $uniquePaperName;
+            $menuscript->paper = $uniquePaperName;
         }
 
-        $publisher->save();
+        $menuscript->save();
         Alert::toast('Paper submitted successfully', 'success');
         return back();
     }
 
     public function menuscriptPending(){
         $menuscripts = Menuscript::where('status', 0)->paginate(10);
-        return view('publisher.pending', compact('menuscripts'));
+        return view('menuscript.pending', compact('menuscripts'));
     }
 
     public function menuscriptRevision(){
-        $menuscripts = Menuscript::where('status', 1)->where('publisher_id', Auth::id())->paginate(10);
-        return view('publisher.revision', compact('menuscripts'));
+        $menuscripts = Menuscript::where('status', 1)->where('author_id', Auth::id())->paginate(10);
+        return view('menuscript.revision', compact('menuscripts'));
     }
 
 }

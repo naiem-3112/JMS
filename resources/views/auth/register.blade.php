@@ -64,8 +64,9 @@
                                 <label>User Type</label>
                                 <select class="form-control" name="user_type_id">
                                     <option selected disabled>Select User Type</option>
-                                    <option value="1">Publisher</option>
-                                    <option value="2">Reader</option>
+                                    <option value="1">Author</option>
+                                    <option value="2">Publisher</option>
+                                    <option value="3">Reader</option>
                                 </select>
                                 @error('user_type_id')
                                 <span class="invalid-feedback" role="alert">

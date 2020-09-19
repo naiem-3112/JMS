@@ -22,7 +22,7 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
-                            @if($user->user_type_id == 1) <span class="badge badge-success">Publisher</span>@else
+                            @if($user->user_type_id == 1) <span class="badge badge-success">Author</span>@else
                             <span class="badge badge-primary">Reader</span> @endif
                         </td>
                         <td>

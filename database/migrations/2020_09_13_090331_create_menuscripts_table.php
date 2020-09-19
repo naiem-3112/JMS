@@ -15,7 +15,7 @@ class CreateMenuscriptsTable extends Migration
     {
         Schema::create('menuscripts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('publisher_id');
+            $table->unsignedBigInteger('author_id');
             $table->string('title');
             $table->string('name');
             $table->string('email');
