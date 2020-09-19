@@ -281,13 +281,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('category.create') }}" class="nav-link">
+                                    <a href="{{ route('menuscript.category.create') }}" class="nav-link">
                                         <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Create</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('category.list') }}" class="nav-link">
+                                    <a href="{{ route('menuscript.category') }}" class="nav-link">
                                         <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>List</p>
                                     </a>

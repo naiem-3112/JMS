@@ -42,9 +42,9 @@ Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => '
     Route::get('category/list', 'CategoryController@index')->name('category');
     Route::get('category/create', 'CategoryController@create')->name('category.create');
     Route::post('category/store', 'CategoryController@store')->name('category.store');
-    Route::get('category/edit', 'CategoryController@edit')->name('category.edit');
-    Route::post('category/update', 'CategoryController@update')->name('category.update');
-    Route::post('category/delete', 'CategoryController@delete')->name('category.delete');
+    Route::get('category/edit/{id}', 'CategoryController@edit')->name('category.edit');
+    Route::post('category/update/{id}', 'CategoryController@update')->name('category.update');
+    Route::post('category/delete/{id}', 'CategoryController@delete')->name('category.delete');
 
 
 });
