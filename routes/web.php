@@ -22,22 +22,33 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::post('delete/user/{id}', 'AdminController@delete')->name('delete.user');
     Route::get('user/detail/{id}', 'AdminController@user_detail')->name('user.detail');
 
-    // Manuscript
+    // Admin Manuscript
     Route::get('new/menuscript', 'AdminController@menuscriptNew')->name('menuscript.new');
     Route::get('approved/menuscript', 'AdminController@menuscriptApproved')->name('menuscript.approved');
     Route::get('revision/menuscript', 'AdminController@menuscriptRevision')->name('menuscript.revision');
     Route::get('mark/approved/menuscript/{id}', 'AdminController@mark_approveMenuscript')->name('mark-approve.menuscript');
     Route::get('mark/reject/menuscript/{id}', 'AdminController@mark_rejectMenuscript')->name('mark-reject.menuscript');
 });
-
-// menuscript
+// Manuscript
 Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => 'auth'], function() {
     Route::get('create', 'MenuscriptController@create')->name('create');
     Route::post('store', 'MenuscriptController@store')->name('store');
     Route::get('pending/menuscript', 'MenuscriptController@menuscriptPending')->name('menuscript.pending');
     Route::get('revision/menuscript', 'MenuscriptController@menuscriptRevision')->name('menuscript.revision');
+    Route::get('assign/menuscript/{id}', 'MenuscriptController@assignForm')->name('assign-form');
+    Route::get('assign-store/menuscript/{id}', 'MenuscriptController@assignStore')->name('assign-store');
+
+    // Manuscript Category
+    Route::get('category/list', 'CategoryController@index')->name('category');
+    Route::get('category/create', 'CategoryController@create')->name('category.create');
+    Route::post('category/store', 'CategoryController@store')->name('category.store');
+    Route::get('category/edit', 'CategoryController@edit')->name('category.edit');
+    Route::post('category/update', 'CategoryController@update')->name('category.update');
+    Route::post('category/delete', 'CategoryController@delete')->name('category.delete');
 
 
 });
+
+
 
 Auth::routes();

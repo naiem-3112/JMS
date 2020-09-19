@@ -3,8 +3,9 @@
 <style>
     .custom-table {
         table-layout: fixed;
-        width: 100%;  
-      }
+        width: 100%;
+    }
+
 </style>
 <div class="card">
     <div class="card-header">
@@ -43,9 +44,11 @@
                         <a href="{{ route('admin.mark-approve.menuscript', $menuscript->id) }}"
                             class="btn btn-sm btn-success" title="approve"
                             onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a>
-                        <a href="{{ route('admin.mark-reject.menuscript', $menuscript->id) }}"
+                            <a href="{{ route('menuscript.assign-form', $menuscript->id) }}"
+                                class="btn btn-sm btn-success" title="assign"><i class="fa fa-check"></i></a>
+                        {{--  <a href="{{ route('admin.mark-reject.menuscript', $menuscript->id) }}"
                             class="btn btn-sm btn-info" title="reject" onclick="alert('Are you sure to reject!')"><i
-                                class="fas fa-times-circle"></i></a>
+                                class="fas fa-times-circle"></i></a>  --}}
 
                         <form action="{{ route('admin.delete.user', $menuscript->id) }}" method="post"
                             style="display: inline-block">

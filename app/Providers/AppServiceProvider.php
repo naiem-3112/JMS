@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // admin notification
-        $new_author = User::where('status', 0)->where('user_type_id', 1)->get();
+        $new_author = User::where('status', 0)->where('user_type_id', '!=', 0)->get();
         $new_menuscript = Menuscript::where('status', 0)->get();
 
         // publisher notification

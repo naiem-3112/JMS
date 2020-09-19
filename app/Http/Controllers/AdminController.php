@@ -21,7 +21,7 @@ class AdminController extends Controller
     }
 
     public function pendingUsers(){
-        $pending_users = User::where('status', 0)->where('user_type_id', 1)->paginate(10);
+        $pending_users = User::where('status', 0)->where('user_type_id', '!=', 0)->paginate(10);
         return view('admin.pending-users', compact('pending_users'));
     }
 

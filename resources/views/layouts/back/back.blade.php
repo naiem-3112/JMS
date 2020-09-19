@@ -133,7 +133,7 @@
                 <!-- Notifications Dropdown Menu -->
                 @php
                     $total = 0;
-                    $total =  $new_menuscript->count()+$new_menuscript->count(); 
+                    $total =  $new_author->count()+$new_menuscript->count(); 
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -145,9 +145,9 @@
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('admin.pending.users') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_menuscript->count() }}
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_author->count() }}
                            Registration
-                            <span class="float-right text-muted text-sm"> {{ $new_menuscript->first()? $new_menuscript->first()->created_at->diffForHumans() : '' }}</span>
+                            <span class="float-right text-muted text-sm"> {{ $new_author->first()? $new_author->first()->created_at->diffForHumans() : '' }}</span>
                         </a>    
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('admin.menuscript.new') }}" class="dropdown-item">
@@ -178,7 +178,7 @@
                         <a href="{{ route('menuscript.menuscript.revision') }}" class="dropdown-item">
                             <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $revision_menuscript->count() }}
                            Under Revision
-                            <span class="float-right text-muted text-sm"> {{ $revision_menuscript->first()->created_at->diffForHumans() }}</span>
+                            <span class="float-right text-muted text-sm"> {{ $revision_menuscript->first() ?$revision_menuscript->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
@@ -218,8 +218,8 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                        @if(Auth::user()->user_type_id == 0)
                         {{--  Users  --}}
+                        @if(Auth::user()->user_type_id == 0)
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
                                 <i style="color: #f55" class="fas fa-tags"></i>
@@ -241,7 +241,10 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
+
                         {{--  Manuscripts  --}}
+                        @if((Auth::user()->user_type_id == 2 && Auth::user()->status = 1) || (Auth::user()->user_type_id == 0) )
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
                                 <i style="color: #f55" class="fas fa-tags"></i>
@@ -269,8 +272,30 @@
                                 </li>
                             </ul>
                         </li>
-                        @endif
-                        @if(Auth::user()->user_type_id == 1 && Auth::user()->status == 1)
+                        {{--  manuscript category  --}}
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
+                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <p>Manuscript Categories</p>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('category.create') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Create</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('category.list') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <p>List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        @elseif(Auth::user()->user_type_id == 1 && Auth::user()->status == 1)
                         <li class="nav-item has-treeview">
                             <a href="#" class=" nav-link">
                                 <i style="color: #f55" class="fas fa-tag"></i>
@@ -282,6 +307,41 @@
                                     <a href="{{ route('menuscript.create') }}" class="nav-link">
                                         <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Create</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('menuscript.menuscript.pending') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Pending</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('menuscript.menuscript.revision') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <p>Under Revision</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <p>Rejected</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        @elseif(Auth::user()->user_type_id == 2 && Auth::user()->status == 1)
+                        <li class="nav-item has-treeview">
+                            <a href="#" class=" nav-link">
+                                <i style="color: #f55" class="fas fa-tag"></i>
+                                <p>Reviewer</p>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('menuscript.create') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>New</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
