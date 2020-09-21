@@ -47,7 +47,6 @@
                         <a href="{{ route('admin.mark-reject.menuscript', $menuscript->id) }}"
                             class="btn btn-sm btn-info" title="reject" onclick="alert('Are you sure to reject!')"><i
                                 class="fas fa-times-circle"></i></a>
-reader section cd
                         <form action="{{ route('admin.delete.user', $menuscript->id) }}" method="post"
                             style="display: inline-block">
                             @method('DELETE')
