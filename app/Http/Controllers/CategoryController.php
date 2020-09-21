@@ -8,16 +8,19 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
-    public function index(){
-        $categories = Category::where('status', 1)->paginate(10);
+    public function index()
+    {
+        $categories = Category::paginate(10);
         return view('menuscript.category.list', compact('categories'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('menuscript.category.create');
     }
 
-    public function store(Request $r){
+    public function store(Request $r)
+    {
         $this->validate($r, [
             'name' => 'required|unique:categories',
         ]);
@@ -28,16 +31,19 @@ class CategoryController extends Controller
         $category->save();
         Alert::toast('category added successfully', 'success');
         return back();
-
     }
 
-    public function edit($id){
-        return view('menuscript.category.edit');
+    public function edit($id)
+    {
+        $category = Category::find($id);
+        return view('menuscript.category.edit', compact('category'));
     }
 
-    public function update(Request $r, $id){
+    public function update(Request $r, $id)
+    {
         $this->validate($r, [
-            'name' => 'required|unique',
+            'name' => "required|unique:categories,name,$r->id",
+            'status' => 'required',
         ]);
 
         $category = Category::find($id);
@@ -48,9 +54,8 @@ class CategoryController extends Controller
         return back();
     }
 
-    public function delete($id){
-        
-    }
+    public function delete($id)
+    {
 
-    
+    }
 }

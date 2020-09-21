@@ -9,8 +9,8 @@ Route::get('/', 'FrontController@home')->name('journal-front.home');
 Route::get('/dashboard', 'AdminController@dashboard')->middleware('auth');
 
 // Amdin
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
-    
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
+
     // File download
     Route::get('/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
 
@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::get('mark/reject/menuscript/{id}', 'AdminController@mark_rejectMenuscript')->name('mark-reject.menuscript');
 });
 // Manuscript
-Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => 'auth'], function () {
     Route::get('create', 'MenuscriptController@create')->name('create');
     Route::post('store', 'MenuscriptController@store')->name('store');
     Route::get('pending/menuscript', 'MenuscriptController@menuscriptPending')->name('menuscript.pending');
@@ -45,9 +45,8 @@ Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => '
     Route::get('category/edit/{id}', 'CategoryController@edit')->name('category.edit');
     Route::post('category/update/{id}', 'CategoryController@update')->name('category.update');
     Route::post('category/delete/{id}', 'CategoryController@delete')->name('category.delete');
-
-
 });
+
 
 
 

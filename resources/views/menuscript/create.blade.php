@@ -50,9 +50,18 @@
                                             placeholder="Write your abstract here"></textarea>
                                     </div>
                                     <div class="form-group">
+                                        <label>Menuscript Category</label>
+                                        <select class="form-control" name="category_id">
+                                            <option selected disabled>Select Category</option>
+                                            @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>                                                
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label>Your Country</label>
                                         <select class="form-control" name="country_id">
-                                            <option style=selected disabled>Select Country</option>
+                                            <option selected disabled>Select Country</option>
                                             <option value="1">Bangladesh</option>
                                             <option value="2">India</option>
                                         </select>
