@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Menuscript;
 use App\User;
 use Illuminate\Http\Request;
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Auth;
 class MenuscriptController extends Controller
 {
     public function create(){
-        return view('menuscript.create');
+        $categories = Category::where('status', 1)->get();
+        return view('menuscript.create', compact('categories'));
     }
 
     public function store(Request $r){
