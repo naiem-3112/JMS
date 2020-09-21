@@ -1,72 +1,50 @@
 @extends('layouts.back.back')
 @section('back.content')
-<style>
-    .custom-table {
-        table-layout: fixed;
-        width: 100%;
-    }
-</style>
-<div class="card">
-    <div class="card-header">
-        <span>Pending Menuscripts</span>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-        <table class="table table-bordered table-striped custom-table">
-            <thead>
-                <tr>
-                    <th width="5%">ID</th>
-                    <th width="15%">Title</th>
-                    <th width="15%">Email</th>
-                    <th width="15%">Summery</th>
-                    <th width="25%">Paper</th>
-                    <th width="10%">Status</th>
-                    <th width="15%">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if($menuscripts)
-                @foreach($menuscripts as $menuscript)
-                <tr>
-                    <th>{{ $menuscript->id }}</th>
-                    <td>{{ $menuscript->title }}</td>
-                    <td>{{ $menuscript->email }}</td>
-                    <td>{{ $menuscript->summery }}</td>
-                    <td><a
-                        href="{{ route('admin.menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
-                </td>
-
-                    <td>
-                        @if($menuscript->status == 1) <span class="badge badge-success">Approved</span>@else
-                        <span class="badge badge-danger">Pending</span> @endif
-                    </td>
-                    <td>
-                        <a href="{{ route('admin.mark-approve.menuscript', $menuscript->id) }}"
-                            class="btn btn-sm btn-success" title="approve"
-                            onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a>
-                        <a href="{{ route('admin.mark-reject.menuscript', $menuscript->id) }}"
-                            class="btn btn-sm btn-info" title="reject" onclick="alert('Are you sure to reject!')"><i
-                                class="fas fa-times-circle"></i></a>
-reader section cd
-                        <form action="{{ route('admin.delete.user', $menuscript->id) }}" method="post"
-                            style="display: inline-block">
-                            @method('DELETE')
-                            @csrf
-                            <button onclick="alert('Are You Sure to DELETE!')" class="btn btn-sm btn-danger"><i
-                                    class="fas fa-trash"></i></button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-                @else
-                <tr>
-                    <td colspan="7" style="text-align: center; color: grey">No brand found</td>
-                </tr>
-                @endif
-
-            </tbody>
-        </table>
-        {{ $menuscripts->links()}}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h4>Category Edit Form</h4>
+                        <small><span style="color: red">*</span>Indicates Required Field</small>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <div class="col-12">
+                            <form action="{{ route('menuscript.category.update', $category->id) }}" method="post">
+                                @csrf
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Category Name</label>
+                                        <input type="text" class="form-control" name="name" value="{{ $category->name }}">
+                                        @error('name')
+                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select name="status" class="form-control">
+                                            <option value="1" @if($category->status == 1) selected @endif>Active</option>
+                                            <option value="0" @if($category->status == 0) selected @endif>Inactive</option>
+                                        </select>
+                                        @error('status')
+                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-md btn-primary">Update</button>
+                                        <a href="#" class="btn btn-md btn-info">Back</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 @endsection

@@ -8,7 +8,7 @@
 </style>
 <div class="card">
     <div class="card-header">
-        <span>Pending Menuscripts</span>
+        <span>Categories</span>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
