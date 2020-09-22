@@ -1,5 +1,6 @@
 @extends('layouts.back.back')
 @section('back.content')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -25,21 +26,27 @@
                                     <div class="form-group">
                                         <label>Category</label>
                                         <select class="form-control" name="category_id">
-                                            <option selected>Select Category</option>
+                                            <option selected disabled>Select Category</option>
                                             @foreach($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>                    
                                             @endforeach
                                         </select>
+                                        @error('category_id')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
                                     </div>
 
                                     <div class="form-group">
                                         <label>Reviewers</label>
-                                        <select class="form-control" name="category_id">
-                                            <option selected>Select Reviewers</option>
+                                        <select class="form-control rev" name="reviewer_id[]" multiple="multiple">
+                                            <option selected disabled>Select Reviewers</option>
                                             @foreach($reviewers as $reviewer)
                                             <option value="{{ $reviewer->id }}">{{ $reviewer->name }}</option>
                                             @endforeach
                                         </select>
+                                        @error('reviewer_id')
+                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
@@ -65,5 +72,12 @@
         </div>
     </div>
 </div>
-
 @endsection
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.rev').select2();
+       
+    });
+</script>

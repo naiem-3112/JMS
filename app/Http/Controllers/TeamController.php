@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Team;
 use App\Category;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TeamController extends Controller
 {
@@ -17,7 +18,7 @@ class TeamController extends Controller
 
     public function storeTeam(Request $r){
         $this->validate($r, [
-            'team_name' => 'required|unique:teams, name',
+            'team_name' => 'required|unique:teams,team_name',
             'category_id' => 'required',
             'reviewer_id' => 'required',
         ]);
@@ -27,7 +28,7 @@ class TeamController extends Controller
         $team->category_id = $r->category_id;
         $team->reviewer_id = $r->reviewer_id;
         $team->save();
-        Alert::toast('Paper submitted successfully', 'success');
+        Alert::toast('Team created successfully', 'success');
         return back();
     }
 }
