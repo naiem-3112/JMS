@@ -22,6 +22,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::post('delete/user/{id}', 'AdminController@delete')->name('delete.user');
     Route::get('user/detail/{id}', 'AdminController@user_detail')->name('user.detail');
 
+
+    Route::get('reviewers', 'AdminController@reviewers')->name('reviewers');
+    Route::get('reviewer/teams', 'AdminController@reviewTeam')->name('reviewers.teams');
+    Route::get('make/team', 'AdminController@makeTeam')->name('make.team');
+    Route::get('store/team', 'AdminController@storeTeam')->name('store.team');
+
+    
+
     // Admin Manuscript
     Route::get('new/menuscript', 'AdminController@menuscriptNew')->name('menuscript.new');
     Route::get('approved/menuscript', 'AdminController@menuscriptApproved')->name('menuscript.approved');
