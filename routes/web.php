@@ -25,8 +25,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
     Route::get('reviewers', 'AdminController@reviewers')->name('reviewers');
     Route::get('reviewer/teams', 'AdminController@reviewTeam')->name('reviewers.teams');
-    Route::get('make/team', 'AdminController@makeTeam')->name('make.team');
-    Route::get('store/team', 'AdminController@storeTeam')->name('store.team');
+    Route::get('make/team', 'TeamController@makeTeam')->name('make.team');
+    Route::get('store/team', 'TeamController@storeTeam')->name('store.team');
 
     
 

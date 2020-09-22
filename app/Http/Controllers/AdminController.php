@@ -54,21 +54,6 @@ class AdminController extends Controller
         $reviewers = User::where('user_type_id', 3)->where('status', 1)->paginate(10);
         return view('admin.reviewer.list', compact('reviewers'));
     }
-
-    public function makeTeam(){
-        $reviewers = User::where('user_type_id', 3)->where('status', 1)->get();
-        $categories = Category::where('status', 1)->get();
-        return view('admin.reviewer.make-team', compact('reviewers', 'categories'));
-    }
-
-    public function storeTeam(Request $r){
-        $this->validate($r, [
-            'team_name' => 'required|unique:teams, name',
-            'category_id' => 'required',
-            'reviewer_id' => 'required',
-        ]);
-    }
-
     // reviewer end
 
     // menuscrip
