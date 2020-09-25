@@ -47,9 +47,14 @@ class AdminController extends Controller
     public function delete($id){
         $user = User::find();
     }
-
     // user end
 
+    // reviewer
+    public function reviewers(){
+        $reviewers = User::where('user_type_id', 3)->where('status', 1)->paginate(10);
+        return view('admin.reviewer.list', compact('reviewers'));
+    }
+    // reviewer end
 
     // menuscrip
     public function menuscriptNew(){

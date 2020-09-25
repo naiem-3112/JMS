@@ -29,7 +29,7 @@ class CategoryController extends Controller
         $category->name = $r->name;
         $category->status = 1;
         $category->save();
-        Alert::toast('category added successfully', 'success');
+        Alert::toast('category created successfully', 'success');
         return back();
     }
 
@@ -50,7 +50,7 @@ class CategoryController extends Controller
         $category->name = $r->name;
         $category->status = $r->status;
         $category->save();
-        Alert::toast('Paper submitted successfully', 'success');
+        Alert::toast('category updated successfully', 'success');
         return back();
     }
 

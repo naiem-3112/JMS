@@ -66,7 +66,7 @@
                                     <option selected disabled>Select User Type</option>
                                     <option value="1">Author</option>
                                     <option value="2">Publisher</option>
-                                    <option value="3">Reader</option>
+                                    <option value="3">Reviewer</option>
                                 </select>
                                 @error('user_type_id')
                                 <span class="invalid-feedback" role="alert">

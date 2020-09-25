@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMenuscriptsTable extends Migration
+class CreateTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,11 @@ class CreateMenuscriptsTable extends Migration
      */
     public function up()
     {
-        Schema::create('menuscripts', function (Blueprint $table) {
+        Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('category_id');
-            $table->integer('country_id');
-            $table->string('title');
-            $table->string('name');
-            $table->string('email');
-            $table->longText('summery');
-            $table->string('paper');
-            $table->boolean('status');
+            $table->unsignedBigInteger('reviewer_id');
+            $table->string('team_name');
             $table->timestamps();
         });
     }
@@ -35,6 +29,6 @@ class CreateMenuscriptsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menuscripts');
+        Schema::dropIfExists('teams');
     }
 }

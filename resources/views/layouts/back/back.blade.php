@@ -241,6 +241,27 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
+                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <p>Reviewer</p>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.reviewers') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Lists</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.reviewers.teams') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <p>Teams</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         @endif
 
                         {{--  Manuscripts  --}}
