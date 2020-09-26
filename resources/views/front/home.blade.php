@@ -170,19 +170,20 @@
 <!--	Font Awesome-->
 	<link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/front.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/topnav.css') }}">
+	{{--  <link rel="stylesheet" href="{{ asset('css/topnav.css') }}">  --}}
 </head>
 <body>
  <!-- top of main nav -->
 <!--top header part start-->
-<div class="full_wrapper top_header">
-	<div class="wrapper">
+<div class="full-wr top_header">
+	<div class="main-wr">
             <div class="header_logo">
-                <a href="#"><img src="{{asset('back_temp/dist/img/favicon.png')}}"></a>
+                <h2>JOURNAL</h2>
+                {{--  <a href="#"><img src="{{asset('back_temp/dist/img/favicon.png')}}"></a>  --}}
             </div>
 			{{-- <img src="{{asset('back_temp/dist/img/favicon.png')}}" alt=""> --}}
 		<div class="top_header_mid">
-			<marquee>Its a trial for learning purpose</marquee>
+			<marquee class="marq">Its a trial learning purpose</marquee>
 		</div>
 		<div class="top_social_icon">
 			<div class="log-reg">
@@ -209,23 +210,25 @@
 
 
 <!--header part start-->
-<div class="full_wrapper header">
-	<div class="wrapper">
+<div class="full-wr header">
+	<div class="main-wr">
 		<div class="header_left">
-			<a href="#">Join Us</a>
-		</div>
-		<div class="header_logo">
-			{{-- <a href="#"><img src="{{asset('back_temp/dist/img/favicon.png')}}"></a> --}}
-		</div>
+            <div class="header_left_logo">
+                <a href="#"><img src="{{asset('back_temp/dist/img/favicon.png')}}"></a>
+            </div>
+        </div>
 		<div class="header_right">
 			<form action="">
 				<input type="text" class="search_box" placeholder="search" name="">
 				<input type="submit" class="search_btn" value="search">
 			</form>
 		</div>
-	</div>
+    </div>
 </div>
+
 <!--header part end-->
+
+
 <!-- end top of main nav -->
 <!--header part-->
 <div class="full-wr full-menu">
