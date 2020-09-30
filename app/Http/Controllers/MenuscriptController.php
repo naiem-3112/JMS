@@ -24,6 +24,7 @@ class MenuscriptController extends Controller
             'title' => 'required',
             'name' => 'required',
             'email' => 'required',
+            'category_id' => 'required',
             'paper_file' => 'required|mimes:pdf'
         ]);
 
@@ -33,6 +34,7 @@ class MenuscriptController extends Controller
         $menuscript->email = $r->email;
         $menuscript->summery = $r->summery;
         $menuscript->country_id = $r->country_id;
+        $menuscript->category_id = $r->category_id;
         $menuscript->status = 0;
         $menuscript->author_id  = Auth::id();
         
