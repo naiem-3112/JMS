@@ -9,4 +9,10 @@ class Menuscript extends Model
     protected $fillable = [
         'category_id', 'publisher_id', 'title', 'name', 'email', 'summery', 'country_id', 'paper_file'
     ];
+
+
+public function category(){
+    return $this->belongsTo('App\Category');
+}
+
 }

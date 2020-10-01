@@ -23,6 +23,13 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
+                                        <label>Manuscript Category</label>
+                                        <input type="text" class="form-control" name="category" readonly value="{{ $menuscript->category->name }}">
+                                        @error('category')
+                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
                                         <label>Reviewer</label>
                                         <select class="form-control" name="reviewer_id">
                                             <option selected>Select Reviewer</option>

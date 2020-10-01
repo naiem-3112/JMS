@@ -97,7 +97,7 @@
         </div>
     </div>
 </div>
-<scrip>
+{{-- <scrip>
     $(document).ready(function(){
     var i = 0;
     $("#ad-btn").click(function(){
@@ -110,7 +110,7 @@
     $(this).parents('div').remove();
     });  
     });
-</script>
+</script> --}}
 
 @endsection
 
