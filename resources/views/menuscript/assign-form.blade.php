@@ -1,5 +1,8 @@
 @extends('layouts.back.back')
 @section('back.content')
+@section('base.css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+@endsection
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -31,20 +34,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Reviewer</label>
-                                        <select class="form-control" name="reviewer_id">
-                                            <option selected>Select Reviewer</option>
+                                        <select id="rev" class="form-control" multiple="multiple" name="reviewer_id">
                                             @foreach($reviewers as $reviewer)
                                             <option value="{{ $reviewer->id }}">{{ $reviewer->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Upload Manuscript</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="paper_file">
-                                       
-                                            <label class="custom-file-label">Choose file</label>
-                                        </div>
+                                        <label>Note<small>(optional)</small></label>
+                                        <textarea name="note" class="form-control" placeholder="Message to Reviewer"></textarea>
                                         @error('paper_file')
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
@@ -64,4 +62,10 @@
     </div>
 </div>
 
+@endsection
+@section('base.js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script>
+        $('#rev').select2({placeholder:"Choose Reviewers", allowClear: true, tags:true});
+    </script>
 @endsection
