@@ -15,4 +15,8 @@ public function category(){
     return $this->belongsTo('App\Category');
 }
 
+public function reviewers(){
+    return $this->hasMany(Menuscript::class);
+} 
+
 }

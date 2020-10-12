@@ -20,6 +20,9 @@ class User extends Authenticatable
         'name', 'email', 'password', 'user_type_id', 'status'
     ];
 
+    public function menuscripts(){
+        return $this->hasOne(User::class);
+    } 
 
     /**
      * The attributes that should be hidden for arrays.

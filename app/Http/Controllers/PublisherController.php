@@ -36,6 +36,11 @@ class PublisherController extends Controller
         return view('publisher.menuscript.assign-form', compact('menuscript', 'reviewers'));
     }
 
+    public function menuscriptAssign($id){
+        $menuscript = Menuscript::find($id);
+        
+    }
+
 
     public function mark_approveMenuscript($id){
         $menuscript = Menuscript::find($id);
