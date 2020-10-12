@@ -132,8 +132,8 @@
                 @if(auth()->user()->user_type_id == 0)
                 <!-- Notifications Dropdown Menu -->
                 @php
-                    $total = 0;
-                    $total =  $new_author->count()+$new_menuscript->count(); 
+                $total = 0;
+                $total = $new_author->count()+$new_menuscript->count();
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -146,13 +146,15 @@
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('admin.pending.users') }}" class="dropdown-item">
                             <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_author->count() }}
-                           Registration
-                            <span class="float-right text-muted text-sm"> {{ $new_author->first()? $new_author->first()->created_at->diffForHumans() : '' }}</span>
-                        </a>    
+                            Registration
+                            <span class="float-right text-muted text-sm">
+                                {{ $new_author->first()? $new_author->first()->created_at->diffForHumans() : '' }}</span>
+                        </a>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('admin.menuscript.new') }}" class="dropdown-item">
                             <i style="color: #f55" class="fas fa-file mr-2"></i> {{$new_menuscript->count()}} Menuscript
-                            <span class="float-right text-muted text-sm">{{ $new_menuscript->first() ? $new_menuscript->first()->created_at->diffForHumans() : '' }}</span>
+                            <span
+                                class="float-right text-muted text-sm">{{ $new_menuscript->first() ? $new_menuscript->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
@@ -163,8 +165,8 @@
                 @if(auth()->user()->user_type_id == 1)
                 <!-- Notifications Dropdown Menu -->
                 @php
-                    $total = 0;
-                    $total =  $revision_menuscript->count(); 
+                $total = 0;
+                $total = $revision_menuscript->count();
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -177,8 +179,9 @@
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('menuscript.menuscript.revision') }}" class="dropdown-item">
                             <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $revision_menuscript->count() }}
-                           Under Revision
-                            <span class="float-right text-muted text-sm"> {{ $revision_menuscript->first() ?$revision_menuscript->first()->created_at->diffForHumans() : '' }}</span>
+                            Under Revision
+                            <span class="float-right text-muted text-sm">
+                                {{ $revision_menuscript->first() ?$revision_menuscript->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
@@ -220,15 +223,16 @@
                          with font-awesome or any other icon font library -->
                         {{--  Users  --}}
                         @if(Auth::user()->user_type_id == 0)
+                        {{--  {{ dd(Auth::user()->user_type_id)}} --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
                                 <i style="color: #f55" class="fas fa-tags"></i>
-                                <p>Registerd Users</p>
+                                <p>Registered Users</p>
                                 <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ url('admin/approved/users') }}" class="nav-link">
+                                    <a href="{{ route('admin.approved.uesrs') }}" class="nav-link">
                                         <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Approved</p>
                                     </a>
@@ -241,31 +245,34 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview ">
-                            <a href="#" class="nav-link">
-                                <i style="color: #f55" class="fas fa-tags"></i>
-                                <p>Reviewer</p>
+                        @endif
+
+                        {{--  Publisher Panel  --}}
+                        @if(Auth::user()->user_type_id == 2 && Auth::user()->status == 1)
+                        {{--  Reviewer  --}}
+                        <li class="nav-item has-treeview">
+                            <a href="#" class=" nav-link">
+                                <i style="color: #f55" class="fas fa-tag"></i>
+                                <p>Registered Reviewer</p>
                                 <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.reviewers') }}" class="nav-link">
+                                    <a href="{{ route('publisher.approved.reviewers') }}" class="nav-link">
                                         <i style="color: #f55" class="fas fa-plus nav-icon"></i>
-                                        <p>Lists</p>
+                                        <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.reviewers.teams') }}" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
-                                        <p>Teams</p>
+                                    <a href="{{ route('publisher.pending.reviewers') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Pending</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        @endif
 
-                        {{--  Manuscripts  --}}
-                        @if((Auth::user()->user_type_id == 2 && Auth::user()->status = 1) || (Auth::user()->user_type_id == 0) )
+                        {{--  Menuscript  --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
                                 <i style="color: #f55" class="fas fa-tags"></i>
@@ -293,6 +300,7 @@
                                 </li>
                             </ul>
                         </li>
+
                         {{--  manuscript category  --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
@@ -315,11 +323,10 @@
                                 </li>
                             </ul>
                         </li>
-                        
                         @elseif(Auth::user()->user_type_id == 1 && Auth::user()->status == 1)
-                        <li class="nav-item has-treeview">
-                            <a href="#" class=" nav-link">
-                                <i style="color: #f55" class="fas fa-tag"></i>
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
+                                <i style="color: #f55" class="fas fa-tags"></i>
                                 <p>Manuscripts</p>
                                 <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
@@ -348,42 +355,6 @@
                                         <p>Rejected</p>
                                     </a>
                                 </li>
-
-                            </ul>
-                        </li>
-                        @elseif(Auth::user()->user_type_id == 2 && Auth::user()->status == 1)
-                        <li class="nav-item has-treeview">
-                            <a href="#" class=" nav-link">
-                                <i style="color: #f55" class="fas fa-tag"></i>
-                                <p>Reviewer</p>
-                                <i style="color: #f55" class="right fas fa-angle-left"></i>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('menuscript.create') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
-                                        <p>New</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('menuscript.menuscript.pending') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
-                                        <p>Pending</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('menuscript.menuscript.revision') }}" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
-                                        <p>Under Revision</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
-                                        <p>Rejected</p>
-                                    </a>
-                                </li>
-
                             </ul>
                         </li>
                         @endif

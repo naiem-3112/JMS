@@ -28,8 +28,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::get('make/team', 'TeamController@makeTeam')->name('make.team');
     Route::post('store/team', 'TeamController@storeTeam')->name('store.team');
 
-    
-
     // Admin Manuscript
     Route::get('new/menuscript', 'AdminController@menuscriptNew')->name('menuscript.new');
     Route::get('approved/menuscript', 'AdminController@menuscriptApproved')->name('menuscript.approved');
@@ -55,7 +53,9 @@ Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => '
     Route::post('category/delete/{id}', 'CategoryController@delete')->name('category.delete');
 });
 
-
-
+Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'auth'], function () {
+    Route::get('approved/reviewers', 'PublisherController@approvedReviewer')->name('approved.reviewers');
+    Route::get('pending/reviewers', 'PublisherController@pendingReviewer')->name('pending.reviewers');
+});
 
 Auth::routes();
