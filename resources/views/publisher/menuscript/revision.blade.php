@@ -33,7 +33,7 @@
                     <td>{{ $menuscript->email }}</td>
                     <td>{{ $menuscript->summery }}</td>
                     <td><a
-                        href="{{ route('admin.menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
+                        href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
                 </td>
 
                     <td>
@@ -41,14 +41,14 @@
                         <span class="badge badge-danger">Pending</span> @endif
                     </td>
                     <td>
-                        <a href="{{ route('admin.mark-approve.menuscript', $menuscript->id) }}"
+                        <a href="{{ route('mark-approve.menuscript', $menuscript->id) }}"
                             class="btn btn-sm btn-success" title="approve"
                             onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a>
-                        <a href="{{ route('admin.mark-reject.menuscript', $menuscript->id) }}"
+                        <a href="{{ route('mark-reject.menuscript', $menuscript->id) }}"
                             class="btn btn-sm btn-info" title="reject" onclick="alert('Are you sure to reject!')"><i
                                 class="fas fa-times-circle"></i></a>
 
-                        <form action="{{ route('admin.delete.user', $menuscript->id) }}" method="post"
+                        <form action="{{ route('delete.user', $menuscript->id) }}" method="post"
                             style="display: inline-block">
                             @method('DELETE')
                             @csrf

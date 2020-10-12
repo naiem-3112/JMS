@@ -13,7 +13,7 @@
                     <!-- /.card-header -->
                     <div class="card-body p-0">
                         <div class="col-12">
-                            <form action="{{ route('admin.store.team') }}" method="post">
+                            <form action="{{ route('store.team') }}" method="post">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">

@@ -57,45 +57,8 @@ class AdminController extends Controller
     }
     // user end
 
-    // reviewer
-    public function reviewers(){
-        $reviewers = User::where('user_type_id', 3)->where('status', 1)->paginate(10);
-        return view('admin.reviewer.list', compact('reviewers'));
-    }
-    // reviewer end
-
-    // menuscrip
-    public function menuscriptNew(){
-        $menuscripts = Menuscript::where('status', 0)->paginate(10);
-        return view('admin.menuscript.new', compact('menuscripts'));
-    }
-
-    public function mark_approveMenuscript($id){
-        $menuscript = Menuscript::find($id);
-        $menuscript->status = 1;
-        $menuscript->save();
-        return back();
-    }
-
-    public function menuscriptApproved(){
-        $menuscripts = Menuscript::where('status', 1)->paginate(10);
-        return view('admin.menuscript.approve', compact('menuscripts'));
-    }
-
-    public function mark_rejectMenuscript($id){
-        $menuscript = Menuscript::find($id);
-        $menuscript->status = 2;
-        $menuscript->save();
-        return back();
-    }
-
-    public function menuscriptRevision(){
-        $menuscripts = Menuscript::where('status', 2)->paginate(10);
-        return view('admin.menuscript.revision', compact('menuscripts'));
-    }
-
+  
     // File download
-    
         public function download($file_name) {
             $file_path = public_path('menuscripts/'.$file_name);
             return response()->download($file_path);

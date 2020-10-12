@@ -26,7 +26,7 @@
                                         <div class="col-5">
                                             <div class="form-group">
                                                 <label>Your/Author Name</label>
-                                                <input type="text" class="form-control" name="moreFields[0][name]"
+                                                <input type="text" class="form-control" name="name"
                                                     placeholder="Enter name">
                                                 @error('name')
                                                 <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
@@ -36,7 +36,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Author Email</label>
-                                                <input type="email" class="form-control" name="moreFields[0][email]"
+                                                <input type="email" class="form-control" name="email"
                                                     placeholder="Enter name">
                                                 @error('email')
                                                 <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>

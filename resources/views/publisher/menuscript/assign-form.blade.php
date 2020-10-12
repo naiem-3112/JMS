@@ -15,7 +15,7 @@
                     <!-- /.card-header -->
                     <div class="card-body p-0">
                         <div class="col-12">
-                            <form action="{{ route('menuscript.assign-store', $menuscript->id) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('assign.menuscript', $menuscript->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
