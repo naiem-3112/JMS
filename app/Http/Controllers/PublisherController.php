@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Menuscript;
+use App\ReviewerMenuscript;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class PublisherController extends Controller
 {
@@ -36,9 +39,19 @@ class PublisherController extends Controller
         return view('publisher.menuscript.assign-form', compact('menuscript', 'reviewers'));
     }
 
-    public function menuscriptAssign($id){
-        $menuscript = Menuscript::find($id);
-        
+    public function menuscriptAssign(Request $r, $id){
+        $this->validate($r, [
+            'reviewer_id' => 'required'
+        ]); 
+        foreach($r->reviewer_id as $reviewer){
+            $rev_menus = new ReviewerMenuscript();
+            $rev_menus->reviewer_id = $reviewer;
+            $rev_menus->menuscript_id = $id;
+            $rev_menus->save();
+        }
+        Alert::toast('Menuscript assigned successfully', 'success');
+        return back();
+
     }
 
 

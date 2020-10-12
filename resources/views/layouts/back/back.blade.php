@@ -177,7 +177,7 @@
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('menuscript.menuscript.revision') }}" class="dropdown-item">
+                        <a href="" class="dropdown-item">
                             <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $revision_menuscript->count() }}
                             Under Revision
                             <span class="float-right text-muted text-sm">
@@ -344,7 +344,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('menuscript.menuscript.revision') }}" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>

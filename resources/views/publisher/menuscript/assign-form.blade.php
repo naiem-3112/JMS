@@ -33,12 +33,15 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label>Reviewer</label>
-                                        <select id="rev" class="form-control" multiple="multiple" name="reviewer_id">
+                                        <label>Reviewer <sup style="color: red">*</sup> </label>
+                                        <select id="rev" class="form-control" multiple="multiple" name="reviewer_id[]">
                                             @foreach($reviewers as $reviewer)
                                             <option value="{{ $reviewer->id }}">{{ $reviewer->name }}</option>
                                             @endforeach
                                         </select>
+                                        @error('reviewer_id')
+                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Note<small>(optional)</small></label>
