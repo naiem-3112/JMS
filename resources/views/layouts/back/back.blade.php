@@ -151,7 +151,7 @@
                                 {{ $new_author->first()? $new_author->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('menuscript.new') }}" class="dropdown-item">
+                        <a href="" class="dropdown-item">
                             <i style="color: #f55" class="fas fa-file mr-2"></i> {{$new_menuscript->count()}} Menuscript
                             <span
                                 class="float-right text-muted text-sm">{{ $new_menuscript->first() ? $new_menuscript->first()->created_at->diffForHumans() : '' }}</span>
@@ -258,13 +258,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('approved.reviewers') }}" class="nav-link">
+                                    <a href="{{ route('publisher.approved.reviewers') }}" class="nav-link">
                                         <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('pending.reviewers') }}" class="nav-link">
+                                    <a href="{{ route('publisher.pending.reviewers') }}" class="nav-link">
                                         <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
@@ -281,19 +281,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('pending.menuscript') }}" class="nav-link">
+                                    <a href="{{ route('publisher.pending.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>New Comming</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('approved.menuscript') }}" class="nav-link">
+                                    <a href="{{ route('publisher.approved.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Already Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('revision.menuscript') }}" class="nav-link">
+                                    <a href="{{ route('publisher.revision.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
@@ -332,19 +332,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('menuscript.create') }}" class="nav-link">
+                                    <a href="{{ route('author.create.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Create</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('menuscript.menuscript.pending') }}" class="nav-link">
+                                    <a href="{{ route('author.pending.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a href="{{ route('author.revision.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>

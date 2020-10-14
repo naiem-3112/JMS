@@ -15,7 +15,7 @@
                     <!-- /.card-header -->
                     <div class="card-body p-0">
                         <div class="col-12">
-                            <form action="{{ route('assign.menuscript', $menuscript->id) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('publisher.assign.menuscript', $menuscript->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
@@ -43,13 +43,13 @@
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label>Note<small>(optional)</small></label>
                                         <textarea name="note" class="form-control" placeholder="Message to Reviewer"></textarea>
                                         @error('paper_file')
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
-                                    </div>
+                                    </div> --}}
                                     <div>
                                         <button type="submit" class="btn btn-md btn-primary">Submit</button>
                                         <a href="#" class="btn btn-md btn-info">Back</a>

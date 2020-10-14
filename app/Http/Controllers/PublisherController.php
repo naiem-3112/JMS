@@ -28,6 +28,7 @@ class PublisherController extends Controller
 
     
     // Menuscrip for Publisher
+    
     public function pendingMenuscript(){
         $menuscripts = Menuscript::where('status', 0)->paginate(10);
         return view('publisher.menuscript.pending', compact('menuscripts'));
@@ -47,13 +48,24 @@ class PublisherController extends Controller
             $rev_menus = new ReviewerMenuscript();
             $rev_menus->reviewer_id = $reviewer;
             $rev_menus->menuscript_id = $id;
+            $rev_menus->status = 0;
+            $rev_menus->mark = 0;
+            $rev_menus->comment = 'null';
             $rev_menus->save();
         }
+
+        $menuscript = Menuscript::find($id);
+        $menuscript->status = 1;
+        $menuscript->save();
         Alert::toast('Menuscript assigned successfully', 'success');
         return back();
 
     }
 
+    public function revisionMenuscript(){
+        $menuscripts = Menuscript::where('status', 1)->paginate(10);
+        return view('publisher.menuscript.revision', compact('menuscripts'));
+    }
 
     public function mark_approveMenuscript($id){
         $menuscript = Menuscript::find($id);
@@ -62,7 +74,7 @@ class PublisherController extends Controller
         return back();
     }
 
-    public function menuscriptApproved(){
+    public function approvedMenuscript(){
         $menuscripts = Menuscript::where('status', 1)->paginate(10);
         return view('admin.menuscript.approve', compact('menuscripts'));
     }
@@ -74,10 +86,6 @@ class PublisherController extends Controller
         return back();
     }
 
-    public function menuscriptRevision(){
-        $menuscripts = Menuscript::where('status', 2)->paginate(10);
-        return view('admin.menuscript.revision', compact('menuscripts'));
-    }
-
+   
     // Menuscrip for Publisher
 }

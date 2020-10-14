@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReviewerMenuscriptsTable extends Migration
+class CreateAuthorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateReviewerMenuscriptsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviewer_menuscripts', function (Blueprint $table) {
+        Schema::create('authors', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('reviewer_id');
-            $table->unsignedBigInteger('menuscript_id');
-            $table->boolean('status');
-            $table->integer('mark');
-            $table->string('comment');
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ class CreateReviewerMenuscriptsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviewer_menuscripts');
+        Schema::dropIfExists('authors');
     }
 }

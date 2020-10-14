@@ -34,9 +34,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 });
 // Manuscript
 Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => 'auth'], function () {
-    Route::get('create', 'MenuscriptController@create')->name('create');
-    Route::post('store', 'MenuscriptController@store')->name('store');
-    Route::get('pending/menuscript', 'MenuscriptController@menuscriptPending')->name('menuscript.pending');
     // Route::get('revision/menuscript', 'MenuscriptController@menuscriptRevision')->name('menuscript.revision');
 
     // Manuscript Category
@@ -48,16 +45,25 @@ Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => '
     Route::post('category/delete/{id}', 'CategoryController@delete')->name('category.delete');
 });
 
-Route::group(['prefix' => 'publisher', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'auth'], function () {
     Route::get('approved/reviewers', 'PublisherController@approvedReviewer')->name('approved.reviewers');
     Route::get('pending/reviewers', 'PublisherController@pendingReviewer')->name('pending.reviewers');
 
     // Publisher Menuscript
     Route::get('pending/menuscript', 'PublisherController@pendingMenuscript')->name('pending.menuscript');
-    Route::get('approved/menuscript', 'PublisherController@menuscriptApproved')->name('approved.menuscript');
-    Route::get('revision/menuscript', 'PublisherController@menuscriptRevision')->name('revision.menuscript');
+    Route::get('approved/menuscript', 'PublisherController@approvedMenuscript')->name('approved.menuscript');
+    Route::get('revision/menuscript', 'PublisherController@revisionMenuscript')->name('revision.menuscript');
     Route::get('assign/menuscript/{id}', 'PublisherController@menuscriptAssignForm')->name('assign-form.menuscript');
     Route::post('assign/menuscript/{id}', 'PublisherController@menuscriptAssign')->name('assign.menuscript');
 });
+
+    // Author
+    Route::group(['prefix' => 'author', 'as' => 'author.', 'middleware' => 'auth'], function () {
+    Route::get('create', 'MenuscriptController@create')->name('create.menuscript');
+    Route::post('store', 'MenuscriptController@store')->name('store.menuscript');    
+    Route::get('pending/menuscript', 'AuthorController@pendingMenuscript')->name('pending.menuscript');
+    Route::get('revision/menuscript', 'AuthorController@revisionMenuscript')->name('revision.menuscript');
+    });
+
 
 Auth::routes();
