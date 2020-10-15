@@ -54,16 +54,4 @@ class MenuscriptController extends Controller
         $menuscripts = Menuscript::where('status', 0)->paginate(10);
         return view('menuscript.pending', compact('menuscripts'));
     }
-
-    public function menuscriptRevision(){
-        $menuscripts = Menuscript::where('status', 1)->where('author_id', Auth::id())->paginate(10);
-        return view('menuscript.revision', compact('menuscripts'));
-    }
-
-    public function assignForm($id){
-        $menuscript = Menuscript::find($id);
-        $reviewers = User::where('user_type_id', 3)->where('status', 1)->get();
-        return view('menuscript.assign-form', compact('menuscript', 'reviewers'));
-    }
-
 }

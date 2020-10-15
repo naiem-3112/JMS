@@ -5,6 +5,7 @@
         table-layout: fixed;
         width: 100%;
     }
+
 </style>
 <div class="card">
     <div class="card-header">
@@ -15,13 +16,13 @@
         <table class="table table-bordered table-striped custom-table">
             <thead>
                 <tr>
-                    <th width="5%">ID</th>
-                    <th width="15%">Title</th>
-                    <th width="15%">Email</th>
-                    <th width="15%">Summery</th>
-                    <th width="25%">Paper</th>
-                    <th width="10%">Status</th>
-                    <th width="15%">Action</th>
+                    <th style="text-align: center"  width="5%">ID</th>
+                    <th style="text-align: center"  width="15%">Title</th>
+                    <th style="text-align: center"  width="15%">Email</th>
+                    <th style="text-align: center"  width="15%">Summery</th>
+                    <th style="text-align: center"  width="25%">Paper</th>
+                    <th style="text-align: center"  width="10%">Status</th>
+                    <th style="text-align: center" width="15%">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,31 +31,28 @@
                 <tr>
                     <th>{{ $menuscript->id }}</th>
                     <td>{{ $menuscript->title }}</td>
-                    <td>{{ $menuscript->email }}</td>
+                    <td style="text-align: center">{{ $menuscript->email }}</td>
                     <td>{{ $menuscript->summery }}</td>
-                    <td><a
-                        href="{{ route('admin.menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
-                </td>
-
-                    <td>
+                    <td><a href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
+                    </td>
+                    <td style="text-align: center">
                         @if($menuscript->status == 1) <span class="badge badge-success">Approved</span>@else
                         <span class="badge badge-danger">Pending</span> @endif
                     </td>
-                    <td>
-                        <a href="{{ route('admin.mark-approve.menuscript', $menuscript->id) }}"
-                            class="btn btn-sm btn-success" title="approve"
-                            onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a>
-                        <a href="{{ route('admin.mark-reject.menuscript', $menuscript->id) }}"
-                            class="btn btn-sm btn-info" title="reject" onclick="alert('Are you sure to reject!')"><i
-                                class="fas fa-times-circle"></i></a>
+                    <td style="text-align: center">
+                        {{-- <a href="{{ route('mark-approve.menuscript', $menuscript->id) }}" class="btn btn-sm btn-success"
+                            title="approve" onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a> --}}
+                            
+                        <a title="Share" href="{{ route('publisher.assign-form.menuscript', $menuscript->id) }}" class="btn btn-sm btn-info"
+                            title="assign"><i class="fa fa-share-square"></i></a>
 
-                        <form action="{{ route('admin.delete.user', $menuscript->id) }}" method="post"
+                        {{-- <form action="{{ route('delete.user', $menuscript->id) }}" method="post"
                             style="display: inline-block">
                             @method('DELETE')
                             @csrf
                             <button onclick="alert('Are You Sure to DELETE!')" class="btn btn-sm btn-danger"><i
                                     class="fas fa-trash"></i></button>
-                        </form>
+                        </form> --}}
                     </td>
                 </tr>
                 @endforeach
