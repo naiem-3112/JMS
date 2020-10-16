@@ -9,4 +9,8 @@ class ReviewerMenuscript extends Model
     protected $fillale = [
         'reviewer_id', 'menuscript_id'
     ];
+
+    public function menuscript(){
+        return $this->belongsTo(Menuscript::class);
+    }
 }

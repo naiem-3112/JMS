@@ -357,6 +357,29 @@
                                 </li>
                             </ul>
                         </li>
+
+                        @elseif(Auth::user()->user_type_id == 3 && Auth::user()->status == 1)
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
+                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <p>Manuscripts</p>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('reviewer.assigned.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Assigned</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('reviewer.checked.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Checked</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         @endif
                         <li class="nav-header">Your Account</li>
                         <li class="nav-item">

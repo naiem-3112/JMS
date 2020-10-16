@@ -9,7 +9,7 @@ Route::get('/', 'FrontController@home')->name('journal-front.home');
 Route::get('/dashboard', 'AdminController@dashboard')->middleware('auth');
 
 // Amdin
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     // File download
     Route::get('/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
@@ -33,7 +33,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('mark/reject/menuscript/{id}', 'AdminController@mark_rejectMenuscript')->name('mark-reject.menuscript');
 });
 // Manuscript
-Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'menuscript', 'as' => 'menuscript.', 'middleware' => 'auth'], function () {
     // Route::get('revision/menuscript', 'MenuscriptController@menuscriptRevision')->name('menuscript.revision');
 
     // Manuscript Category
@@ -65,5 +65,12 @@ Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'au
     Route::get('revision/menuscript', 'AuthorController@revisionMenuscript')->name('revision.menuscript');
     });
 
+    // Reviewer
+    Route::group(['prefix' => 'reviewer', 'as' => 'reviewer.', 'middleware' => 'auth'], function () {
+    Route::get('assigned', 'ReviewerController@assigned')->name('assigned.menuscript');
+    Route::get('checked', 'ReviewerController@checked')->name('checked.menuscript');    
+    Route::get('pending/menuscript', 'AuthorController@pendingMenuscript')->name('pending.menuscript');
+    Route::get('revision/menuscript', 'AuthorController@revisionMenuscript')->name('revision.menuscript');
+    });
 
 Auth::routes();
