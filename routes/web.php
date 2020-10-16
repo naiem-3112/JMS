@@ -69,8 +69,8 @@ Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'au
     Route::group(['prefix' => 'reviewer', 'as' => 'reviewer.', 'middleware' => 'auth'], function () {
     Route::get('assigned', 'ReviewerController@assigned')->name('assigned.menuscript');
     Route::get('checked', 'ReviewerController@checked')->name('checked.menuscript');    
-    Route::get('pending/menuscript', 'AuthorController@pendingMenuscript')->name('pending.menuscript');
-    Route::get('revision/menuscript', 'AuthorController@revisionMenuscript')->name('revision.menuscript');
+    Route::get('reviewer/feedback-form/{id}', 'ReviewerController@feedbackForm')->name('feedback-form');
+    Route::post('reviewer/feedback/store/{id}', 'ReviewerController@feedbackStore')->name('feedback.store');
     });
 
 Auth::routes();

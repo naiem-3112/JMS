@@ -26,22 +26,22 @@
                 </tr>
             </thead>
             <tbody>
-                @if($menuscripts)
-                @foreach($menuscripts as $menuscript)
+                @if($rev_menus)
+                @foreach($rev_menus as $rev_menu)
                 <tr>
-                    <th>{{ $menuscript->id }}</th>
-                    <td>{{ $menuscript->title }}</td>
-                    <td style="text-align: center">{{ $menuscript->email }}</td>
-                    <td>{{ $menuscript->summery }}</td>
-                    <td><a href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
+                    <th>{{ $rev_menu->menuscript->id }}</th>
+                    <td>{{ $rev_menu->menuscript->title }}</td>
+                    <td style="text-align: center">{{ $rev_menu->menuscript->email }}</td>
+                    <td>{{ $rev_menu->menuscript->summery }}</td>
+                    <td><a href="{{ route('menuscript.download', $rev_menu->menuscript->paper) }}">{{ $rev_menu->menuscript->paper }}</a>
                     </td>
                     <td style="text-align: center">
-                        @if($menuscript->status == 1) <span class="badge badge-warning">Revision</span>@else
-                        <span class="badge badge-danger">Pending</span> @endif
+                        @if($rev_menu->status == 1) <span class="badge badge-warning">Checked</span>@else
+                        <span class="badge badge-danger">reject</span> @endif
                     </td>
                     <td style="text-align: center">
 
-                        <a title="Share" href="{{ route('publisher.assign-form.menuscript', $menuscript->id) }}"
+                        <a title="Share" href="{{ route('publisher.assign-form.menuscript', $rev_menu->menuscript->id) }}"
                             class="btn btn-sm btn-success" title="assign"><i class="fa fa-eye"></i></a>
                     </td>
                 </tr>
@@ -54,7 +54,7 @@
 
             </tbody>
         </table>
-        {{ $menuscripts->links()}}
+        {{ $rev_menus->links()}}
     </div>
 </div>
 @endsection
