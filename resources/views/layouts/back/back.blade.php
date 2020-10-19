@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="{{ asset('back_temp/dist/css/toastr.css') }}">
     {{--    bootstrap 5 cdn--}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
-     {{--  Favicon  --}}
-     <link rel="shortcut icon" type="image/x-icon" href="{{asset('back_temp/dist/img/favicon.png')}}"/>
+    {{--  Favicon  --}}
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('back_temp/dist/img/favicon.png')}}" />
 
-        {{-- select2 --}}
+    {{-- select2 --}}
 
-     {{-- summernote --}}
+    {{-- summernote --}}
     @yield('base.css')
 
 
@@ -33,9 +33,8 @@
 
         .navbar-white {
             background-color: #F55;
-        
-        }
 
+        }
 
     </style>
 </head>
@@ -48,10 +47,11 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a style="color: #fff" class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a style="color: #fff" class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a style="color: #fff"  href="index3.html" class="nav-link">Home</a>
+                    <a style="color: #fff" href="index3.html" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -72,7 +72,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    
+
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
@@ -129,34 +129,66 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
                 </li>
+                @if(auth()->user()->user_type_id == 0)
                 <!-- Notifications Dropdown Menu -->
+                @php
+                $total = 0;
+                $total = $new_author->count()+$new_menuscript->count();
+                @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i style="color: #fff"  class="far fa-bell"></i>
-                        <span style="background: #2C3E50; color: #fff"   class="badge navbar-badge">15</span>
+                        <i style="color: #fff" class="far fa-bell"></i>
+                        <span style="background: #2C3E50; color: #fff" class="badge navbar-badge">
+                            {{ $total }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-header">15 Notifications</span>
+                        <span class="dropdown-header"> {{ $total }} Notifications </span>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i style="color: #f55"  class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
+                        <a href="{{ route('pending.users') }}" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_author->count() }}
+                            Registration
+                            <span class="float-right text-muted text-sm">
+                                {{ $new_author->first()? $new_author->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i style="color: #f55"  class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i style="color: #f55"  class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
+                        <a href="" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-file mr-2"></i> {{$new_menuscript->count()}} Menuscript
+                            <span
+                                class="float-right text-muted text-sm">{{ $new_menuscript->first() ? $new_menuscript->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
-                
+                @endif
+
+                @if(auth()->user()->user_type_id == 1)
+                <!-- Notifications Dropdown Menu -->
+                @php
+                $total = 0;
+                $total = $revision_menuscript->count();
+                @endphp
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i style="color: #fff" class="far fa-bell"></i>
+                        <span style="background: #2C3E50; color: #fff" class="badge navbar-badge">
+                            {{ $total }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-header"> {{ $total }} Notifications </span>
+                        <div class="dropdown-divider"></div>
+                        <a href="" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $revision_menuscript->count() }}
+                            Under Revision
+                            <span class="float-right text-muted text-sm">
+                                {{ $revision_menuscript->first() ?$revision_menuscript->first()->created_at->diffForHumans() : '' }}</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                @endif
+
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -164,7 +196,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="{{ route('journal-front.home') }}" class="brand-link">
                 <img src="{{ asset('back_temp/dist/img/favicon.png') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Journal Management</span>
@@ -189,57 +221,172 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
+                        {{--  Users  --}}
+                        @if(Auth::user()->user_type_id == 0)
+                        {{--  {{ dd(Auth::user()->user_type_id)}} --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i style="color: #f55"  class="fas fa-tags"></i>
-                                <p>Registerd Users</p>
-                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
+                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <p>Registered Users</p>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
+                                    <a href="{{ route('approved.uesrs') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                    <a href="{{ route('pending.users') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
-
                                 </li>
-
                             </ul>
                         </li>
+                        @endif
+
+                        {{--  Publisher Panel  --}}
+                        @if(Auth::user()->user_type_id == 2 && Auth::user()->status == 1)
+                        {{--  Reviewer  --}}
                         <li class="nav-item has-treeview">
                             <a href="#" class=" nav-link">
-                                <i style="color: #f55"  class="fas fa-tag"></i>
-                                <p>Manuscripts</p>
-                                <i style="color: #f55"  class="right fas fa-angle-left"></i>
+                                <i style="color: #f55" class="fas fa-tag"></i>
+                                <p>Registered Reviewer</p>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i style="color: #f55"  class="fas fa-plus nav-icon"></i>
+                                    <a href="{{ route('publisher.approved.reviewers') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
                                         <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                    <a href="{{ route('publisher.pending.reviewers') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Pending</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {{--  Menuscript  --}}
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
+                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <p>Manuscripts</p>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('publisher.pending.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>New Comming</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('publisher.revision.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <p>Under Revision</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('publisher.marked.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <p>Marked</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('publisher.approved.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <p>Already Approved</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {{--  manuscript category  --}}
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
+                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <p>Manuscript Categories</p>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('menuscript.category.create') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Create</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('menuscript.category') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <p>List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @elseif(Auth::user()->user_type_id == 1 && Auth::user()->status == 1)
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
+                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <p>Manuscripts</p>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('author.create.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Create</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('author.pending.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Pending</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('author.revision.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i style="color: #f55"  class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Rejected</p>
                                     </a>
                                 </li>
-
                             </ul>
                         </li>
+
+                        @elseif(Auth::user()->user_type_id == 3 && Auth::user()->status == 1)
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
+                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <p>Manuscripts</p>
+                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('reviewer.assigned.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Assigned</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('reviewer.checked.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <p>Checked</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @endif
                         <li class="nav-header">Your Account</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -255,8 +402,8 @@
                                     style="display: none;">
                                     @csrf
                                 </form>
-                                <i style="color: #f55"  class="fas fa-sign-out-alt nav-icon"></i>
-                                <p style="color: #f55; font-weight:bold; text-transform: uppercase" >Logout</p>
+                                <i style="color: #f55" class="fas fa-sign-out-alt nav-icon"></i>
+                                <p style="color: #f55; font-weight:bold; text-transform: uppercase">Logout</p>
                             </a>
 
                         </li>
@@ -289,7 +436,7 @@
         <footer class="main-footer">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
-                
+
             </div>
             <!-- Default to the left -->
             <strong>Copyright &copy; 2020 <a href="#">Tamim Rahman</a>.</strong> All rights
@@ -320,6 +467,7 @@
         $(document).ready(function () {
             bsCustomFileInput.init()
         })
+
     </script>
     {{-- select2 --}}
 

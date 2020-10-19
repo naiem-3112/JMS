@@ -1,0 +1,422 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+.clr {
+	clear: both;
+}
+
+.full-wr {
+	width: 100%;
+}
+
+.main-wr {
+	width: 1140px;
+	margin: auto;
+}
+
+.full-menu {
+	padding: 20px 0;
+	background-color: #f7f3f3;
+}
+
+/* from top-nav */
+.header_logo h2{
+	color: #fff;
+	font-size: 20px;
+	padding-top: 15px;
+}
+
+.header_logo {
+    width: 15%;
+    float: left;
+} 
+
+.header_logo a img {
+    width: 28px;
+    margin-top: 2px;
+}
+
+.top_header {
+    background-color: #bd070e;
+    height: 2rem;
+    line-height: 0.1rem;
+}
+
+
+.top_header_mid {
+    width: 60%;
+    float: left;
+
+}
+
+.marq{
+   padding: 8px 0;
+}
+
+.top_header_mid marquee {
+    color: #fff;
+    padding-top: 20px;
+}
+
+.top_social_icon {
+    width: 20%;
+    float: left;
+}
+
+.top_social_icon a img {
+    width: 30px;
+    padding-top: 15px;
+}
+
+/*top header part end*/
+
+
+/*header part start*/
+.header {
+	height: 100px;
+}
+
+.header_left {
+	width: 20%;
+}
+
+.header_left a {
+	float: left;
+}
+
+.header_left_logo{
+    display: inline;
+}
+
+.header_left_logo a img{
+	width: 70px;
+    margin-top: 5px;
+}
+
+.header_right {
+	float: right;
+	line-height: 5.1rem;
+}
+
+.header_right .search_box {
+    height: 35px;
+    width: 250px;
+    background-color: #ddd;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.search_btn {
+    height: 35px;
+    background: #bd070e;
+    color: #fff;
+    width: 60px;
+    border: 0;
+    margin-left: -5px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+/* from top-nav end */
+.logo {
+	width: 30%;
+	float: left;
+}
+
+.menu {
+	width: 70%;
+	float: left;
+	text-align: right;
+}
+
+.menu ul li {
+	display: inline-block;
+}
+
+.menu ul li a {
+	display: block;
+	padding: 10px 12px;
+	color: #bd070e;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: 'Exo', sans-serif;
+	text-transform: uppercase;
+	transition: 0.5s all linear;
+	border-bottom: 1px solid transparent;
+}
+
+.menu ul li a:hover {
+	color: #4BCAFF;
+	border-color: #4BCAFF;
+	transform: scale(1.1);
+}
+
+/*banner part*/
+.full-banner {
+	background: url(../images/banner.jpg) left top no-repeat;
+	background-size: cover;
+	height: 600px;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.main-banner {
+	position: relative;
+	height: 100%;
+}
+
+.banner-text {
+	font-family: 'Lato', sans-serif;
+	position: absolute;
+	color: #fff;
+	left: 45%;
+	top: 35%;
+}
+
+.banner-text h2 {
+	font-weight: 300;
+	font-size: 42px;
+	padding: 10px 0;
+}
+
+.banner-text h2 span {
+	font-weight: 700;
+}
+
+.banner-text p {
+	width: 100%;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.banner-btn {
+	margin: 40px 0;
+	display: inline-block;
+}
+
+.banner-btn a {
+	display: block;
+	color: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	padding: 12px 32px;
+	margin: 0 5px;
+	text-transform: uppercase;
+	background-color: transparent;
+	transition: 0.5s all linear;
+}
+
+.banner-btn a:hover {
+	background-color: #4BCAFF;
+	border-style: none;
+	transform: scale(1.1);
+}
+
+/*banner hand img*/
+.banner-hand-img {
+	height: 600px;
+	width: 600px;
+	position: absolute;
+	bottom: -90px;
+	left: -50px;
+}
+
+.banner-hand-img img {
+	height: 100%;
+	width: 100%;
+}
+
+/*summarise part*/
+.full-summarise {
+	font-family: 'Lato', sans-serif;
+	padding: 20px 0;
+	background-color: #f5f6fa;
+}
+
+.section-title{
+	text-align: center;
+}
+
+.section-title h3{
+	font-size: 28px;
+	font-weight: 600;
+	text-transform: capitalize;
+}
+
+.section-title p{
+	font-size: 14px;
+	font-weight: 300;
+}
+/*summarise bottom*/
+.summarise-col{
+	float: left;
+	width: 25%;
+}
+
+.summarise-content{
+	padding: 10px 10px;
+	text-align: center;
+}
+
+.summarise-content i{
+	margin: 20px 0;
+	font-size: 44px;
+	background-color: transparent;
+	height: 70px;
+	padding: 20px 10px 0 10px;
+	width: 70px;
+	color: #4BCAFF;
+	border: 1px solid #4BCAFF;
+	border-radius: 50%;
+	transition: all 0.5s linear;
+	cursor: pointer;
+}
+
+.summarise-col:hover .summarise-content i{
+	background-color: #4BCAFF;
+	color: #fff;
+}
+
+.summarise-content h4{
+	text-transform: uppercase;
+	font-size: 17px;
+	font-weight: 700;
+	transition: all 0.5s linear;
+	cursor: pointer;
+}
+
+.summarise-col:hover .summarise-content h4{
+	color: #4BCAFF;
+}
+
+.summarise-content p{
+	font-size: 14px;
+	font-weight: 300;
+	padding: 10px 10px;
+}
+
+/*pricing part*/
+.full-price {
+	padding: 80px 0;
+	font-family: 'Lato', sans-serif;
+}
+
+.price-col {
+	width: 33.3%;
+	float: left;
+	padding: 0 15px;
+	box-sizing: border-box;
+	transition: 0.5s all linear;
+}
+
+.price-content {
+	border: 1px solid #dad7d7;
+	background-color: #f9f9f9;
+	padding: 20px 0;
+	text-align: center;
+}
+
+.price-content h3 {
+	text-transform: uppercase;
+	color: #d7d7d7;
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.price-content h2 {
+	color: #fff;
+	background-color: green;
+	padding: 25px 0;
+	font-size: 85px;
+	font-weight: 700;
+	margin: 15px 0;
+}
+
+.price-content ul li {
+	color: #d7d7d7;
+	font-weight: 700;
+	font-size: 18px;
+	padding: 10px 0;
+}
+
+.price-content button {
+	background-color: #91c46b;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 20px 45px;
+	border-style: none;
+	font-weight: 700;
+	font-size: 15px;
+	margin: 10px 0;
+	cursor: pointer;
+}
+
+.price-col:hover {
+	transform: scale(1.1);
+}
+
+/*testimonial part*/
+.full-test {
+	padding: 80px 0;
+}
+
+#hexagon {
+	width: 100px;
+	height: 55px;
+	background: #4bcaff;
+	position: relative;
+}
+
+#hexagon:before {
+	content: "";
+	position: absolute;
+	top: -25px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 25px solid #4bcaff;
+}
+
+#hexagon:after {
+	content: "";
+	position: absolute;
+	bottom: -25px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 25px solid #4bcaff;
+}
+
+/* new css  */
+
+.l {
+	color: #ffffff;
+	margin-left: 10px;
+	border: none;
+
+}
+
+.l:hover {
+	border-bottom: 1px solid #f3efef;
+}
+
+.log-reg {
+	float: right;
+	padding: 20px 0;
+}
