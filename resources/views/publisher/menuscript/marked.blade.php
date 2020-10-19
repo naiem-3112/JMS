@@ -17,56 +17,43 @@
             <thead>
                 <tr>
                     <th style="text-align: center" width="5%">ID</th>
-                    <th style="text-align: center" width="15%">Comment</th>
-                    <th style="text-align: center" width="15%">Mark</th>
                     <th style="text-align: center" width="25%">Paper</th>
-                    <th style="text-align: center" width="10%">Status</th>
-
+                    <th style="text-align: center" width="15%">Total Reviewer</th>
+                    <th style="text-align: center" width="15%">Mark <small>(%)</small> </th>
                 </tr>
             </thead>
             <tbody>
-                @if($marked_menuscripts)
+                @foreach($menuscripts as $menuscript)
                 @php
-                $total = 0;
-                $oldmenu = 0;
+                $total_reviewer = $menuscript->rev_menus->count();
+                $total_mark = $total_reviewer*100;   
+                $total_checked = $menuscript->rev_menus->where('status', '!=', 0)->count();
                 @endphp
-                @foreach($marked_menuscripts as $marked_menuscript)
-                @php
-                $oldmenu = $marked_menuscript->menuscript_id;
-                @endphp
-                <tr>
-                    {{ $oldmenu}}
-                </tr>
-               
-                <tr>
-                    <th>{{ $marked_menuscript->menuscript_id }}</th>
-                    <td>{{ $marked_menuscript->comment }}</td>
-                    <td><a href="">paper</a></td>
-                    <td><span class="badge badge-danger">Pending</span></td>
-                
-                    <td>{{ $marked_menuscript->mark }}</td>
 
-                </tr>
-                @php
-                if($marked_menuscript->menuscript_id != $oldmenu){
-                $total = $total += $marked_menuscript->mark;
-                }else{
-                    $total = 0;
-                }
-                @endphp
+                @if($total_reviewer == $total_checked)
                 <tr>
-                    {{-- {{ $total}} --}}
-                </tr>
-                @endforeach
-                @else
-                <tr>
-                    <td colspan="7" style="text-align: center; color: grey">No brand found</td>
+                    <td>{{ $menuscript->id}}</td>
+                    <td><a href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
+                    </td>
+                    <td>{{ $total_reviewer }}</td>
+                    @php
+                        $total_mark_get = $menuscript->rev_menus->sum('mark');
+                        $total_in_percentage = ($total_mark_get/$total_mark)*100;
+                    @endphp
+                    <td>{{ $total_in_percentage }}</td>
+                    
                 </tr>
                 @endif
 
+                @php
+                $total_reviewer = 0;
+                $total_mark_get = 0;
+                $total_in_percentage = 0;
+                $total_checked = 0;
+                @endphp
+                @endforeach
             </tbody>
         </table>
-
     </div>
 </div>
 @endsection

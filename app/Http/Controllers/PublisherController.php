@@ -69,9 +69,8 @@ class PublisherController extends Controller
     }
 
     public function markedMenuscript(){
-        $marked_menuscripts = ReviewerMenuscript::where('status', '!=', 0)->get();
-        $menuscripts = Menuscript::all();
-        return view('publisher.menuscript.marked', compact('menuscripts', 'marked_menuscripts'));
+        $menuscripts = Menuscript::where('status', 2)->get();
+        return view('publisher.menuscript.marked', compact('menuscripts'));
     }
 
     // public function mark_approveMenuscript($id){
