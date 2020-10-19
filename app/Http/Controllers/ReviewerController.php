@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ReviewerMenuscript;
+use App\Menuscript;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -30,7 +31,13 @@ class ReviewerController extends Controller
         $rev_menus = ReviewerMenuscript::find($id);
         $rev_menus->mark = $r->mark;
         $rev_menus->comment = $r->comment;
+        $rev_menus->status = 1;
         $rev_menus->save();
+        
+        $menuscript = Menuscript::where('id', $r->menuscript_id)->first();
+        $menuscript->status = 2;
+        $menuscript->save();
+
         Alert::toast('Menuscript Feedback Stored successfully', 'success');
         return redirect()->route('reviewer.checked.menuscript');
 

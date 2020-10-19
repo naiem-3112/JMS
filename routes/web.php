@@ -51,8 +51,9 @@ Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'au
 
     // Publisher Menuscript
     Route::get('pending/menuscript', 'PublisherController@pendingMenuscript')->name('pending.menuscript');
-    Route::get('approved/menuscript', 'PublisherController@approvedMenuscript')->name('approved.menuscript');
     Route::get('revision/menuscript', 'PublisherController@revisionMenuscript')->name('revision.menuscript');
+    Route::get('marked/menuscript', 'PublisherController@markedMenuscript')->name('marked.menuscript');
+    Route::get('approved/menuscript', 'PublisherController@approvedMenuscript')->name('approved.menuscript');
     Route::get('assign/menuscript/{id}', 'PublisherController@menuscriptAssignForm')->name('assign-form.menuscript');
     Route::post('assign/menuscript/{id}', 'PublisherController@menuscriptAssign')->name('assign.menuscript');
 });

@@ -21,6 +21,7 @@
                                     <div class="form-group">
                                         <label>Title of Manuscript</label>
                                         <input type="text" class="form-control" name="title" readonly value="{{ $rev_menus->menuscript->title }}">
+                                        <input type="hidden" class="form-control" name="menuscript_id" value="{{ $rev_menus->menuscript->id }}">
                                         @error('title')
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror

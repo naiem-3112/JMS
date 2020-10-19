@@ -7,6 +7,7 @@ use App\User;
 use App\Menuscript;
 use App\ReviewerMenuscript;
 use Illuminate\Support\Facades\Auth;
+use DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -67,12 +68,18 @@ class PublisherController extends Controller
         return view('publisher.menuscript.revision', compact('menuscripts'));
     }
 
-    public function mark_approveMenuscript($id){
-        $menuscript = Menuscript::find($id);
-        $menuscript->status = 1;
-        $menuscript->save();
-        return back();
+    public function markedMenuscript(){
+        $marked_menuscripts = ReviewerMenuscript::where('status', '!=', 0)->get();
+        $menuscripts = Menuscript::all();
+        return view('publisher.menuscript.marked', compact('menuscripts', 'marked_menuscripts'));
     }
+
+    // public function mark_approveMenuscript($id){
+    //     $menuscript = Menuscript::find($id);
+    //     $menuscript->status = 1;
+    //     $menuscript->save();
+    //     return back();
+    // }
 
     public function approvedMenuscript(){
         $menuscripts = Menuscript::where('status', 1)->paginate(10);

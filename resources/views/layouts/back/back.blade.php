@@ -287,15 +287,21 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('publisher.approved.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
-                                        <p>Already Approved</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="{{ route('publisher.revision.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('publisher.marked.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <p>Marked</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('publisher.approved.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <p>Already Approved</p>
                                     </a>
                                 </li>
                             </ul>
