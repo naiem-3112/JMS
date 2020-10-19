@@ -17,38 +17,46 @@
             <thead>
                 <tr>
                     <th style="text-align: center" width="5%">ID</th>
-                    <th style="text-align: center" width="15%">Title</th>
-                    <th style="text-align: center" width="15%">Email</th>
                     <th style="text-align: center" width="15%">Comment</th>
                     <th style="text-align: center" width="15%">Mark</th>
                     <th style="text-align: center" width="25%">Paper</th>
                     <th style="text-align: center" width="10%">Status</th>
-                    <th style="text-align: center" width="15%">Action</th>
+
                 </tr>
             </thead>
             <tbody>
-                @if($menuscripts)
-                @foreach($menuscripts as $menuscript)
-                @foreach($marked_menuscripts->where('menuscript_id', $menuscript->id) as $marked_menuscript)
+                @if($marked_menuscripts)
+                @php
+                $total = 0;
+                $oldmenu = 0;
+                @endphp
+                @foreach($marked_menuscripts as $marked_menuscript)
+                @php
+                $oldmenu = $marked_menuscript->menuscript_id;
+                @endphp
+                <tr>
+                    {{ $oldmenu}}
+                </tr>
+               
                 <tr>
                     <th>{{ $marked_menuscript->menuscript_id }}</th>
-                    <td>{{ $menuscript->title }}</td>
-                    <td style="text-align: center">{{ $menuscript->email }}</td>
                     <td>{{ $marked_menuscript->comment }}</td>
+                    <td><a href="">paper</a></td>
+                    <td><span class="badge badge-danger">Pending</span></td>
+                
                     <td>{{ $marked_menuscript->mark }}</td>
-                    <td><a href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
-                    </td>
-                    <td style="text-align: center">
-                        @if($menuscript->status == 1) <span class="badge badge-warning">Revision</span>@else
-                        <span class="badge badge-danger">Pending</span> @endif
-                    </td>
-                    <td style="text-align: center">
 
-                        <a title="Share" href="{{ route('publisher.assign-form.menuscript', $menuscript->id) }}"
-                            class="btn btn-sm btn-success" title="assign"><i class="fa fa-eye"></i></a>
-                    </td>
                 </tr>
-                @endforeach
+                @php
+                if($marked_menuscript->menuscript_id != $oldmenu){
+                $total = $total += $marked_menuscript->mark;
+                }else{
+                    $total = 0;
+                }
+                @endphp
+                <tr>
+                    {{-- {{ $total}} --}}
+                </tr>
                 @endforeach
                 @else
                 <tr>
@@ -58,7 +66,7 @@
 
             </tbody>
         </table>
-        
+
     </div>
 </div>
 @endsection
