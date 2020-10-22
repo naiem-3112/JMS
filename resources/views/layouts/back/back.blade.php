@@ -51,7 +51,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a style="color: #fff" href="index3.html" class="nav-link">Home</a>
+                    <a style="color: #fff" href="{{ url('dashboard') }}" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -129,11 +129,11 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
                 </li>
-                @if(auth()->user()->user_type_id == 0)
+                 @if(auth()->user()->user_type_id == 0)
                 <!-- Notifications Dropdown Menu -->
                 @php
                 $total = 0;
-                $total = $new_author->count()+$new_menuscript->count();
+                $total = $new_user_admin->count();
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -145,28 +145,28 @@
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('pending.users') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_author->count() }}
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_user_admin->count() }}
                             Registration
                             <span class="float-right text-muted text-sm">
-                                {{ $new_author->first()? $new_author->first()->created_at->diffForHumans() : '' }}</span>
+                                {{ $new_user_admin->first()? $new_user_admin->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="" class="dropdown-item">
+                        {{--  <a href="" class="dropdown-item">
                             <i style="color: #f55" class="fas fa-file mr-2"></i> {{$new_menuscript->count()}} Menuscript
                             <span
                                 class="float-right text-muted text-sm">{{ $new_menuscript->first() ? $new_menuscript->first()->created_at->diffForHumans() : '' }}</span>
-                        </a>
+                        </a>  --}}
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
                 @endif
 
-                @if(auth()->user()->user_type_id == 1)
+                @if(auth()->user()->user_type_id == 2)
                 <!-- Notifications Dropdown Menu -->
                 @php
                 $total = 0;
-                $total = $revision_menuscript->count();
+                $total = $new_reviewer->count();
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -178,10 +178,10 @@
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
                         <div class="dropdown-divider"></div>
                         <a href="" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $revision_menuscript->count() }}
-                            Under Revision
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_reviewer->count() }}
+                            Registration
                             <span class="float-right text-muted text-sm">
-                                {{ $revision_menuscript->first() ?$revision_menuscript->first()->created_at->diffForHumans() : '' }}</span>
+                                {{ $new_reviewer->first() ?$new_reviewer->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
