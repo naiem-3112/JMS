@@ -47,7 +47,7 @@ class MenuscriptController extends Controller
 
         $menuscript->save();
         Alert::toast('Paper submitted successfully', 'success');
-        return back();
+        return redirect()->route('author.pending.menuscript');
     }
 
     public function menuscriptPending(){

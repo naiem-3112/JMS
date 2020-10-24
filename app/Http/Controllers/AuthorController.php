@@ -10,7 +10,7 @@ class AuthorController extends Controller
 {
     
     public function pendingMenuscript(){
-        $menuscripts = Menuscript::where('author_id', Auth::id())->where('status', 0)->paginate(10);
+        $menuscripts = Menuscript::where('author_id', Auth::id())->where('status', 0)->orWhere('status', 1)->orderBy('created_at', 'DESC')->paginate(10);
         return view('author.menuscript.pending', compact('menuscripts'));
     }
 

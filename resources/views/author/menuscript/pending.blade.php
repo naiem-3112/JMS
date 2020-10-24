@@ -36,23 +36,12 @@
                     <td><a href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
                     </td>
                     <td style="text-align: center">
-                        @if($menuscript->status == 1) <span class="badge badge-success">Approved</span>@else
-                        <span class="badge badge-danger">Pending</span> @endif
+                        @if($menuscript->status == 1) <span class="badge badge-success">Under Revision</span>@elseif($menuscript->status == 0)
+                        <span class="badge badge-warning">Pending</span> @endif
                     </td>
                     <td style="text-align: center">
-                        {{-- <a href="{{ route('mark-approve.menuscript', $menuscript->id) }}" class="btn btn-sm btn-success"
-                            title="approve" onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a> --}}
-                            
                         <a title="Share" href="{{ route('publisher.assign-form.menuscript', $menuscript->id) }}" class="btn btn-sm btn-info"
-                            title="assign"><i class="fa fa-share-square"></i></a>
-
-                        {{-- <form action="{{ route('delete.user', $menuscript->id) }}" method="post"
-                            style="display: inline-block">
-                            @method('DELETE')
-                            @csrf
-                            <button onclick="alert('Are You Sure to DELETE!')" class="btn btn-sm btn-danger"><i
-                                    class="fas fa-trash"></i></button>
-                        </form> --}}
+                            title="assign"><i class="fa fa-eye"></i></a>
                     </td>
                 </tr>
                 @endforeach

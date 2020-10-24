@@ -217,7 +217,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a style="text-transform: capitalize;" href="#" class="d-block">{{Auth::user()->name}}</a>
+                        <a style="text-transform: capitalize;" href="{{ url('profile') }}" class="d-block">{{Auth::user()->name}}</a>
                     </div>
                 </div>
 
