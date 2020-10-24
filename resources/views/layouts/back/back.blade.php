@@ -166,7 +166,7 @@
                 <!-- Notifications Dropdown Menu -->
                 @php
                 $total = 0;
-                $total = $new_reviewer->count();
+                $total = $new_reviewer->count() + $new_menuscript->count();
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -177,13 +177,19 @@
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
                         <div class="dropdown-divider"></div>
-                        <a href="" class="dropdown-item">
+                        <a href="{{ route('publisher.pending.reviewers') }}" class="dropdown-item">
                             <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_reviewer->count() }}
                             Registration
                             <span class="float-right text-muted text-sm">
                                 {{ $new_reviewer->first() ?$new_reviewer->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
+                        <a href="{{ route('publisher.pending.menuscript') }}" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_menuscript->count() }}
+                            Menuscript
+                            <span class="float-right text-muted text-sm">
+                                {{ $new_menuscript->first() ? $new_menuscript->first()->created_at->diffForHumans() : '' }}</span>
+                        </a>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>

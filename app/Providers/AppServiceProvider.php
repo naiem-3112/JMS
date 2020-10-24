@@ -30,14 +30,15 @@ class AppServiceProvider extends ServiceProvider
         // admin notification
         $new_user_admin = User::where('status', 0)->where('user_type_id', '!=', 3)->get();
         $new_reviewer = User::where('status', 0)->where('user_type_id', 3)->get();
+        $new_menuscript = Menuscript::where('status', 0)->get();
 
 
-        // publisher notification
-        view()->composer('*', function ($view) {
-        $revision_menuscript = Menuscript::where('status', 1)->where('author_id', Auth::id())->get();
-        $view->with('revision_menuscript', $revision_menuscript );    
-    });  
+    //     // publisher notification
+    //     view()->composer('*', function ($view) {
+    //     $revision_menuscript = Menuscript::where('status', 1)->where('author_id', Auth::id())->get();
+    //     $view->with('revision_menuscript', $revision_menuscript );    
+    // });  
 
-        View::share(['new_user_admin' => $new_user_admin, 'new_reviewer' => $new_reviewer]);
+        View::share(['new_user_admin' => $new_user_admin, 'new_reviewer' => $new_reviewer, 'new_menuscript' => $new_menuscript]);
     }
 }
