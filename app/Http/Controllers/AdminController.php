@@ -63,6 +63,11 @@ class AdminController extends Controller
             $file_path = public_path('menuscripts/'.$file_name);
             return response()->download($file_path);
     }
+
+    public function profile($id){
+        $user = User::find($id);
+        return view('profile', compact('user'));
+    }
     
 
 
