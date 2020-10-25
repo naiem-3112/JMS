@@ -6,6 +6,10 @@ use App\Menuscript;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+// use Intervention\Image\ImageManagerStatic as Image;
+use Image;
+use File;
 
 class AdminController extends Controller
 {
@@ -67,6 +71,47 @@ class AdminController extends Controller
     public function profile($id){
         $user = User::find($id);
         return view('profile', compact('user'));
+    }
+
+    public function profileStore(Request $r, $id){
+        $this->validate($r, [
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
+        $user = User::find($id);
+        $user->firstName = $r->firstName;
+        $user->lastName = $r->lastName;
+        $user->name = $r->name;
+        $user->email = $r->email;
+        $user->country = $r->country;
+        $user->city = $r->city;
+        $user->mobile = $r->mobile;
+        $user->address = $r->address;
+        $user->about = $r->about;
+        $user->designation = $r->designation;
+        // $user->save();
+
+        // if ($r->hasFile('image')) {
+            
+        //     $originalName = $r->image->getClientOriginalName();
+        //     $uniqueImageName = $r->name.$originalName;
+        //     $r->image->move(public_path('/profile'), $uniqueImageName);
+        //     $user->image = $uniqueImageName;
+        // }
+
+        if ($r->hasFile('image')) {
+            $originalName = $r->image->getClientOriginalName();
+            $uniqueImageName = $r->name.$originalName;
+            $image = Image::make($r->image);
+            $image->resize(280, 280);
+            $image->save(public_path().'/profile'.$uniqueImageName);
+            $user->image = $uniqueImageName;
+        }
+
+        $user->save();
+        Alert::toast('Profile updated successfully', 'success');
+        return back();
     }
     
 

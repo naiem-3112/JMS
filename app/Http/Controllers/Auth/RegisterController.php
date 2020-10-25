@@ -73,4 +73,5 @@ class RegisterController extends Controller
             'status' => 0,
         ]);
     }
+
 }

@@ -97,20 +97,6 @@
         </div>
     </div>
 </div>
-{{-- <scrip>
-    $(document).ready(function(){
-    var i = 0;
-    $("#ad-btn").click(function(){
-    ++i;
-    $("#dynamicAddRemove").append('<div class="row"><div class="col-5"><div class="form-group"><input type="text" name="moreFields['+i+'][name]" placeholder="Enter title" class="form-control" /></div>
-</div><div class="col-6"><div class="form-group"><input type="text" name="moreFields['+i+'][email]" placeholder="Enter description" class="form-control" /></div>
-</div><div class="col-1"><div style="margin: 35px 0 0 30px;"><button type="button" class="btn btn-danger remove-tr"><i class="fa fa-remove"></i></button></div></div></div>');
-    });
-    $(document).on('click', '.remove-tr', function(){  
-    $(this).parents('div').remove();
-    });  
-    });
-</script> --}}
 
 @endsection
 
