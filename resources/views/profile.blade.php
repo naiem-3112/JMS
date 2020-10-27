@@ -265,8 +265,8 @@
                                         <div class="form-group row">
                                             <label for="inputEmail" class="col-sm-2 col-form-label">New Password <sup style="color: red">*</sup></label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" name="password" id="inputEmail" placeholder="******">
-                                                    @error('password')
+                                                <input type="password" class="form-control" name="newpassword" id="inputEmail" placeholder="******">
+                                                    @error('newpassword')
                                                 <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                                 @enderror
                                             </div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Hash;
 // use Intervention\Image\ImageManagerStatic as Image;
 use Image;
 use File;
@@ -111,10 +112,19 @@ class AdminController extends Controller
             'oldpassword' => 'required',
             'password' => 'required',
         ]);
-        // if (Hash::check($request->password, $user->password)) { 
-        //     $user->fill([
-        //      'password' => Hash::make($request->new_password)
-        //      ])->save();
+        $user = User::find($id);
+
+        if (Hash::check($r->oldpassword, $user->password)) { 
+            $user->password = bcrypt($r->newpassword);
+                $user->save();
+        Alert::toast('Password Changed successfully', 'success');
+        return back();
+
+        }else{
+            Alert::toast('Password Not Match', 'success');
+            return back();
+        }
+       
          
         //     $request->session()->flash('success', 'Password changed');
         //      return redirect()->route('your.route');
@@ -123,8 +133,7 @@ class AdminController extends Controller
         //      $request->session()->flash('error', 'Password does not match');
         //      return redirect()->route('your.route');
         //  }
-        // $user = User::find($id);
-        dd($user->password);
+        // dd($user->password);
 
     }
     
