@@ -106,34 +106,25 @@ class AdminController extends Controller
         return back();
     }
 
-    public function generalStore(Request $r, $id){
-        // dd(bcrypt($r->password));
+    public function generalStore(Request $r){
+        
         $this->validate($r, [
             'oldpassword' => 'required',
-            'password' => 'required',
+            'newpassword' => 'required',
         ]);
-        $user = User::find($id);
-
-        if (Hash::check($r->oldpassword, $user->password)) { 
+        
+        $user = User::where('email', $r->email)->first();
+    
+        if(Hash::check($r->oldpassword, $user->password)){
             $user->password = bcrypt($r->newpassword);
-                $user->save();
+            $user->save();
         Alert::toast('Password Changed successfully', 'success');
-        return back();
-
-        }else{
-            Alert::toast('Password Not Match', 'success');
             return back();
         }
-       
-         
-        //     $request->session()->flash('success', 'Password changed');
-        //      return redirect()->route('your.route');
-         
-        //  } else {
-        //      $request->session()->flash('error', 'Password does not match');
-        //      return redirect()->route('your.route');
-        //  }
-        // dd($user->password);
+        else{
+            Alert::toast('Password Or email do not match', 'warning');
+            return back();
+        }
 
     }
     

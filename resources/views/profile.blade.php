@@ -69,7 +69,7 @@
                                 <div class="post">
                                     <div class="user-block">
                                         <img class="img-circle img-bordered-sm"
-                                            src="{{ asset('profile/'. $user->image) }}" alt="user image">
+                                            src="{{ asset('profile/'. $user->image) }}" alt="">
                                         <span class="username">
                                             <h4 style="font-weight: bold; letter-spacing: 2px; font-size: 16px; color: blue">ABOUT</h4>
                                             <a href="#" class="float-right btn-tool"></a>
@@ -250,12 +250,13 @@
                             </div>
                             {{--  General  --}}
                             <div class="tab-pane" id="general">
-                                <form class="form-horizontal" action="{{ route('general.store', $user->id) }}" method="post">
+                                <form class="form-horizontal" action="{{ route('general.store') }}" method="post">
                                     @csrf
                                         <div class="form-group row">
                                             <label for="inputEmail" class="col-sm-2 col-form-label">Old Password <sup style="color: red">*</sup></label>
                                             <div class="col-sm-10">
                                                 <input type="password" class="form-control" name="oldpassword" id="inputEmail" placeholder="******">
+                                                <input type="hidden" class="form-control" name="email" value="{{ $user->email }}">
                                                     @error('oldpassword')
                                                 <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                                 @enderror
