@@ -90,28 +90,42 @@ class AdminController extends Controller
         $user->address = $r->address;
         $user->about = $r->about;
         $user->designation = $r->designation;
-        // $user->save();
-
-        // if ($r->hasFile('image')) {
-            
-        //     $originalName = $r->image->getClientOriginalName();
-        //     $uniqueImageName = $r->name.$originalName;
-        //     $r->image->move(public_path('/profile'), $uniqueImageName);
-        //     $user->image = $uniqueImageName;
-        // }
 
         if ($r->hasFile('image')) {
             $originalName = $r->image->getClientOriginalName();
             $uniqueImageName = $r->name.$originalName;
             $image = Image::make($r->image);
             $image->resize(280, 280);
-            $image->save(public_path().'/profile'.$uniqueImageName);
+            $image->save(public_path().'/profile/'.$uniqueImageName);
             $user->image = $uniqueImageName;
         }
 
         $user->save();
         Alert::toast('Profile updated successfully', 'success');
         return back();
+    }
+
+    public function generalStore(Request $r, $id){
+        // dd(bcrypt($r->password));
+        $this->validate($r, [
+            'oldpassword' => 'required',
+            'password' => 'required',
+        ]);
+        // if (Hash::check($request->password, $user->password)) { 
+        //     $user->fill([
+        //      'password' => Hash::make($request->new_password)
+        //      ])->save();
+         
+        //     $request->session()->flash('success', 'Password changed');
+        //      return redirect()->route('your.route');
+         
+        //  } else {
+        //      $request->session()->flash('error', 'Password does not match');
+        //      return redirect()->route('your.route');
+        //  }
+        // $user = User::find($id);
+        dd($user->password);
+
     }
     
 
