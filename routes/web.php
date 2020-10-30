@@ -9,6 +9,7 @@ Route::get('/', 'FrontController@home')->name('journal-front.home');
 Route::get('/dashboard', 'AdminController@dashboard')->middleware('auth');
 Route::get('/profile/{id}', 'AdminController@profile')->middleware('auth');
 Route::post('/profile/store/{id}', 'AdminController@profileStore')->name('profile.store');
+Route::post('/general/store', 'AdminController@generalStore')->name('general.store');
 
 // Amdin
     Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Hash;
 // use Intervention\Image\ImageManagerStatic as Image;
 use Image;
 use File;
@@ -90,28 +91,41 @@ class AdminController extends Controller
         $user->address = $r->address;
         $user->about = $r->about;
         $user->designation = $r->designation;
-        // $user->save();
-
-        // if ($r->hasFile('image')) {
-            
-        //     $originalName = $r->image->getClientOriginalName();
-        //     $uniqueImageName = $r->name.$originalName;
-        //     $r->image->move(public_path('/profile'), $uniqueImageName);
-        //     $user->image = $uniqueImageName;
-        // }
 
         if ($r->hasFile('image')) {
             $originalName = $r->image->getClientOriginalName();
             $uniqueImageName = $r->name.$originalName;
             $image = Image::make($r->image);
             $image->resize(280, 280);
-            $image->save(public_path().'/profile'.$uniqueImageName);
+            $image->save(public_path().'/profile/'.$uniqueImageName);
             $user->image = $uniqueImageName;
         }
 
         $user->save();
         Alert::toast('Profile updated successfully', 'success');
         return back();
+    }
+
+    public function generalStore(Request $r){
+        
+        $this->validate($r, [
+            'oldpassword' => 'required',
+            'newpassword' => 'required',
+        ]);
+        
+        $user = User::where('email', $r->email)->first();
+    
+        if(Hash::check($r->oldpassword, $user->password)){
+            $user->password = bcrypt($r->newpassword);
+            $user->save();
+        Alert::toast('Password Changed successfully', 'success');
+            return back();
+        }
+        else{
+            Alert::toast('Password Or email do not match', 'warning');
+            return back();
+        }
+
     }
     
 

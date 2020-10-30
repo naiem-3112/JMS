@@ -164,6 +164,7 @@
 
                 @if(auth()->user()->user_type_id == 2)
                 <!-- Notifications Dropdown Menu -->
+                {{dd($marked_menuscript->count())}}
                 @php
                 $total = 0;
                 $total = $new_reviewer->count() + $new_menuscript->count();
@@ -195,6 +196,33 @@
                 </li>
                 @endif
 
+                @if(auth()->user()->user_type_id == 3)
+                <!-- Notifications Dropdown Menu -->
+                @php
+                $total = 0;
+                $total = $assign_menuscript_reviewer->count();
+                @endphp
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i style="color: #fff" class="far fa-bell"></i>
+                        <span style="background: #2C3E50; color: #fff" class="badge navbar-badge">
+                            {{ $total }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-header"> {{ $total }} Notifications </span>
+                       
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ route('publisher.pending.menuscript') }}" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $assign_menuscript_reviewer->count() }}
+                            Menuscript New Assigned
+                            <span class="float-right text-muted text-sm">
+                                {{ $assign_menuscript_reviewer->first() ? $assign_menuscript_reviewer->first()->created_at->diffForHumans() : '' }}</span>
+                        </a>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                @endif
+
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -213,7 +241,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('back_temp/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                        <img src="{{ asset('profile/'. Auth::user()->image) }}" class="img-circle elevation-2"
                             alt="User Image">
                     </div>
                     <div class="info">
