@@ -164,7 +164,7 @@
 
                 @if(auth()->user()->user_type_id == 2)
                 <!-- Notifications Dropdown Menu -->
-                {{dd($marked_menuscript->count())}}
+                {{--  {{dd($marked_menuscript->count())}}  --}}
                 @php
                 $total = 0;
                 $total = $new_reviewer->count() + $new_menuscript->count();
