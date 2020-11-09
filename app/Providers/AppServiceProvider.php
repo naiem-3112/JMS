@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
         }else{
             $marked_menuscript = 0;
         }
-        dd($marked_menuscript->count());
+        // dd($marked_menuscript->count());
         // ---------problem why give value 2 it should be 1
         
     }
