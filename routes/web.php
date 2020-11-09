@@ -66,7 +66,7 @@ Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'au
     Route::get('create', 'MenuscriptController@create')->name('create.menuscript');
     Route::post('store', 'MenuscriptController@store')->name('store.menuscript');    
     Route::get('pending/menuscript', 'AuthorController@pendingMenuscript')->name('pending.menuscript');
-    Route::get('revision/menuscript', 'AuthorController@revisionMenuscript')->name('revision.menuscript');
+    // Route::get('revision/menuscript', 'AuthorController@revisionMenuscript')->name('revision.menuscript');
     });
 
     // Reviewer

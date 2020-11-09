@@ -34,10 +34,14 @@ class ReviewerController extends Controller
         $rev_menus->status = 1;
         $rev_menus->save();
         
-        $menuscript = Menuscript::where('id', $r->menuscript_id)->first();
-        $menuscript->status = 2;
-        $menuscript->save();
-
+        $total_reviewer = ReviewerMenuscript::where('menuscript_id', $r->menuscript_id)->count();
+        $total_checked = ReviewerMenuscript::where('menuscript_id', $r->menuscript_id)->where('status', 1)->count();
+        if($total_reviewer == $total_checked){
+            $menuscript = Menuscript::where('id', $r->menuscript_id)->first();
+            $menuscript->status = 2;
+            $menuscript->save();    
+        }
+        
         Alert::toast('Menuscript Feedback Stored successfully', 'success');
         return redirect()->route('reviewer.checked.menuscript');
 

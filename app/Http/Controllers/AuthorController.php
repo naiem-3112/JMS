@@ -14,9 +14,9 @@ class AuthorController extends Controller
         return view('author.menuscript.pending', compact('menuscripts'));
     }
 
-    public function revisionMenuscript(){
-        $menuscripts = Menuscript::where('author_id', Auth::id())->where('status', 1)->paginate(10);
-        return view('author.menuscript.revision', compact('menuscripts'));
-    }
+    // public function revisionMenuscript(){
+    //     $menuscripts = Menuscript::where('author_id', Auth::id())->where('status', 1)->paginate(10);
+    //     return view('author.menuscript.revision', compact('menuscripts'));
+    // }
 
 }

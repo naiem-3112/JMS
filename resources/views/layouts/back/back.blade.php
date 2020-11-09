@@ -167,7 +167,7 @@
                 {{--  {{dd($marked_menuscript->count())}}  --}}
                 @php
                 $total = 0;
-                $total = $new_reviewer->count() + $new_menuscript->count();
+                $total = $new_reviewer->count() + $new_menuscript->count() + $checked_menuscript->count();
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -191,6 +191,13 @@
                             <span class="float-right text-muted text-sm">
                                 {{ $new_menuscript->first() ? $new_menuscript->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ route('publisher.marked.menuscript') }}" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $checked_menuscript->count() }}
+                            Checked Menuscript
+                            <span class="float-right text-muted text-sm">
+                                {{ $checked_menuscript->first() ?$checked_menuscript->first()->created_at->diffForHumans() : '' }}</span>
+                        </a>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
@@ -212,11 +219,38 @@
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
                        
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('publisher.pending.menuscript') }}" class="dropdown-item">
+                        <a href="{{ route('reviewer.assigned.menuscript') }}" class="dropdown-item">
                             <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $assign_menuscript_reviewer->count() }}
                             Menuscript New Assigned
                             <span class="float-right text-muted text-sm">
                                 {{ $assign_menuscript_reviewer->first() ? $assign_menuscript_reviewer->first()->created_at->diffForHumans() : '' }}</span>
+                        </a>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                @endif
+
+                @if(auth()->user()->user_type_id == 1)
+                <!-- Notifications Dropdown Menu -->
+                @php
+                $total = 0;
+                $total = $menuscript_revision->count();
+                @endphp
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i style="color: #fff" class="far fa-bell"></i>
+                        <span style="background: #2C3E50; color: #fff" class="badge navbar-badge">
+                            {{ $total }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-header"> {{ $total }} Notifications </span>
+                       
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ route('author.pending.menuscript') }}" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $menuscript_revision->count() }}
+                            Menuscript Under Revision
+                            <span class="float-right text-muted text-sm">
+                                {{ $menuscript_revision->first() ? $menuscript_revision->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
@@ -383,12 +417,12 @@
                                         <p>Pending</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                {{--  <li class="nav-item">
                                     <a href="{{ route('author.revision.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
-                                </li>
+                                </li>  --}}
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i style="color: #f55" class="far fa-circle nav-icon"></i>
