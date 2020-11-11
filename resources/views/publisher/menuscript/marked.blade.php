@@ -20,6 +20,7 @@
                     <th style="text-align: center" width="25%">Paper</th>
                     <th style="text-align: center" width="15%">Total Reviewer</th>
                     <th style="text-align: center" width="15%">Mark <small>(%)</small> </th>
+                    <th style="text-align: center" width="15%">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +42,14 @@
                         $total_in_percentage = ($total_mark_get/$total_mark)*100;
                     @endphp
                     <td>{{ $total_in_percentage }}</td>
+                    <td style="text-align: center">
+                        <a title="publish" href="{{ route('publisher.publish.menuscript', $menuscript->id) }}" 
+                            class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
+                        <a title="reject" href="{{ route('publisher.reject.menuscript', $menuscript->id) }}" 
+                            class="btn btn-sm btn-warning"><i class="fa fa-ban"></i></a>
+    
+                            
+                    </td>
                     
                 </tr>
                 @endif

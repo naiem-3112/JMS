@@ -59,6 +59,9 @@ Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'au
     Route::get('approved/menuscript', 'PublisherController@approvedMenuscript')->name('approved.menuscript');
     Route::get('assign/menuscript/{id}', 'PublisherController@menuscriptAssignForm')->name('assign-form.menuscript');
     Route::post('assign/menuscript/{id}', 'PublisherController@menuscriptAssign')->name('assign.menuscript');
+    Route::get('publish/menuscript/{id}', 'PublisherController@publishMenuscript')->name('publish.menuscript');
+    Route::get('reject/menuscript/{id}', 'PublisherController@rejectMenuscript')->name('reject.menuscript');
+    Route::get('checked/menuscript', 'PublisherController@checkedMenuscript')->name('checked.menuscript');
 });
 
     // Author
@@ -66,6 +69,7 @@ Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'au
     Route::get('create', 'MenuscriptController@create')->name('create.menuscript');
     Route::post('store', 'MenuscriptController@store')->name('store.menuscript');    
     Route::get('pending/menuscript', 'AuthorController@pendingMenuscript')->name('pending.menuscript');
+    Route::get('checked/menuscript', 'AuthorController@checkedMenuscript')->name('checked.menuscript');
     // Route::get('revision/menuscript', 'AuthorController@revisionMenuscript')->name('revision.menuscript');
     });
 

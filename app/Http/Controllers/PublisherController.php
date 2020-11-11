@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use DB;
 use App\User;
 use App\Menuscript;
 use App\ReviewerMenuscript;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -92,6 +92,29 @@ class PublisherController extends Controller
         return back();
     }
 
+    public function publishMenuscript($id){
+        $menuscript = Menuscript::find($id);
+        $menuscript->status = 3;
+        $menuscript->updated_at = date('Y-m-d H:i:s');
+        $menuscript->save();
+        Alert::toast('Menuscript published successfully', 'success');
+        return back();
+    }
    
+    public function rejectMenuscript($id){
+        $menuscript = Menuscript::find($id);
+        $menuscript->status = 4;
+        $menuscript->updated_at = date('Y-m-d H:i:s');
+        $menuscript->save();
+        Alert::toast('Menuscript rejection successfully', 'success');
+        return back();
+    }
+
+    public function checkedMenuscript(){
+        $menuscripts = Menuscript::where('status', 3)->orWhere('status', 4)->get();
+        return view('publisher.menuscript.checked', compact('menuscripts'));
+
+    }
+
     // Menuscrip for Publisher
 }

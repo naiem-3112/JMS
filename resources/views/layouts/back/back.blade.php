@@ -167,7 +167,7 @@
                 {{--  {{dd($marked_menuscript->count())}}  --}}
                 @php
                 $total = 0;
-                $total = $new_reviewer->count() + $new_menuscript->count() + $checked_menuscript->count();
+                $total = $new_reviewer->count() + $new_menuscript->count() + $marked_menuscript->count();
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -193,10 +193,10 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('publisher.marked.menuscript') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $checked_menuscript->count() }}
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $marked_menuscript->count() }}
                             Checked Menuscript
                             <span class="float-right text-muted text-sm">
-                                {{ $checked_menuscript->first() ?$checked_menuscript->first()->created_at->diffForHumans() : '' }}</span>
+                                {{ $marked_menuscript->first() ?$marked_menuscript->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
@@ -234,7 +234,7 @@
                 <!-- Notifications Dropdown Menu -->
                 @php
                 $total = 0;
-                $total = $menuscript_revision->count();
+                $total = $menuscript_revision->count() + $checked_menuscript->count();
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -247,10 +247,17 @@
                        
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('author.pending.menuscript') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $menuscript_revision->count() }}
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $menuscript_revision->count()  }}
                             Menuscript Under Revision
                             <span class="float-right text-muted text-sm">
                                 {{ $menuscript_revision->first() ? $menuscript_revision->first()->created_at->diffForHumans() : '' }}</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ route('author.checked.menuscript') }}" class="dropdown-item">
+                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $checked_menuscript->count()  }}
+                            Checked Menuscripts
+                            <span class="float-right text-muted text-sm">
+                                {{ $checked_menuscript->first() ? $checked_menuscript->first()->updated_at->diffForHumans() : '' }}</span>
                         </a>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
@@ -320,20 +327,20 @@
                         {{--  Reviewer  --}}
                         <li class="nav-item has-treeview">
                             <a href="#" class=" nav-link">
-                                <i style="color: #f55" class="fas fa-tag"></i>
+                                <i style="color: #f55" class="fa fa-user-circle"></i>
                                 <p>Registered Reviewer</p>
                                 <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.approved.reviewers') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #f55" class="fa fa-check nav-icon"></i>
                                         <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.pending.reviewers') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #f55" class="fa fa-eye-slash nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
                                 </li>
@@ -343,7 +350,7 @@
                         {{--  Menuscript  --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <i style="color: #f55" class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 <p>Manuscripts</p>
                                 <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
@@ -356,20 +363,20 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.revision.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55" class="fa fa-reply nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.marked.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <i style="color: #f55" class="fa fa-share nav-icon"></i>
                                         <p>Marked</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('publisher.approved.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
-                                        <p>Already Approved</p>
+                                    <a href="{{ route('publisher.checked.menuscript') }}" class="nav-link">
+                                        <i style="color: #f55" class="fa fa-check nav-icon"></i>
+                                        <p>Checked</p>
                                     </a>
                                 </li>
                             </ul>
@@ -378,7 +385,7 @@
                         {{--  manuscript category  --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <i style="color: #f55" class="fa fa-arrow-circle-right"></i>
                                 <p>Manuscript Categories</p>
                                 <i style="color: #f55" class="right fas fa-angle-left"></i>
                             </a>
@@ -424,9 +431,9 @@
                                     </a>
                                 </li>  --}}
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('author.checked.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="far fa-circle nav-icon"></i>
-                                        <p>Rejected</p>
+                                        <p>Checked</p>
                                     </a>
                                 </li>
                             </ul>
