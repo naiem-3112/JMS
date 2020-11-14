@@ -19,6 +19,10 @@ public function reviewers(){
     return $this->hasMany(Menuscript::class);
 } 
 
+public function user(){
+    return $this->hasOne('App\User', 'id', 'author_id');
+}
+
 public function rev_menus(){
     return $this->hasMany(ReviewerMenuscript::class);
 }

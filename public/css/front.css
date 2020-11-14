@@ -264,42 +264,33 @@ ul, ol {
 
 .price-content h3 {
 	text-transform: uppercase;
-	color: #d7d7d7;
+	color: #BD070E;
 	font-size: 17px;
 	font-weight: 700;
 }
 
 .price-content h2 {
-	color: #fff;
-	background-color: green;
-	padding: 25px 0;
-	font-size: 85px;
-	font-weight: 700;
+	color: #ffffff;
+	background-color: #BD070E;
+	padding: 5px 0;
+	font-size: 24px;
+	text-transform: capitalize;
+	font-weight: 400;
 	margin: 15px 0;
 }
 
-.price-content ul li {
-	color: #d7d7d7;
-	font-weight: 700;
-	font-size: 18px;
-	padding: 10px 0;
-}
-
-.price-content button {
-	background-color: #91c46b;
-	color: #fff;
-	text-transform: uppercase;
-	padding: 20px 45px;
-	border-style: none;
+.price-content a {
 	font-weight: 700;
 	font-size: 15px;
 	margin: 10px 0;
-	cursor: pointer;
 }
 
-.price-col:hover {
-	transform: scale(1.1);
+.price-col a:hover{
+	cursor: pointer;
+
 }
+
+
 
 
 /* new css  */

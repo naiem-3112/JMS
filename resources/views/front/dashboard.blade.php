@@ -140,42 +140,27 @@
 <!--pricing part-->
 <div class="full-wr full-price">
 	<div class="main-wr">
-		<div class="price-col">
-			<div class="price-content">
-				<h3>Basic Package</h3>
-				<h2>20$</h2>
-				<ul>
-					<li>Lorem ipsum dolor sit</li>
-					<li>amet, consectetur con</li>
-					<li>Lorem ipsum dolor sectetur</li>
-				</ul>
-				<button>purchase</button>
+		<div class="summarise-top">
+			<div class="section-title">
+				<h3>Menuscripts</h3>
+				<p>summarise what your product is all about</p>
 			</div>
 		</div>
+		@foreach($menuscripts as $menuscript)
 		<div class="price-col">
 			<div class="price-content">
-				<h3>Basic Package</h3>
-				<h2>20$</h2>
-				<ul>
-					<li>Lorem ipsum dolor sit</li>
-					<li>amet, consectetur con</li>
-					<li>Lorem ipsum dolor sectetur</li>
-				</ul>
-				<button>purchase</button>
+				<h3>{{ $menuscript->category->name }}</h3>
+				<h2>
+					{{ $menuscript->title }} <br>
+					<span><small>By- {{ $menuscript->user->name }}</small> <br> <small>{{ $menuscript->updated_at }}</small> </span>
+				</h2>
+				<p>
+					{{ $menuscript->summery }}
+				</p>
+				<a href="#">Read more...</a>
 			</div>
 		</div>
-		<div class="price-col">
-			<div class="price-content">
-				<h3>Basic Package</h3>
-				<h2>20$</h2>
-				<ul>
-					<li>Lorem ipsum dolor sit</li>
-					<li>amet, consectetur con</li>
-					<li>Lorem ipsum dolor sectetur</li>
-				</ul>
-				<button>purchase</button>
-			</div>
-		</div>
+		@endforeach
 		<div class="clr"></div>
 	</div>
 </div>
