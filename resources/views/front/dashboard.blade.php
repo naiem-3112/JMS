@@ -103,29 +103,33 @@
 			<div class="summarise-col">
 				<div class="summarise-content">
 					<i class="fas fa-comments"></i>
-					<h4>Attractive Layout</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam fugit magni minus modi molestias qui quo repudiandae saepe tempore velit!</p>
+					<h4>Writing a journal manuscript</h4>
+					<p>Publishing your results is a vital step in the research lifecycle and in your career as a scientist. Publishing papers is necessary to get your work seen by the scientific community, to exchange your ideas globally and to ensure you receive the recognition for your results.</p>
 				</div>
 			</div>
 			<div class="summarise-col">
 				<div class="summarise-content">
-					<i class="fas fa-mobile-alt"></i>
-					<h4>Attractive Layout</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam fugit magni minus modi molestias qui quo repudiandae saepe tempore velit!</p>
+					<i class="fa fa-pen"></i>
+					<h4>For authors</h4>
+					<p>With the researcher at the heart of the publishing experience, we have created a diverse portfolio of peer-reviewed, open access journals across a wide range of scientific and medical disciplines. Choose the journal that fits your niche.</p>
 				</div>
 			</div>
 			<div class="summarise-col">
 				<div class="summarise-content">
-					<i class="fab fa-apple"></i>
-					<h4>Attractive Layout</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam fugit magni minus modi molestias qui quo repudiandae saepe tempore velit!</p>
+					<i class="fa fa-paper-plane"></i>
+					<h4>For publishers</h4>
+					<p>To assist publishers and societies in embracing the advantages offered by an open access publishing model, we have created Phenom - a simple, intuitive, cost-effective publishing solution that supports all workflows; from submission and peer review through to production and publication.</p>
 				</div>
 			</div>
 			<div class="summarise-col">
 				<div class="summarise-content">
 					<i class="fas fa-angle-double-down"></i>
-					<h4>Attractive Layout</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam fugit magni minus modi molestias qui quo repudiandae saepe tempore velit!</p>
+					<h4>Feature Keys</h4>
+					<ul>
+						<li><p>	prior to starting your research </p></li>
+						<li><p> structure your manuscript and what to include in each section </p></li>
+						<li><p>get the most out of your tables and figures so that they clearly represent your most important results.</p></li>
+					</ul>
 				</div>
 			</div>
 
