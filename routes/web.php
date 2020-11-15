@@ -6,16 +6,20 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'FrontController@home')->name('journal-front.home');
+Route::get('category/menuscript/{id}', 'FrontController@categoryMenuscript')->name('category.menuscript');
 Route::get('/dashboard', 'AdminController@dashboard')->middleware('auth');
 Route::get('/profile/{id}', 'AdminController@profile')->middleware('auth');
 Route::post('/profile/store/{id}', 'AdminController@profileStore')->name('profile.store');
 Route::post('/general/store', 'AdminController@generalStore')->name('general.store');
 
+// Download Menuscript
+Route::get('/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
+
 // Amdin
     Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     // File download
-    Route::get('/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
+    // Route::get('/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
 
     // users
     Route::get('approved/users', 'AdminController@approvedUsers')->name('approved.uesrs');

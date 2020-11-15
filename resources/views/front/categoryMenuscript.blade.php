@@ -5,28 +5,27 @@
 	<title>Journal Management System</title>
 	<!--	Google Fonts-->
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+	
 
 	<link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/front.css') }}">
-
-	<style>
+    <link rel="stylesheet" href="{{ asset('css/cat.css') }}">
+    <style>
 		.slick-prev, .slick-next {
 			color: red;
-    background: red;
-    border-radius: 50%;
+            background: red;
+            border-radius: 50%;
 		}
 		.slick-prev:hover, .slick-next:hover {
 			color: red;
-    background: red;
-    border-radius: 50%;
+            background: red;
+            border-radius: 50%;
 		}
 	</style>
-
 </head>
 <body>
  <!-- top of main nav -->
@@ -91,7 +90,7 @@
 	<div class="main-wr">
 		<div class="menu">
 			<ul>
-				<li><a href="#home">home</a></li>
+				<li><a href="{{ route('journal-front.home')}}">home</a></li>
 				<li><a href="#about">about us</a></li>
 				<li><a href="#features">Features</a></li>
 				<li><a href="#menuscript">Menuscripts</a></li>
@@ -104,62 +103,39 @@
 <!--banner part-->
 <div class="full-wr full-banner">
 	<div class="main-wr main-banner">
+        <h2>{{ $menuscript->title}} Detail Page</h2>
 		
 	</div>
 </div>
-<!--summarise part-->
-<div id="features" class="full-wr full-summarise">
-	<div class="main-wr">
-		<div class="summarise-top">
-			<div class="section-title">
-				<h3>summarise the features</h3>
-				<p>summarise what your product is all about</p>
-			</div>
-		</div>
-		<div class="summarise-bottom">
-			<div class="summarise-col">
-				<div class="summarise-content">
-					<i class="fas fa-comments"></i>
-					<h4>Writing a journal manuscript</h4>
-					<p>Publishing your results is a vital step in the research lifecycle and in your career as a scientist. Publishing papers is necessary to get your work seen by the scientific community, to exchange your ideas globally and to ensure you receive the recognition for your results.</p>
-				</div>
-			</div>
-			<div class="summarise-col">
-				<div class="summarise-content">
-					<i class="fa fa-pen"></i>
-					<h4>For authors</h4>
-					<p>With the researcher at the heart of the publishing experience, we have created a diverse portfolio of peer-reviewed, open access journals across a wide range of scientific and medical disciplines. Choose the journal that fits your niche.</p>
-				</div>
-			</div>
-			<div class="summarise-col">
-				<div class="summarise-content">
-					<i class="fa fa-paper-plane"></i>
-					<h4>For publishers</h4>
-					<p>To assist publishers and societies in embracing the advantages offered by an open access publishing model, we have created Phenom - a simple, intuitive, cost-effective publishing solution that supports all workflows; from submission and peer review through to production and publication.</p>
-				</div>
-			</div>
-			<div class="summarise-col">
-				<div class="summarise-content">
-					<i class="fas fa-angle-double-down"></i>
-					<h4>Feature Keys</h4>
-					<ul>
-						<li><p>	prior to starting your research </p></li>
-						<li><p> structure your manuscript and what to include in each section </p></li>
-						<li><p>get the most out of your tables and figures so that they clearly represent your most important results.</p></li>
-					</ul>
-				</div>
-			</div>
 
-		</div>
+<!--Menuscript part-->
+<div id="menuscript" class="full-wr full-price">
+	<div class="main-wr">
+			<div class="single-menuscript-content">
+				<h1>
+					Title: {{ $menuscript->title }} <br>
+				</h1>
+				<br>
+				<div class="publish-info">
+					 <small>By- {{ $menuscript->user->name }}</small> <br>
+					 <small>Published at- {{ $menuscript->updated_at->format('Y-m-d') }}</small>
+				</div>
+				<hr>
+				<p>
+					{{ $menuscript->summery }}
+				</p>
+				<a class="download" href="{{ route('menuscript.download', $menuscript->paper) }}">Download PDF <i class="fa fa-download"></i> </a>
+			</div>
 		<div class="clr"></div>
 	</div>
 </div>
+
 <!--Menuscript part-->
 <div id="menuscript" class="full-wr full-price">
 	<div class="main-wr">
 		<div class="summarise-top">
 			<div class="section-title">
-				<h3>Menuscripts</h3>
+				<h3>Related Menuscripts</h3>
 				<p>latest menuscripts of popular category</p>
 			</div>
 		</div>
@@ -188,24 +164,6 @@
 		</div>
 		<div class="clr"></div>
 	</div>
-</div>
-
-<!--contact part-->
-<div id="contact" class="full-wr full-summarise">
-	<div class="main-wr">
-		<div class="summarise-top">
-			<div class="section-title">
-				<h3>Contact Us</h3>
-				<p>All the time we love to communicate</p>
-			</div>
-		</div>
-		<div class="summarise-bottom">
-			
-		</div>
-		<div class="clr"></div>
-	</div>
-<iframe style="margin-top: 20px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7296.213792725755!2d90.38516432509185!3d23.885827848068857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c46b6de8f207%3A0x638eb6830d10167d!2sSector%2010%2C%20Dhaka%201230!5e0!3m2!1sen!2sbd!4v1605384624154!5m2!1sen!2sbd" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-
 </div>
   
 <!--footer part-->
