@@ -181,7 +181,7 @@
 				<p>
 					{{ \Illuminate\Support\Str::limit($menuscript->summery, 150, '...') }}
 				</p>
-				<a href="{{ route('category.menuscript', $menuscript->id) }}" style=" ">Read more <i class="fa fa-arrow-right"></i> </a>
+				<a class="readmore" href="{{ route('category.menuscript', $menuscript->id) }}" style=" ">Read more <i class="fa fa-arrow-right"></i> </a>
 			</div>
 		</div>
 		@endforeach

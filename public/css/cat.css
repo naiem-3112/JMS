@@ -177,8 +177,11 @@ ul, ol {
 .full-banner h2{
 	position: absolute;
 	top: 30%;
-	left: 45%;
-	color: #bd070e;
+	left: 40%;
+	color: #000000;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 5px;
 }
 
 /*pricing part*/
@@ -219,7 +222,7 @@ ul, ol {
 }
 
 .single-menuscript-content>.download{
-	color: #ca5656;
+	color: #c23939;
 	font-size: 14px;
 }
 
@@ -233,6 +236,11 @@ ul, ol {
 	background-color: #f9fafaf3;
 	padding: 20px 0;
 	text-align: center;
+}
+
+.menuscript-content>.readmore{
+	color: #c23939;
+	font-size: 14px;
 }
 
 .menuscript-content h3 {

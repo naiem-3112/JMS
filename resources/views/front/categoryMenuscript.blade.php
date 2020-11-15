@@ -103,7 +103,7 @@
 <!--banner part-->
 <div class="full-wr full-banner">
 	<div class="main-wr main-banner">
-        <h2>{{ $menuscript->title}} Detail Page</h2>
+        <h2><span style="color: #bd070e">M</span>enuscript<span style="color: #bd070e">  D</span>etail<span style="color: #bd070e">  P</span>age</h2>
 		
 	</div>
 </div>
@@ -157,7 +157,7 @@
 				<p>
 					{{ \Illuminate\Support\Str::limit($menuscript->summery, 150, '...') }}
 				</p>
-				<a href="{{ route('category.menuscript', $menuscript->id) }}" style=" ">Read more <i class="fa fa-arrow-right"></i> </a>
+				<a class="readmore" href="{{ route('category.menuscript', $menuscript->id) }}" style=" ">Read more <i class="fa fa-arrow-right"></i> </a>
 			</div>
 		</div>
 		@endforeach
