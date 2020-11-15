@@ -160,23 +160,28 @@
 		<div class="summarise-top">
 			<div class="section-title">
 				<h3>Menuscripts</h3>
-				<p>summarise what your product is all about</p>
+				<p>latest menuscripts of popular category</p>
 			</div>
 		</div>
-		<div class="your-class">
+		<div style="margin: 20px 0" class="menu-slider">
     
 		@foreach($menuscripts as $menuscript)
-		<div class="price-col">
-			<div class="price-content">
+		<div class="menuscript-col">
+			<div class="menuscript-content">
 				<h3>{{ $menuscript->category->name }}</h3>
 				<h2>
 					{{ $menuscript->title }} <br>
-					<span><small>By- {{ $menuscript->user->name }}</small> <br> <small>{{ $menuscript->updated_at }}</small> </span>
 				</h2>
+				<br>
+				<div>
+					 <small class="writer">By- {{ $menuscript->user->name }}</small> 
+					 <small class="date">Published at- {{ $menuscript->updated_at->format('Y-m-d') }}</small>
+				</div>
+				<br>
 				<p>
-					{{ $menuscript->summery }}
+					{{ \Illuminate\Support\Str::limit($menuscript->summery, 150, $end='...') }}
 				</p>
-				<a href="#">Read more...</a>
+				<a href="#" style=" ">Read more <i class="fa fa-arrow-right"></i> </a>
 			</div>
 		</div>
 		@endforeach
@@ -255,17 +260,34 @@
 	</div>
 </div>
 
-
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
-	$('.your-class').slick({
-  slidesToShow: 3,
-  
-  slidesToScroll: 1,
-  autoplay: false,
-  autoplaySpeed: 2000,
+	$('.menu-slider').slick({
+  dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        arrows: true,
+        responsive: [{
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+           breakpoint: 400,
+           settings: {
+              arrows: false,
+              slidesToShow: 1,
+              slidesToScroll: 1
+           }
+        }]
 });
 </script>
 </body>
