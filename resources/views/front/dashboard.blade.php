@@ -5,12 +5,28 @@
 	<title>Journal Management System</title>
 	<!--	Google Fonts-->
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
-<!--	Font Awesome-->
 	<link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/front.css') }}">
-	{{--  <link rel="stylesheet" href="{{ asset('css/topnav.css') }}">  --}}
+
+	<style>
+		.slick-prev, .slick-next {
+			color: red;
+    background: red;
+    border-radius: 50%;
+		}
+		.slick-prev:hover, .slick-next:hover {
+			color: red;
+    background: red;
+    border-radius: 50%;
+		}
+	</style>
+
 </head>
 <body>
  <!-- top of main nav -->
@@ -71,14 +87,15 @@
 
 <!-- end top of main nav -->
 <!--header part-->
-<div class="full-wr full-menu">
+<div id="home" class="full-wr full-menu">
 	<div class="main-wr">
 		<div class="menu">
 			<ul>
-				<li><a href="#">home</a></li>
-				<li><a href="#">about us</a></li>
-				<li><a href="#">Menuscripts</a></li>
-				<li><a href="#">contact us</a></li>
+				<li><a href="#home">home</a></li>
+				<li><a href="#about">about us</a></li>
+				<li><a href="#features">Features</a></li>
+				<li><a href="#menuscript">Menuscripts</a></li>
+				<li><a href="#contact">contact us</a></li>
 			</ul>
 		</div>
 		<div class="clr"></div>
@@ -91,7 +108,7 @@
 	</div>
 </div>
 <!--summarise part-->
-<div class="full-wr full-summarise">
+<div id="features" class="full-wr full-summarise">
 	<div class="main-wr">
 		<div class="summarise-top">
 			<div class="section-title">
@@ -137,8 +154,8 @@
 		<div class="clr"></div>
 	</div>
 </div>
-<!--pricing part-->
-<div class="full-wr full-price">
+<!--Menuscript part-->
+<div id="menuscript" class="full-wr full-price">
 	<div class="main-wr">
 		<div class="summarise-top">
 			<div class="section-title">
@@ -146,6 +163,8 @@
 				<p>summarise what your product is all about</p>
 			</div>
 		</div>
+		<div class="your-class">
+    
 		@foreach($menuscripts as $menuscript)
 		<div class="price-col">
 			<div class="price-content">
@@ -161,13 +180,13 @@
 			</div>
 		</div>
 		@endforeach
+		</div>
 		<div class="clr"></div>
 	</div>
 </div>
 
-
-<!--summarise part-->
-<div class="full-wr full-summarise">
+<!--contact part-->
+<div id="contact" class="full-wr full-summarise">
 	<div class="main-wr">
 		<div class="summarise-top">
 			<div class="section-title">
@@ -183,7 +202,7 @@
 <iframe style="margin-top: 20px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7296.213792725755!2d90.38516432509185!3d23.885827848068857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c46b6de8f207%3A0x638eb6830d10167d!2sSector%2010%2C%20Dhaka%201230!5e0!3m2!1sen!2sbd!4v1605384624154!5m2!1sen!2sbd" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
 </div>
-
+  
 <!--footer part-->
 <div class="full-wr full-footer">
 	<div class="main-wr">
@@ -235,5 +254,20 @@
 		<p style="text-align: center; color: #ffffff">Copyright © 2020 Mohammad Tamim Rahman </p>
 	</div>
 </div>
+
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+	$('.your-class').slick({
+  slidesToShow: 3,
+  
+  slidesToScroll: 1,
+  autoplay: false,
+  autoplaySpeed: 2000,
+});
+</script>
 </body>
 </html> 
+
