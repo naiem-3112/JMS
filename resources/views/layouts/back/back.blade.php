@@ -377,13 +377,13 @@
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.marked.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="fa fa-share nav-icon"></i>
-                                        <p>Marked</p>
+                                        <p>Reviewed</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.checked.menuscript') }}" class="nav-link">
                                         <i style="color: #f55" class="fa fa-check nav-icon"></i>
-                                        <p>Checked</p>
+                                        <p>Published</p>
                                     </a>
                                 </li>
                             </ul>
@@ -471,7 +471,7 @@
                         @endif
                         <li class="nav-header">Your Account</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('user.profile', Auth::id()) }}" class="nav-link">
                                 <i style="color: #f55" class="far fa-user-circle nav-icon"></i>
                                 <p>Profile</p>
                             </a>

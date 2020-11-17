@@ -25,7 +25,7 @@
                     <th style="text-align: center" width="15%">Summery</th>
                     <th style="text-align: center" width="25%">Paper</th>
                     <th style="text-align: center" width="10%">Status</th>
-                    <th style="text-align: center" width="15%">Action</th>
+                    {{--  <th style="text-align: center" width="15%">Action</th>  --}}
                 </tr>
             </thead>
             <tbody>
@@ -42,11 +42,11 @@
                         @if($rev_menu->status == 1) <span class="badge badge-warning">Checked</span>@else
                         <span class="badge badge-danger">reject</span> @endif
                     </td>
-                    <td style="text-align: center">
+                    {{--  <td style="text-align: center">
 
-                        <a title="Share" href="{{ route('publisher.assign-form.menuscript', $rev_menu->menuscript->id) }}"
-                            class="btn btn-sm btn-success" title="assign"><i class="fa fa-eye"></i></a>
-                    </td>
+                        {{--  <a title="Share" href="{{ route('publisher.markDetail.menuscript', $rev_menu->menuscript->id) }}"
+                            class="btn btn-sm btn-success" title="assign"><i class="fa fa-eye"></i></a>  --}}
+                    {{--  </td  --}}
                 </tr>
                 @endforeach
                 @else

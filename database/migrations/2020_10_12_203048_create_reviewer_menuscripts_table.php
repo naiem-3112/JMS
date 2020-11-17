@@ -24,7 +24,7 @@ class CreateReviewerMenuscriptsTable extends Migration
             $table->integer('qus4');
             $table->integer('qus5');
             $table->integer('mark');
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

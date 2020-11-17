@@ -94,7 +94,7 @@
 				<li><a href="#home">home</a></li>
 				<li><a href="#about">about us</a></li>
 				<li><a href="#features">Features</a></li>
-				<li><a href="#menuscript">Menuscripts</a></li>
+				<li><a href="#menuscript">Manuscripts</a></li>
 				<li><a href="#contact">contact us</a></li>
 			</ul>
 		</div>
@@ -159,8 +159,8 @@
 	<div class="main-wr">
 		<div class="summarise-top">
 			<div class="section-title">
-				<h3>Menuscripts</h3>
-				<p>latest menuscripts of popular category</p>
+				<h3>Manuscripts</h3>
+				<p>latest manuscripts of popular category</p>
 			</div>
 		</div>
 		<div style="margin: 20px 0" class="menu-slider">

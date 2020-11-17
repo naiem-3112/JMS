@@ -84,6 +84,7 @@ Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'au
     Route::get('checked', 'ReviewerController@checked')->name('checked.menuscript');    
     Route::get('reviewer/feedback-form/{id}', 'ReviewerController@feedbackForm')->name('feedback-form');
     Route::post('reviewer/feedback/store/{id}', 'ReviewerController@feedbackStore')->name('feedback.store');
+    
     });
 
 Auth::routes();

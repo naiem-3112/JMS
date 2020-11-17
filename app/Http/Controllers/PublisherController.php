@@ -64,7 +64,7 @@ class PublisherController extends Controller
         $menuscript->status = 1;
         $menuscript->save();
         Alert::toast('Menuscript assigned successfully', 'success');
-        return back();
+        return redirect()->route('publisher.revision.menuscript');
 
     }
 
