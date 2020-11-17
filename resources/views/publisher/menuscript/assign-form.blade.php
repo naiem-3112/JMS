@@ -1,8 +1,8 @@
 @extends('layouts.back.back')
 @section('back.content')
-@section('base.css')
+@push('base.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
-@endsection
+@endpush
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -66,9 +66,9 @@
 </div>
 
 @endsection
-@section('base.js')
+@push('base.js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script>
         $('#rev').select2({placeholder:"Choose Reviewers", allowClear: true, tags:true});
     </script>
-@endsection
+@endpush

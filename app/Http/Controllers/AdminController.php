@@ -77,7 +77,16 @@ class AdminController extends Controller
     public function profileStore(Request $r, $id){
         $this->validate($r, [
             'name' => 'required',
-            'email' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => 'required|email',
+            'country' => 'required',
+            'city' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'about' => 'required',
+            'designation' => 'required',
+            'image' => 'required',
         ]);
 
         $user = User::find($id);
@@ -100,7 +109,7 @@ class AdminController extends Controller
             $image->save(public_path().'/profile/'.$uniqueImageName);
             $user->image = $uniqueImageName;
         }
-
+        $user->status = 0;
         $user->save();
         Alert::toast('Profile updated successfully', 'success');
         return back();

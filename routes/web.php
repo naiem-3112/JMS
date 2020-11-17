@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'FrontController@home')->name('journal-front.home');
 Route::get('category/menuscript/{id}', 'FrontController@categoryMenuscript')->name('category.menuscript');
 Route::get('/dashboard', 'AdminController@dashboard')->middleware('auth');
-Route::get('/profile/{id}', 'AdminController@profile')->middleware('auth');
+Route::get('/profile/{id}', 'AdminController@profile')->middleware('auth')->name('user.profile');
 Route::post('/profile/store/{id}', 'AdminController@profileStore')->name('profile.store');
 Route::post('/general/store', 'AdminController@generalStore')->name('general.store');
 

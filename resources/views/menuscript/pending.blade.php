@@ -1,4 +1,7 @@
 @extends('layouts.back.back')
+@push('base.css')
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+@endpush
 @section('back.content')
 <style>
     .custom-table {
@@ -12,7 +15,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <table class="table table-bordered table-striped custom-table">
+        <table id="dt-table" class="table table-bordered table-striped custom-table">
             <thead>
                 <tr>
                     <th class="text-center" width="5%">ID</th>
@@ -57,3 +60,11 @@
     </div>
 </div>
 @endsection
+@push('base.js')
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+    $('#dt-table').DataTable();
+</script>
+    
+@endpush
