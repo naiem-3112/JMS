@@ -26,24 +26,128 @@
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="form-group">
-                                        <label>Mark<small>(Out of 100)</small> <sup style="color: red">*</sup> </label>
-                                        <input type="number" class="form-control" name="mark" placeholder="Give mark">
-                                        @error('mark')
-                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Comment<small>(If any)</small></label>
-                                        <input type="text" class="form-control" name="comment" placeholder="Give comment">
-                                        @error('comment')
-                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div>
-                                        <button type="submit" class="btn btn-md btn-primary">Submit</button>
-                                        <a href="#" class="btn btn-md btn-info">Back</a>
-                                    </div>
+                                   {{--  Quesations  --}}
+                                <p style="font-size: 16px; margin-bottom: 0rem; margin-top: 1rem"><b>1. Technical quality of paper (Proposed method, results, comparison of result)</b></p>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="a"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Below Average</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Average</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Good</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Excellent</label>
+                                </div>
+                                
+
+                                <p style="font-size: 16px; margin-bottom: 0rem; margin-top: 1rem"><b>2. Presentation quality of the paper (IEEE format, figures, tables)</b></p>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="a"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Below Average</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Average</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Good</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Excellent</label>
+                                </div>
+
+                                <p style="font-size: 16px; margin-bottom: 0rem; margin-top: 1rem"><b>3. Clarity (Quality of English, background, description of methodology, results and analysis)</b></p>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="a"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Below Average</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Average</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Good</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label">Excellent</label>
+                                </div>
+                                <p style="font-size: 16px; margin-bottom: 0rem; margin-top: 1rem"><b>4. Reference and literature survey (Reference , quality, publication year etc.)</b></p>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="a"
+                                           name="">
+                                    <label class="form-check-label">Below Average</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Average</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label">Good</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Excellent</label>
+                                </div>
+
+                                <p style="font-size: 16px; margin-bottom: 0rem; margin-top: 1rem"><b>Relevance of the paper with the publication track(s) [Title, Abstraction, Conclusion]</b></p>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="a"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Below Average</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Average</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Good</label>
+                                </div>
+                                <div class="form-check" style="display: inline-block">
+                                    <input type="radio" class="form-check-input" id="option" value="b"
+                                           name="">
+                                    <label class="form-check-label" style="margin-right: 15px">Excellent</label>
+                                </div>
+                                <div style="margin-top: 10px" class="form-group">
+                                    <label>Comment<small>(If any)</small></label>
+                                    <input type="text" class="form-control" name="comment" placeholder="Give comment">
+                                    @error('comment')
+                                    <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <br><br>
+                                <div>
+                                    <button type="submit" class="btn btn-md btn-primary">Submit</button>
+                                    <a href="#" class="btn btn-md btn-info">Back</a>
+                                </div>
                                 </div>
                             </form>
                         </div>
