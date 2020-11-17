@@ -20,6 +20,10 @@
     {{--  Favicon  --}}
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('back_temp/dist/img/favicon.png')}}" />
 
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css'>
+    <link rel='stylesheet' href='https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css
+'>
+
     {{-- select2 --}}
 
     {{-- summernote --}}
@@ -542,6 +546,10 @@
         $(document).ready(function () {
             bsCustomFileInput.init()
         })
+            $(document).ready(function() {
+    $('#joy').DataTable();
+} );
+
 
     </script>
     {{-- select2 --}}
