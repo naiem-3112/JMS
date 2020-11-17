@@ -37,7 +37,7 @@
                 @if($total_reviewer == $total_checked)
                 <tr>
                     <td>{{ $menuscript->id}}</td>
-                    <td><a href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
+                    <td><a target="_blank" href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
                     </td>
                     <td>{{ $total_reviewer }}</td>
                     @php

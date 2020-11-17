@@ -13,7 +13,7 @@ Route::post('/profile/store/{id}', 'AdminController@profileStore')->name('profil
 Route::post('/general/store', 'AdminController@generalStore')->name('general.store');
 
 // Download Menuscript
-Route::get('/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
+Route::get('paper/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
 
 // Amdin
     Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {

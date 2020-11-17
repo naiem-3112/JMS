@@ -66,7 +66,9 @@ class AdminController extends Controller
     // File download
         public function download($file_name) {
             $file_path = public_path('menuscripts/'.$file_name);
-            return response()->download($file_path);
+            return response()->file($file_path);
+
+            // return response()->download($file_path);
     }
 
     public function profile($id){
