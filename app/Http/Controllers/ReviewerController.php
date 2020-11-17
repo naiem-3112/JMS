@@ -28,9 +28,21 @@ class ReviewerController extends Controller
     }
 
     public function feedbackStore(Request $r, $id){
+        $this->validate($r, [
+            'menuscript_id' => 'required',
+            'qus1' => 'required',
+            'qus2' => 'required',
+            'qus3' => 'required',
+            'qus4' => 'required',
+            'qus5' => 'required',
+        ]);
         $rev_menus = ReviewerMenuscript::find($id);
-        $rev_menus->mark = $r->mark;
         $rev_menus->comment = $r->comment;
+        $rev_menus->qus1 = $r->qus1;
+        $rev_menus->qus2 = $r->qus2;
+        $rev_menus->qus3 = $r->qus3;
+        $rev_menus->qus4 = $r->qus4;
+        $rev_menus->qus5 = $r->qus5;
         $rev_menus->status = 1;
         $rev_menus->save();
         
