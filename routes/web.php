@@ -66,6 +66,7 @@ Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'au
     Route::get('publish/menuscript/{id}', 'PublisherController@publishMenuscript')->name('publish.menuscript');
     Route::get('reject/menuscript/{id}', 'PublisherController@rejectMenuscript')->name('reject.menuscript');
     Route::get('checked/menuscript', 'PublisherController@checkedMenuscript')->name('checked.menuscript');
+    Route::get('checked/markDetail/{id}', 'PublisherController@markDetailMenuscript')->name('markDetail.menuscript');
 });
 
     // Author

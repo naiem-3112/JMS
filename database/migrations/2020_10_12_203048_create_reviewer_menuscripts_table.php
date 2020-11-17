@@ -18,6 +18,11 @@ class CreateReviewerMenuscriptsTable extends Migration
             $table->unsignedBigInteger('reviewer_id');
             $table->unsignedBigInteger('menuscript_id');
             $table->boolean('status');
+            $table->integer('qus1');
+            $table->integer('qus2');
+            $table->integer('qus3');
+            $table->integer('qus4');
+            $table->integer('qus5');
             $table->integer('mark');
             $table->string('comment');
             $table->timestamps();
