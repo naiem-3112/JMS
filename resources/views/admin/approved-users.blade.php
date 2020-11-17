@@ -1,9 +1,12 @@
 @extends('layouts.back.back')
+@push('base.css')
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+@endpush
 @section('back.content')
 <div class="content">
     <div class="row">
         <div class="col-12">
-            <table class="table table-bordered table-striped mt-4">
+            <table id="dt-table" class="table table-bordered table-striped mt-4">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -56,3 +59,11 @@
     </div>
 </div>
 @endsection
+@push('base.js')
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+    $('#dt-table').DataTable();
+</script>
+    
+@endpush

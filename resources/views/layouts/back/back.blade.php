@@ -23,7 +23,7 @@
     {{-- select2 --}}
 
     {{-- summernote --}}
-    @yield('base.css')
+    @stack('base.css')
 
 
     <style>
@@ -54,7 +54,7 @@
                     <a style="color: #fff" href="{{ url('dashboard') }}" class="nav-link">Home</a>
                 </li>
             </ul>
-
+            @if(Auth::user()->status != 3)
             <!-- SEARCH FORM -->
             <form class="form-inline ml-3">
                 <div class="input-group input-group-sm">
@@ -265,8 +265,10 @@
                 @endif
 
             </ul>
+            @endif
         </nav>
         <!-- /.navbar -->
+
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -276,6 +278,7 @@
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Journal Management</span>
             </a>
+            @if(Auth::user()->status != 3)
 
             <!-- Sidebar -->
             <div class="sidebar">
@@ -487,13 +490,25 @@
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
+
+            @else
+                <a href="{{ route('user.profile', Auth::id()) }}">
+                    <i style="color: #f55; margin-top: 100%; margin-left: 40%" class="far fa-user-circle nav-icon"></i> <span style="color: #f55; ">  Profile </span> 
+                </a>
+            @endif
+
+
             <!-- /.sidebar -->
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+
             @include('sweetalert::alert')
             @yield('back.content')
+            @if(Auth::user()->status == 3)
+            <p  style="color: rgb(228, 19, 19); font-weight: bold; font-size: 24px; padding: 25% 0  0 40%">Update Your Profile Info First</p>
+                @endif
         </div>
         <!-- /.content-wrapper -->
 
@@ -547,7 +562,7 @@
     {{-- select2 --}}
 
     {{-- summernote --}}
-    @yield('base.js')
+    @stack('base.js')
 </body>
 
 </html>
