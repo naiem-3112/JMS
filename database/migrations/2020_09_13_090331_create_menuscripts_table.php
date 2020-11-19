@@ -24,6 +24,7 @@ class CreateMenuscriptsTable extends Migration
             $table->longText('summery');
             $table->string('paper');
             $table->boolean('status');
+            $table->integer('remark');
             $table->timestamps();
         });
     }

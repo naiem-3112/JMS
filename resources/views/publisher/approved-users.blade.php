@@ -1,9 +1,22 @@
 @extends('layouts.back.back')
+@push('base.css')
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+@endpush
 @section('back.content')
-<div class="content">
-    <div class="row">
-        <div class="col-12">
-            <table class="table table-striped table-bordered mt-4" id="joy"">
+<style>
+    .custom-table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+</style>
+<div class="card">
+    <div class="card-header">
+        <span>Approved Users</span>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="dt-table" class="table table-bordered table-striped custom-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -50,21 +63,18 @@
                     @endif
                 
                 </tbody>
-                <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
               </table>
-              {{ $approved_users->links()}}
         </div>
     </div>
 </div>
 
 @endsection
+@push('base.js')
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+    $('#dt-table').DataTable();
+</script>
+    
+@endpush
 

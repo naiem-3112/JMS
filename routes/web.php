@@ -72,7 +72,9 @@ Route::group(['prefix' => 'publisher', 'as' => 'publisher.', 'middleware' => 'au
     // Author
     Route::group(['prefix' => 'author', 'as' => 'author.', 'middleware' => 'auth'], function () {
     Route::get('create', 'MenuscriptController@create')->name('create.menuscript');
+    Route::get('resubmit/{id}', 'MenuscriptController@resubmit')->name('resubmit.menuscript');
     Route::post('store', 'MenuscriptController@store')->name('store.menuscript');    
+    Route::post('resubmit/store', 'MenuscriptController@resubmitStore')->name('resubmit.store');    
     Route::get('pending/menuscript', 'AuthorController@pendingMenuscript')->name('pending.menuscript');
     Route::get('checked/menuscript', 'AuthorController@checkedMenuscript')->name('checked.menuscript');
     // Route::get('revision/menuscript', 'AuthorController@revisionMenuscript')->name('revision.menuscript');

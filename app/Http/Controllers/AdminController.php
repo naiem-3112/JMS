@@ -84,11 +84,11 @@ class AdminController extends Controller
             'email' => 'required|email',
             'country' => 'required',
             'city' => 'required',
-            'mobile' => 'required',
+            'mobile' => 'required|max:11',
             'address' => 'required',
             'about' => 'required',
             'designation' => 'required',
-            'image' => 'required',
+            // 'image' => 'required',
         ]);
 
         $user = User::find($id);

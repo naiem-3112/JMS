@@ -56,7 +56,7 @@
                         <ul class="nav nav-pills">
                             <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Profile
                                     Details</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a>
+                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Update Profile</a>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="#general" data-toggle="tab">General</a>
                             </li>

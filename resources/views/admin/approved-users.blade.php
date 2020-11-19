@@ -3,10 +3,20 @@
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 @endpush
 @section('back.content')
-<div class="content">
-    <div class="row">
-        <div class="col-12">
-            <table id="dt-table" class="table table-bordered table-striped mt-4">
+<style>
+    .custom-table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+</style>
+<div class="card">
+    <div class="card-header">
+        <span>Approved Users</span>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="dt-table" class="table table-bordered table-striped custom-table">
                 <thead>
                     <tr>
                         <th>ID</th>
