@@ -57,8 +57,11 @@ class AdminController extends Controller
         return view('admin.user.detail', compact('user'));
     }
 
-    public function delete($id){
-        $user = User::find();
+    public function delete(Request $request, $id){
+        $user = User::find($id);
+        $user->delete();
+        Alert::toast('User deleted successfully', 'success');
+        return back();
     }
     // user end
 

@@ -47,7 +47,7 @@
                         
                             <form action="{{ route('delete.user', $user->id) }}" method="post"
                                 style="display: inline-block">
-                                @method('DELETE')
+                                
                                 @csrf
                                 <button onclick="alert('Are You Sure to DELETE!')"
                                     class="btn btn-sm btn-danger"><i

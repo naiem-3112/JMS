@@ -3,10 +3,20 @@
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 @endpush
 @section('back.content')
-<div class="content">
-    <div class="row">
-        <div class="col-12">
-            <table id="dt-table" class="table table-bordered table-striped mt-4">
+<style>
+    .custom-table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+</style>
+<div class="card">
+    <div class="card-header">
+        <span>Pending Users</span>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="dt-table" class="table table-bordered table-striped custom-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -33,12 +43,14 @@
                             <span class="badge badge-danger">Inactive</span> @endif
                         </td>
                         <td>
+                            <a href="{{ route('user.profile', $user->id) }}" class="btn btn-sm btn-success" title="view"><i class="fa fa-eye"></i></a>
+
                             <a href="{{ route('mark-approve.uesr', $user->id) }}" class="btn btn-sm btn-success" title="approve" onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a>
-                            <a href="{{ route('mark-reject.users', $user->id) }}" class="btn btn-sm btn-info" title="reject" onclick="alert('Are you sure to reject!')"><i class="fas fa-times-circle"></i></a>
+                            {{--  <a href="{{ route('mark-reject.users', $user->id) }}" class="btn btn-sm btn-info" title="reject" onclick="alert('Are you sure to reject!')"><i class="fas fa-times-circle"></i></a>  --}}
                         
                             <form action="{{ route('delete.user', $user->id) }}" method="post"
                                 style="display: inline-block">
-                                @method('DELETE')
+                                
                                 @csrf
                                 <button onclick="alert('Are You Sure to DELETE!')"
                                     class="btn btn-sm btn-danger"><i
@@ -55,7 +67,6 @@
                 
                 </tbody>
               </table>
-              {{ $pending_users->links()}}
         </div>
     </div>
 </div>
