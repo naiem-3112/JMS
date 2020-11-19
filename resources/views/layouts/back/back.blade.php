@@ -68,7 +68,7 @@
             </ul>
             @if(Auth::user()->status != 3)
             <!-- SEARCH FORM -->
-            <form class="form-inline ml-3">
+            {{--  <form class="form-inline ml-3">
                 <div class="input-group input-group-sm">
                     <input class="form-control form-control-navbar" type="search" placeholder="Search"
                         aria-label="Search">
@@ -78,12 +78,12 @@
                         </button>
                     </div>
                 </div>
-            </form>
+            </form>  --}}
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
+                {{--  <li class="nav-item dropdown">
 
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
@@ -140,7 +140,7 @@
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
-                </li>
+                </li>  --}}
                  @if(auth()->user()->user_type_id == 0)
                 <!-- Notifications Dropdown Menu -->
                 @php

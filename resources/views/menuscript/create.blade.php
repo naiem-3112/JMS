@@ -37,19 +37,20 @@
                                             <div class="form-group">
                                                 <label>Author Email</label>
                                                 <input type="email" class="form-control" name="email"
-                                                    placeholder="Enter name">
+                                                    placeholder="Enter email">
                                                 @error('email')
                                                 <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-1">
-                                            <div style="margin: 35px 0 0 30px;">
+                                            <div style="margin: 30px 0 0 30px;">
                                                 <button type="button" name="add" id="ad-btn" class="btn btn-success"><i class="fa fa-plus"></i></button>
                                                 {{-- <button class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button> --}}
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="newRow"></div>
                                     <div class="form-group">
                                         <label>Summery</label>
                                         <textarea name="summery" id="summery" class="form-control"
@@ -99,4 +100,20 @@
 </div>
 
 @endsection
+
+@push('base.js')
+    <script>
+        $('#ad-btn').click(function(){
+            $('#newRow').append($( "<div class='row' id='dynamic'><div class='col-5'> <div class='form-group'><input type='text'"
+                 +"class='form-control' name='name' placeholder='Enter name'></div></div><div class='col-6'><div class='form-group'>"
+                     +"<input type='email' class='form-control' name='email' placeholder='Enter email'></div></div><div class='col-1'>"
+                         +"<div style='margin: 4px 0 0 30px;'><button type='button' onclick='removebtn()' name='remove' id='remove' class='btn btn-danger'>"
+                             +"<i class='fa fa-minus'></i></button></div></div></div>"));
+        });
+
+        function removebtn(){
+            $('#dynamic').remove();
+        }
+    </script>
+@endpush
 

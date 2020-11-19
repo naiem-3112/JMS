@@ -31,7 +31,7 @@
                 <tr>
                     <td>{{ $menuscript->id}}</td>
                     <td>{{ $menuscript->title}}</td>
-                    <td><a href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
+                    <td><a target="_blank" href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
                     </td>
                     <td style="text-align: center">
                         @if($menuscript->status == 3) <span class="badge badge-success">Published</span>@elseif($menuscript->status == 4)

@@ -15,7 +15,7 @@ class ReviewerMenuscript extends Model
     }
 
     public function user(){
-        // return $this->hasOne('');
+        
         return $this->hasOne('App\User', 'id', 'reviewer_id');
     }
 }

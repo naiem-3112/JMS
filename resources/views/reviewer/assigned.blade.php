@@ -36,7 +36,7 @@
                     <td>{{ $rev_menu->menuscript->title }}</td>
                     <td style="text-align: center">{{ $rev_menu->menuscript->email }}</td>
                     <td>{{ $rev_menu->menuscript->summery }}</td>
-                    <td><a href="{{ route('menuscript.download', $rev_menu->menuscript->paper) }}">{{ $rev_menu->menuscript->paper }}</a>
+                    <td><a target="_blank" href="{{ route('menuscript.download', $rev_menu->menuscript->paper) }}">{{ $rev_menu->menuscript->paper }}</a>
                     </td>
                     <td style="text-align: center">
                         @if($rev_menu->status == 0) <span class="badge badge-warning">Unchecked</span>@else

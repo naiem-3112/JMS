@@ -37,7 +37,7 @@
                 @if($total_reviewer == $total_checked)
                 <tr>
                     <td>{{ $menuscript->id}}</td>
-                    <td><a target="_blank" href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
+                    <td><a  target="_blank" href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a>
                     </td>
                     <td>{{ $total_reviewer }}</td>
                     @php
@@ -48,9 +48,10 @@
                             $qus3 = $revmenu->qus3;
                             $qus4 = $revmenu->qus4;
                             $qus5 = $revmenu->qus5;
-
+                    
                            $totalPerReviewer += $qus1+$qus2+$qus3+$qus4+$qus5;
                         }
+                        
                         $avgMarkPerReviewer = $totalPerReviewer/$total_reviewer;
                         $totalAvgMark = $avgMarkPerReviewer/5;
                         //$total_mark_get = $menuscript->rev_menus->sum('mark');

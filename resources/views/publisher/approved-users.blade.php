@@ -43,7 +43,8 @@
                             <span class="badge badge-danger">Inactive</span> @endif
                         </td>
                         <td>
-                            <a href="{{ route('user.detail', $user->id) }}" class="btn btn-sm btn-success" title="view"><i class="fa fa-eye"></i></a>
+                            {{--  <a href="{{ route('user.detail', $user->id) }}" class="btn btn-sm btn-success" title="view"><i class="fa fa-eye"></i></a>  --}}
+                            <a href="{{ route('user.profile', $user->id) }}" class="btn btn-sm btn-success" title="view"><i class="fa fa-eye"></i></a>
                         
                             <form action="{{ route('delete.user', $user->id) }}" method="post"
                                 style="display: inline-block">

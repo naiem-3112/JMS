@@ -31,7 +31,7 @@ class MenuscriptController extends Controller
             'name' => 'required',
             'email' => 'required',
             'category_id' => 'required',
-            'paper_file' => 'required|mimes:pdf'
+            'paper_file' => 'required|mimes:pdf,docx'
         ]);
 
         $menuscript= new Menuscript();
