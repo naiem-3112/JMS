@@ -11,7 +11,7 @@
                     <!-- /.card-header -->
                     <div class="card-body p-0">
                         <div class="col-12">
-                            @foreach($menuscript->rev_menus as $revmenu)
+                            @foreach($rev_menus as $revmenu)
                             <form action="#" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">

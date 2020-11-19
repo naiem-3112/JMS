@@ -60,8 +60,8 @@ class ReviewerController extends Controller
     }
 
     public function markDetailMenuscript($id){
-        $rev_menus = ReviewerMenuscript::where('menuscript_id', $id)->get();
-        $menuscript = Menuscript::find($id);
-        return view('publisher.markDetail.menuscript', compact('menuscript'));
+        $rev_menus = ReviewerMenuscript::where('menuscript_id', $id)->where('reviewer_id', Auth::id())->get();
+        // $menuscript = Menuscript::find($id);
+        return view('reviewer.markedDetail', compact('rev_menus'));
     }
 }
