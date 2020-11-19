@@ -1,6 +1,6 @@
 @extends('layouts.back.back')
 @push('base.css')
-<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+{{--  <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">  --}}
 @endpush
 @section('back.content')
 <style>
@@ -19,7 +19,7 @@
         <table id="dt-table" class="table table-bordered table-striped custom-table">
             <thead>
                 <tr>
-                    <th style="text-align: center"  width="5%">ID</th>
+                    <th style="text-align: center"  width="10%">ID</th>
                     <th style="text-align: center"  width="15%">Title</th>
                     <th style="text-align: center"  width="15%">Email</th>
                     <th style="text-align: center"  width="15%">Summery</th>

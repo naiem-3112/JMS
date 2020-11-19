@@ -58,4 +58,10 @@ class ReviewerController extends Controller
         return redirect()->route('reviewer.checked.menuscript');
 
     }
+
+    public function markDetailMenuscript($id){
+        $rev_menus = ReviewerMenuscript::where('menuscript_id', $id)->get();
+        $menuscript = Menuscript::find($id);
+        return view('publisher.markDetail.menuscript', compact('menuscript'));
+    }
 }
