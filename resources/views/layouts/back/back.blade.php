@@ -40,6 +40,14 @@
 
         }
 
+        .badge{
+            font-size: 52%;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            background-color: #F55;
+        }
+
     </style>
 </head>
 
@@ -176,8 +184,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i style="color: #fff" class="far fa-bell"></i>
-                        <span style="background: #2C3E50; color: #fff" class="badge navbar-badge">
-                            {{ $total }}</span>
+                        <span style="background: #2C3E50; color: #fff" class="badge navbar-badge">{{ $total }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
