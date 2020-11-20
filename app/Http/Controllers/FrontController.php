@@ -9,7 +9,7 @@ class FrontController extends Controller
 {
     public function home(){
         $today = date('Y-m-d H:i:s');
-        $menuscripts = Menuscript::where('status', 4)->get();
+        $menuscripts = Menuscript::where('status', 3)->get();
         return view('front.dashboard', compact('menuscripts', 'today'));
     }
 
@@ -18,7 +18,7 @@ class FrontController extends Controller
 
         $menuscript = Menuscript::find($id);
         $category_id = $menuscript->category_id;
-        $menuscripts = Menuscript::where('category_id', $category_id)->where('status', 4)->get();
+        $menuscripts = Menuscript::where('category_id', $category_id)->where('status', 3)->get();
 
         return view('front.categoryMenuscript', compact('menuscript', 'today', 'menuscripts'));
     }
