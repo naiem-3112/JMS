@@ -30,8 +30,6 @@ class MenuscriptController extends Controller
         
         $this->validate($r, [
             'title' => 'required',
-            'name' => 'required',
-            'email' => 'required',
             'category_id' => 'required',
             'paper_file' => 'required|mimes:pdf,docx'
         ]);
@@ -72,8 +70,10 @@ class MenuscriptController extends Controller
                 $author_menuscript = new AuthorMenuscript();
                 $author_menuscript->author_id = Auth::id();
                 $author_menuscript->menuscript_id = $menuscript->id;
-                $author_menuscript->name = $name;
+                 $author_menuscript->name = $name;
+
                 $author_menuscript->email = $email;
+
                 
             $author_menuscript->save();
                 
@@ -82,9 +82,9 @@ class MenuscriptController extends Controller
                
             }
             if($key != 0){
-                $author_menuscript = AuthorMenuscript::where('id', $author_menuscript->id)->first();
-                $author_menuscript->name = $name;
-                $author_menuscript->save();
+                // $author_menuscript = AuthorMenuscript::where('id', $author_menuscript->id)->first();
+                // $author_menuscript->name = $name;
+                // $author_menuscript->save();
                 
             }
 

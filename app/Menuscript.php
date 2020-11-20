@@ -27,4 +27,8 @@ public function rev_menus(){
     return $this->hasMany(ReviewerMenuscript::class);
 }
 
+public function author_menuscript(){
+    return $this->hasMany(AuthorMenuscript::class);
+}
+
 }
