@@ -54,8 +54,11 @@ class CategoryController extends Controller
         return back();
     }
 
-    public function delete($id)
-    {
-
+   
+     public function delete(Request $request, $id){
+        $category = Category::find($id);
+        $category->delete();
+        Alert::toast('category deleted successfully', 'success');
+        return back();
     }
 }
