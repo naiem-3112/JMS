@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $has_one_publisher = User::where('user_type_id', 2)->count();
         $new_user_admin = User::where('status', 0)->where('user_type_id', '!=', 3)->get();
         $new_reviewer = User::where('status', 0)->where('user_type_id', 3)->get();
         $new_menuscript = Menuscript::where('status', 0)->get();
@@ -44,6 +45,6 @@ class AppServiceProvider extends ServiceProvider
     });  
 
         View::share(['menuscript_revision' => $menuscript_revision, 'marked_menuscript' => $marked_menuscript, 
-        'new_user_admin' => $new_user_admin, 'new_reviewer' => $new_reviewer, 'new_menuscript' => $new_menuscript,]);
+        'new_user_admin' => $new_user_admin, 'has_one_publisher' => $has_one_publisher, 'new_reviewer' => $new_reviewer, 'new_menuscript' => $new_menuscript,]);
     }
 }

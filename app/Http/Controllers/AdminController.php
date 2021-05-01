@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Menuscript;
 use Illuminate\Http\Request;
 use App\User;
+use App\ReviewerMenuscript;
+use App\AuthorMenuscript;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +18,8 @@ class AdminController extends Controller
 {
 
     public function dashboard(){
-        return view('layouts.back.back');
+        $allmenuscript = Menuscript::where('status', 3)->get();
+        return view('layouts.back.back', compact('allmenuscript'));
     }
    
     // user
@@ -58,8 +61,26 @@ class AdminController extends Controller
     }
 
     public function delete(Request $request, $id){
-        $user = User::find($id);
+        
+        $user = User::where('id', $id)->first();
+        if($user->user_type_id == 2){
         $user->delete();
+        }
+        
+        if($user->user_type_id == 3){
+            $reviewermenuscript = ReviewerMenuscript::where('reviewer_id', $user->id);
+            $reviewermenuscript->delete();
+            $user->delete();
+        }
+        
+        if($user->user_type_id == 1){
+            $allmenuscript = Menuscript::where('author_id', $user->id)->pluck('id');
+            $reviewermenuscript = ReviewerMenuscript::whereIn('menuscript_id', $allmenuscript);
+            $reviewermenuscript->delete();
+            $menuscript = Menuscript::where('author_id', $user->id);
+            $menuscript->delete();
+            $user->delete();
+        }
         Alert::toast('User deleted successfully', 'success');
         return back();
     }

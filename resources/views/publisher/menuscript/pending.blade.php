@@ -46,7 +46,7 @@
                         {{-- <a href="{{ route('mark-approve.menuscript', $menuscript->id) }}" class="btn btn-sm btn-success"
                             title="approve" onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a> --}}
                             
-                        <a title="Share" href="{{ route('publisher.assign-form.menuscript', $menuscript->id) }}" class="btn btn-sm btn-info"
+                        <a title="Assign" href="{{ route('publisher.assign-form.menuscript', $menuscript->id) }}" class="btn btn-sm btn-info"
                             title="assign"><i class="fa fa-share-square"></i></a>
 
                         {{-- <form action="{{ route('delete.user', $menuscript->id) }}" method="post"

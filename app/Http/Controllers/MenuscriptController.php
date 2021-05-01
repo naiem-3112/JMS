@@ -37,13 +37,12 @@ class MenuscriptController extends Controller
         $menuscript= new Menuscript();
         $menuscript->title = $r->title;
         $menuscript->summery = $r->summery;
-        $menuscript->country_id = $r->country_id;
         $menuscript->category_id = $r->category_id;
         $menuscript->status = 0;
         $menuscript->remark = 0;
         $menuscript->author_id  = Auth::id();
-        $menuscript->name = 'null';
-        $menuscript->email = 'null';
+        $menuscript->name = Auth::user()->name;
+        $menuscript->email = Auth::user()->email;
        
         
         if ($r->hasFile('paper_file')) {
@@ -53,42 +52,10 @@ class MenuscriptController extends Controller
             $menuscript->paper = $uniquePaperName;
         }
          $menuscript->save();
-        foreach($r->name as $key => $name){
-            
-            if($key == 0){
-                $menuscript = Menuscript::where('id', $menuscript->id)->first();
-                         $menuscript->name = $name;
-                         $menuscript->save();
-                foreach($r->email as $key =>$email){
-                    if($key == 0){
-                        $menuscript = Menuscript::where('id', $menuscript->id)->first();
-                         $menuscript->email = $email;
-                         $menuscript->save();
-                    }
+        
+          
 
-            if($key != 0){
-                $author_menuscript = new AuthorMenuscript();
-                $author_menuscript->author_id = Auth::id();
-                $author_menuscript->menuscript_id = $menuscript->id;
-                 $author_menuscript->name = $name;
-
-                $author_menuscript->email = $email;
-
-                
-            $author_menuscript->save();
-                
-            }
-                }
-               
-            }
-            if($key != 0){
-                // $author_menuscript = AuthorMenuscript::where('id', $author_menuscript->id)->first();
-                // $author_menuscript->name = $name;
-                // $author_menuscript->save();
-                
-            }
-
-        }
+        
 
         Alert::toast('Paper submitted successfully', 'success');
         return redirect()->route('author.pending.menuscript');

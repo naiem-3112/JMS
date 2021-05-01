@@ -22,35 +22,8 @@
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="row" id="dynamicAddRemove">
-                                        <div class="col-5">
-                                            <div class="form-group">
-                                                <label>Your/Author Name</label>
-                                                <input type="text" class="form-control" name="name[]"
-                                                    placeholder="Enter name">
-                                                @error('name')
-                                                <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label>Author Email</label>
-                                                <input type="email" class="form-control" name="email[]"
-                                                    placeholder="Enter email">
-                                                @error('email')
-                                                <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-1">
-                                            <div style="margin: 30px 0 0 30px;">
-                                                <button type="button" name="add" id="ad-btn" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                                                {{-- <button class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="newRow"></div>
+                                    
+                                  
                                     <div class="form-group">
                                         <label>Summery</label>
                                         <textarea name="summery" id="summery" class="form-control"
@@ -63,14 +36,6 @@
                                             @foreach($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>                                                
                                             @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Your Country</label>
-                                        <select class="form-control" name="country_id">
-                                            <option selected disabled>Select Country</option>
-                                            <option value="1">Bangladesh</option>
-                                            <option value="2">India</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

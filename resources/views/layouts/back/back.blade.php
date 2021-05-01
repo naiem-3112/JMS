@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="{{ asset('back_temp/dist/css/toastr.css') }}">
     {{--    bootstrap 5 cdn--}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
-    {{--  Favicon  --}}
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('back_temp/dist/img/favicon.png')}}" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="{{asset('back_temp/dist/img/Jm_logo.jpg')}}" type="image/x-icon">
 
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css'>
     <link rel='stylesheet' href='https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css
@@ -36,7 +36,7 @@
         }
 
         .navbar-white {
-            background-color: #F55;
+            background-color: #1abc9c;
 
         }
 
@@ -45,7 +45,7 @@
         }
 
         .select2-container--default .select2-selection--multiple .select2-selection__choice {
-            background-color: #F55;
+            background-color: #1abc9c;
         }
 
     </style>
@@ -157,14 +157,14 @@
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('pending.users') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_user_admin->count() }}
+                            <i style="color: #1abc9c" class="fas fa-users mr-2"></i>{{ $new_user_admin->count() }}
                             Registration
                             <span class="float-right text-muted text-sm">
                                 {{ $new_user_admin->first()? $new_user_admin->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         {{--  <a href="" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-file mr-2"></i> {{$new_menuscript->count()}} Menuscript
+                            <i style="color: #1abc9c" class="fas fa-file mr-2"></i> {{$new_menuscript->count()}} Menuscript
                             <span
                                 class="float-right text-muted text-sm">{{ $new_menuscript->first() ? $new_menuscript->first()->created_at->diffForHumans() : '' }}</span>
                         </a>  --}}
@@ -190,21 +190,21 @@
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('publisher.pending.reviewers') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_reviewer->count() }}
+                            <i style="color: #1abc9c" class="fas fa-users mr-2"></i>{{ $new_reviewer->count() }}
                             Registration
                             <span class="float-right text-muted text-sm">
                                 {{ $new_reviewer->first() ?$new_reviewer->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('publisher.pending.menuscript') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $new_menuscript->count() }}
+                            <i style="color: #1abc9c" class="fas fa-users mr-2"></i>{{ $new_menuscript->count() }}
                             Menuscript
                             <span class="float-right text-muted text-sm">
                                 {{ $new_menuscript->first() ? $new_menuscript->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('publisher.marked.menuscript') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $marked_menuscript->count() }}
+                            <i style="color: #1abc9c" class="fas fa-users mr-2"></i>{{ $marked_menuscript->count() }}
                             Checked Menuscript
                             <span class="float-right text-muted text-sm">
                                 {{ $marked_menuscript->first() ?$marked_menuscript->first()->created_at->diffForHumans() : '' }}</span>
@@ -231,7 +231,7 @@
                        
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('reviewer.assigned.menuscript') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $assign_menuscript_reviewer->count() }}
+                            <i style="color: #1abc9c" class="fas fa-users mr-2"></i>{{ $assign_menuscript_reviewer->count() }}
                             Menuscript New Assigned
                             <span class="float-right text-muted text-sm">
                                 {{ $assign_menuscript_reviewer->first() ? $assign_menuscript_reviewer->first()->created_at->diffForHumans() : '' }}</span>
@@ -258,14 +258,14 @@
                        
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('author.pending.menuscript') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $menuscript_revision->count()  }}
+                            <i style="color: #1abc9c" class="fas fa-users mr-2"></i>{{ $menuscript_revision->count()  }}
                             Menuscript Under Revision
                             <span class="float-right text-muted text-sm">
                                 {{ $menuscript_revision->first() ? $menuscript_revision->first()->created_at->diffForHumans() : '' }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('author.checked.menuscript') }}" class="dropdown-item">
-                            <i style="color: #f55" class="fas fa-users mr-2"></i>{{ $checked_menuscript->count()  }}
+                            <i style="color: #1abc9c" class="fas fa-users mr-2"></i>{{ $checked_menuscript->count()  }}
                             Checked Menuscripts
                             <span class="float-right text-muted text-sm">
                                 {{ $checked_menuscript->first() ? $checked_menuscript->first()->updated_at->diffForHumans() : '' }}</span>
@@ -285,7 +285,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ route('journal-front.home') }}" class="brand-link">
-                <img src="{{ asset('back_temp/dist/img/favicon.png') }}" alt="AdminLTE Logo"
+                <img src="{{ asset('back_temp/dist/img/Jm_logo.jpg') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Journal Management</span>
             </a>
@@ -315,20 +315,20 @@
                         {{--  {{ dd(Auth::user()->user_type_id)}} --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <i style="color: #1abc9c" class="fas fa-tags"></i>
                                 <p>Registered Users</p>
-                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                                <i style="color: #1abc9c" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('approved.uesrs') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fas fa-plus nav-icon"></i>
                                         <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('pending.users') }}" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <i style="color: #1abc9c" class="far fa-circle nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
                                 </li>
@@ -341,20 +341,20 @@
                         {{--  Reviewer  --}}
                         <li class="nav-item has-treeview">
                             <a href="#" class=" nav-link">
-                                <i style="color: #f55" class="fa fa-user-circle"></i>
+                                <i style="color: #1abc9c" class="fa fa-user-circle"></i>
                                 <p>Registered Reviewer</p>
-                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                                <i style="color: #1abc9c" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.approved.reviewers') }}" class="nav-link">
-                                        <i style="color: #f55" class="fa fa-check nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fa fa-check nav-icon"></i>
                                         <p>Approved</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.pending.reviewers') }}" class="nav-link">
-                                        <i style="color: #f55" class="fa fa-eye-slash nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fa fa-eye-slash nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
                                 </li>
@@ -364,32 +364,32 @@
                         {{--  Menuscript  --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i style="color: #f55" class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <i style="color: #1abc9c" class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 <p>Manuscripts</p>
-                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                                <i style="color: #1abc9c" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.pending.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fas fa-plus nav-icon"></i>
                                         <p>New Comming</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.revision.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="fa fa-reply nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fa fa-reply nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.marked.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="fa fa-share nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fa fa-share nav-icon"></i>
                                         <p>Reviewed</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.checked.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="fa fa-check nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fa fa-check nav-icon"></i>
                                         <p>Published</p>
                                     </a>
                                 </li>
@@ -399,21 +399,21 @@
                         {{--  manuscript category  --}}
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i style="color: #f55" class="fa fa-arrow-circle-right"></i>
+                                <i style="color: #1abc9c" class="fa fa-arrow-circle-right"></i>
                                 <p>Manuscript Categories</p>
-                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                                <i style="color: #1abc9c" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('menuscript.category.create') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fas fa-plus nav-icon"></i>
                                         <p>Create</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('menuscript.category') }}" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
-                                        <p>List</p>
+                                        <i style="color: #1abc9c" class="far fa-circle nav-icon"></i>
+                                        <p>Category List</p>
                                     </a>
                                 </li>
                             </ul>
@@ -421,32 +421,32 @@
                         @elseif(Auth::user()->user_type_id == 1 && Auth::user()->status == 1)
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <i style="color: #1abc9c" class="fas fa-tags"></i>
                                 <p>Manuscripts</p>
-                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                                <i style="color: #1abc9c" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('author.create.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fas fa-plus nav-icon"></i>
                                         <p>Create</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('author.pending.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fas fa-plus nav-icon"></i>
                                         <p>Pending</p>
                                     </a>
                                 </li>
                                 {{--  <li class="nav-item">
                                     <a href="{{ route('author.revision.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <i style="color: #1abc9c" class="far fa-circle nav-icon"></i>
                                         <p>Under Revision</p>
                                     </a>
                                 </li>  --}}
                                 <li class="nav-item">
                                     <a href="{{ route('author.checked.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="far fa-circle nav-icon"></i>
+                                        <i style="color: #1abc9c" class="far fa-circle nav-icon"></i>
                                         <p>Checked</p>
                                     </a>
                                 </li>
@@ -456,20 +456,20 @@
                         @elseif(Auth::user()->user_type_id == 3 && Auth::user()->status == 1)
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
-                                <i style="color: #f55" class="fas fa-tags"></i>
+                                <i style="color: #1abc9c" class="fas fa-tags"></i>
                                 <p>Manuscripts</p>
-                                <i style="color: #f55" class="right fas fa-angle-left"></i>
+                                <i style="color: #1abc9c" class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('reviewer.assigned.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fas fa-plus nav-icon"></i>
                                         <p>Assigned</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('reviewer.checked.menuscript') }}" class="nav-link">
-                                        <i style="color: #f55" class="fas fa-plus nav-icon"></i>
+                                        <i style="color: #1abc9c" class="fas fa-plus nav-icon"></i>
                                         <p>Checked</p>
                                     </a>
                                 </li>
@@ -479,7 +479,7 @@
                         <li class="nav-header">Your Account</li>
                         <li class="nav-item">
                             <a href="{{ route('user.profile', Auth::id()) }}" class="nav-link">
-                                <i style="color: #f55" class="far fa-user-circle nav-icon"></i>
+                                <i style="color: #1abc9c" class="far fa-user-circle nav-icon"></i>
                                 <p>Profile</p>
                             </a>
                         </li>
@@ -491,8 +491,8 @@
                                     style="display: none;">
                                     @csrf
                                 </form>
-                                <i style="color: #f55" class="fas fa-sign-out-alt nav-icon"></i>
-                                <p style="color: #f55; font-weight:bold; text-transform: uppercase">Logout</p>
+                                <i style="color: #1abc9c" class="fas fa-sign-out-alt nav-icon"></i>
+                                <p style="color: #1abc9c; font-weight:bold; text-transform: uppercase">Logout</p>
                             </a>
 
                         </li>
@@ -504,7 +504,7 @@
 
             @else
                 <a href="{{ route('user.profile', Auth::id()) }}">
-                    <i style="color: #f55; margin-top: 100%; margin-left: 40%" class="far fa-user-circle nav-icon"></i> <span style="color: #f55; ">  Profile </span> 
+                    <i style="color: #1abc9c; margin-top: 100%; margin-left: 40%" class="far fa-user-circle nav-icon"></i> <span style="color: #1abc9c; ">  Profile </span> 
                 </a>
             @endif
 
@@ -514,7 +514,109 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+<!-- Main content -->
+<section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>150</h3>
 
+                <p>Total Menuscripts</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                <p>Pending Menuscripts</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
+
+                <p>Under Revision</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>65</h3>
+
+                <p>Published Menuscripts</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- table row -->
+        <table class="table">
+  <thead>
+  <P>Menuscript</P>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+        <!-- table row -->
+        <!-- Main row -->
+</section>
             @include('sweetalert::alert')
             @yield('back.content')
             @if(Auth::user()->status == 3)
@@ -540,7 +642,7 @@
 
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2020 <a href="#">Tamim Rahman</a>.</strong> All rights
+            <strong>Copyright &copy; 2021 <a href="#">Sanjida Silvy</a>.</strong> All rights
             reserved.
         </footer>
     </div>

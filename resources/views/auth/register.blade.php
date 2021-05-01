@@ -65,7 +65,9 @@
                                 <select class="form-control" name="user_type_id">
                                     <option selected disabled>Select User Type</option>
                                     <option value="1">Author</option>
+                                    @if($has_one_publisher <= 0)
                                     <option value="2">Publisher</option>
+                                    @endif
                                     <option value="3">Reviewer</option>
                                 </select>
                                 @error('user_type_id')

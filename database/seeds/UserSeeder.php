@@ -18,5 +18,7 @@ class UserSeeder extends Seeder
             'user_type_id' => 0,
             'status' => 1,
         ]);
+// php artisan db:seed
+
     }
 }

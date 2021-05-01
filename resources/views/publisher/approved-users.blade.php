@@ -23,7 +23,6 @@
                         <th>User Name</th>
                         <th>Email</th>
                         <th>User Type</th>
-                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -36,11 +35,7 @@
                         <td>{{ $user->email }}</td>
                         <td>
                             @if($user->user_type_id == 1) <span class="badge badge-success">Author</span>@else
-                            <span class="badge badge-primary">Reader</span> @endif
-                        </td>
-                        <td>
-                            @if($user->status == 1) <span class="badge badge-success">Active</span>@else
-                            <span class="badge badge-danger">Inactive</span> @endif
+                            <span class="badge badge-primary">Reviewer</span> @endif
                         </td>
                         <td>
                             {{--  <a href="{{ route('user.detail', $user->id) }}" class="btn btn-sm btn-success" title="view"><i class="fa fa-eye"></i></a>  --}}
@@ -50,7 +45,7 @@
                                 style="display: inline-block">
                                 
                                 @csrf
-                                <button onclick="alert('Are You Sure to DELETE!')"
+                                <button
                                     class="btn btn-sm btn-danger"><i
                                         class="fas fa-trash"></i></button>
                             </form>

@@ -40,7 +40,7 @@ ul, ol {
 
 .header_logo {
     width: 15%;
-    float: left;
+	float: left;
 } 
 
 .header_logo a img {
@@ -49,7 +49,7 @@ ul, ol {
 }
 
 .top_header {
-    background-color: #bd070e;
+    background-color: #2c3e50;
     height: 2rem;
     line-height: 0.1rem;
 }
@@ -102,7 +102,7 @@ ul, ol {
 
 .header_left_logo a img{
 	width: 70px;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 .header_right {
@@ -122,7 +122,7 @@ ul, ol {
 
 .search_btn {
     height: 35px;
-    background: #bd070e;
+    background: #2c3e50;
     color: #fff;
     width: 60px;
     border: 0;
@@ -149,7 +149,7 @@ ul, ol {
 .menu ul li a {
 	display: block;
 	padding: 10px 12px;
-	color: #bd070e;
+	color: #2c3e50;
 	font-size: 16px;
 	font-weight: 700;
 	font-family: 'Exo', sans-serif;
@@ -159,14 +159,14 @@ ul, ol {
 }
 
 .menu ul li a:hover {
-	color: #BD070E;
-	border-color: #BD070E;
+	color: #2c3e50;
+	border-color: #2c3e50;
 	transform: scale(1.1);
 }
 
 /*banner part*/
 .full-banner {
-	background: url(../front/ggg.jpg) left top no-repeat;
+	background: url(../front/Journal_banner.JPG) left top no-repeat;
 	background-size: cover;
 	height: 600px;
 	position: relative;
@@ -213,15 +213,15 @@ ul, ol {
 	height: 70px;
 	padding: 20px 10px 0 10px;
 	width: 70px;
-	color: #BD070E;
-	border: 1px solid #BD070E;
+	color: #2c3e50;
+	border: 1px solid #2c3e50;
 	border-radius: 50%;
 	transition: all 0.5s linear;
 	cursor: pointer;
 }
 
 .summarise-col:hover .summarise-content i{
-	background-color: #BD070E;
+	background-color: #2c3e50;
 	color: #fff;
 }
 
@@ -234,7 +234,7 @@ ul, ol {
 }
 
 .summarise-col:hover .summarise-content h4{
-	color: #BD070E;
+	color: #2c3e50;
 }
 
 .summarise-content p{
@@ -266,13 +266,13 @@ ul, ol {
 }
 
 .menuscript-content>.readmore{
-	color: #c23939;
+	color: #2c3e50;
 	font-size: 14px;
 }
 
 .menuscript-content h3 {
 	text-transform: uppercase;
-	color: #BD070E;
+	color: #2c3e50;
 	font-size: 17px;
 	font-weight: 700;
 }
@@ -299,7 +299,7 @@ ul, ol {
 
 .menuscript-content h2 {
 	color: #ffffff;
-	background-color: #BD070E;
+	background-color: #2c3e50;
 	padding: 5px 0;
 	font-size: 24px;
 	text-transform: capitalize;
@@ -388,7 +388,7 @@ ul, ol {
 }
 
 .footer-col:hover .footer-content h4{
-	color: #BD070E;
+	color: #2c3e50;
 }
 
 .footer-content p{

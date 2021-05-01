@@ -23,7 +23,6 @@
                         <th>User Name</th>
                         <th>Email</th>
                         <th>User Type</th>
-                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -35,12 +34,9 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
-                            @if($user->user_type_id == 1) <span class="badge badge-success">Author</span>@else
-                            <span class="badge badge-primary">Reader</span> @endif
-                        </td>
-                        <td>
-                            @if($user->status == 1) <span class="badge badge-success">Active</span>@else
-                            <span class="badge badge-danger">Inactive</span> @endif
+                            @if($user->user_type_id == 1) <span class="badge badge-success">Author</span>
+                            @elseif($user->user_type_id == 2) <span class="badge badge-success">Publisher</span>@else
+                            <span class="badge badge-primary">Reviewer</span> @endif
                         </td>
                         <td>
                             <a href="{{ route('user.profile', $user->id) }}" class="btn btn-sm btn-success" title="view"><i class="fa fa-eye"></i></a>

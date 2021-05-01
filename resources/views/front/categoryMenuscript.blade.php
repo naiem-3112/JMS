@@ -17,12 +17,12 @@
     <style>
 		.slick-prev, .slick-next {
 			color: red;
-            background: red;
+            background: #2c3e50;
             border-radius: 50%;
 		}
 		.slick-prev:hover, .slick-next:hover {
 			color: red;
-            background: red;
+            background: #2c3e50;
             border-radius: 50%;
 		}
 	</style>
@@ -34,9 +34,9 @@
 	<div class="main-wr">
             <div class="header_logo">
                 <h2>JOURNAL</h2>
-                {{--  <a href="#"><img src="{{asset('back_temp/dist/img/favicon.png')}}"></a>  --}}
+                {{--  <a href="#"><img src="{{asset('back_temp/dist/img/Jm_logo.jpg')}}"></a>  --}}
             </div>
-			{{-- <img src="{{asset('back_temp/dist/img/favicon.png')}}" alt=""> --}}
+			{{-- <img src="{{asset('back_temp/dist/img/Jm_logo.jpg')}}" alt=""> --}}
 		<div class="top_header_mid">
 			<marquee class="marq">{{ $today }}</marquee>
 		</div>
@@ -69,7 +69,7 @@
 	<div class="main-wr">
 		<div class="header_left">
             <div class="header_left_logo">
-                <a href="#"><img src="{{asset('back_temp/dist/img/favicon.png')}}"></a>
+                <a href="#"><img src="{{asset('back_temp/dist/img/Jm_logo.jpg')}}"></a>
             </div>
         </div>
 		<div class="header_right">
@@ -202,7 +202,7 @@
 				<div class="footer-content">
 					<div class="footer_right">
 						<div class="footer_right_logo">
-							<a href="#"><img src="{{asset('back_temp/dist/img/favicon.png')}}"></a>
+							<a href="#"><img src="{{asset('back_temp/dist/img/Jm_logo.jpg')}}"></a>
 						</div>
 					</div>
 				</div>
@@ -212,9 +212,9 @@
 		<div class="clr"></div>
 	</div>
 </div>
-<div style="background: #BD070E" class="full-wr">
+<div style="background: #2c3e50" class="full-wr">
 	<div class="main-wr">
-		<p style="text-align: center; color: #ffffff">Copyright © 2020 Mohammad Tamim Rahman </p>
+		<p style="text-align: center; color: #ffffff">Copyright © 2021 Sanjida Silvy </p>
 	</div>
 </div>
 

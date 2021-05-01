@@ -23,7 +23,6 @@
                         <th>User Name</th>
                         <th>Email</th>
                         <th>User Type</th>
-                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -36,23 +35,19 @@
                         <td>{{ $user->email }}</td>
                         <td>
                             @if($user->user_type_id == 1) <span class="badge badge-success">Author</span>@else
-                            <span class="badge badge-primary">Reader</span> @endif
-                        </td>
-                        <td>
-                            @if($user->status == 1) <span class="badge badge-success">Active</span>@else
-                            <span class="badge badge-danger">Inactive</span> @endif
+                            <span class="badge badge-primary">Publisher</span> @endif
                         </td>
                         <td>
                             <a href="{{ route('user.profile', $user->id) }}" class="btn btn-sm btn-success" title="view"><i class="fa fa-eye"></i></a>
 
-                            <a href="{{ route('mark-approve.uesr', $user->id) }}" class="btn btn-sm btn-success" title="approve" onclick="alert('Are you sure to approve!')"><i class="fa fa-check"></i></a>
-                            {{--  <a href="{{ route('mark-reject.users', $user->id) }}" class="btn btn-sm btn-info" title="reject" onclick="alert('Are you sure to reject!')"><i class="fas fa-times-circle"></i></a>  --}}
+                            <a href="{{ route('mark-approve.uesr', $user->id) }}" class="btn btn-sm btn-success" title="approve"><i class="fa fa-check"></i></a>
+                            {{--  <a href="{{ route('mark-reject.users', $user->id) }}" class="btn btn-sm btn-info" title="reject"><i class="fas fa-times-circle"></i></a>  --}}
                         
                             <form action="{{ route('delete.user', $user->id) }}" method="post"
                                 style="display: inline-block">
                             
                                 @csrf
-                                <button onclick="alert('Are You Sure to DELETE!')"
+                                <button 
                                     class="btn btn-sm btn-danger"><i
                                         class="fas fa-trash"></i></button>
                             </form>

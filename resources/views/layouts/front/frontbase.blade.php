@@ -11,7 +11,9 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    {{--  Favicon  --}}
+    
+    <!-- Favicon icon -->
+    <link rel="icon" href="{{asset('back_temp/dist/img/Jm_logo.jpg')}}" type="image/x-icon">
 
     <!-- CSS Libraries -->
 

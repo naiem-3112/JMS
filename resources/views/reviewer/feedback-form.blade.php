@@ -115,7 +115,7 @@
                                     <label class="form-check-label" style="margin-right: 15px">Excellent</label>
                                 </div>
 
-                                <p style="font-size: 16px; margin-bottom: 0rem; margin-top: 1rem"><b>Relevance of the paper with the publication track(s) [Title, Abstraction, Conclusion]</b></p>
+                                <p style="font-size: 16px; margin-bottom: 0rem; margin-top: 1rem"><b>5. Relevance of the paper with the publication track(s) [Title, Abstraction, Conclusion]</b></p>
                                 <div class="form-check" style="display: inline-block">
                                     <input type="radio" class="form-check-input" id="option" value="2"
                                            name="qus5">
