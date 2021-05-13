@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $has_one_publisher = User::where('user_type_id', 2)->count();
         $new_user_admin = User::where('status', 0)->where('user_type_id', '!=', 3)->get();
         $new_reviewer = User::where('status', 0)->where('user_type_id', 3)->get();
@@ -35,6 +36,10 @@ class AppServiceProvider extends ServiceProvider
         $assigned_menuscripts = Menuscript::where('status', 1)->get();
         $menuscript_revision = Menuscript::where('status', 1)->get();
         $marked_menuscript = Menuscript::where('status', 2)->get();
+
+       
+        // $pendingMenuscript = 
+
         // for using Auth
         view()->composer('*', function ($view) {
         $assign_menuscript_reviewer = ReviewerMenuscript::where('status', 0)->where('reviewer_id', Auth::id())->get();
