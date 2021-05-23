@@ -17,6 +17,7 @@ Route::get('paper/download/menuscript/{file}', 'AdminController@download')->name
 
 // Amdin
     Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+        Route::get('menuscript/pdf-download','AdminController@PdfDownload')->name('admin.menuscript.pdf');
 
     // File download
     // Route::get('/download/menuscript/{file}', 'AdminController@download')->name('menuscript.download');
