@@ -28,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($menuscripts as $menuscript)
+                @foreach($menuscripts->where('author_id', Auth::id()) as $menuscript)
                 <tr>
                     <td>{{ $menuscript->id}}</td>
                     <td>{{ $menuscript->title}}</td>

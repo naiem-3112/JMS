@@ -30,7 +30,6 @@
 
 <table id="menuscripts">
     <caption>Overall Menuscript</caption>
-   
   <tr>
     <th>Published</th>
     <th>Pending</th>
@@ -57,6 +56,27 @@
       <th>Paper</th>
     </tr>
     @foreach($publishedMenuscript as $menuscript)
+    <tr>
+        <td>{{$menuscript->title}}</td>
+        <td>{{$menuscript->name}}</td>
+        <td>{{$menuscript->email}}</td>
+        <td><a target="_blank" href="{{ route('menuscript.download', $menuscript->paper) }}">{{ $menuscript->paper }}</a></td>
+    </tr>
+    @endforeach
+  </table>
+
+  <br>
+
+  <table id="menuscripts">
+    <caption>All Rejected Menuscripts</caption>
+   
+    <tr>
+      <th>Title</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Paper</th>
+    </tr>
+    @foreach($rejectedMenuscript as $menuscript)
     <tr>
         <td>{{$menuscript->title}}</td>
         <td>{{$menuscript->name}}</td>

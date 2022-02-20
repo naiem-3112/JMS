@@ -89,7 +89,7 @@
                 <table class="table">
                     <thead>
                         <P></P>
-                        <a  target="_blank" class="btn btn-sm btn-primary" href=" {{route('admin.menuscript.pdf')}}">Download Pdf</a>
+                        <a  target="_blank" class="btn btn-sm btn-primary" href=" {{route('admin.menuscript.pdf')}}">Report</a>
                         <tr>
                             <th scope="col">Title</th>
                             <th scope="col">Name</th>

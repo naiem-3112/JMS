@@ -64,17 +64,16 @@ class MenuscriptController extends Controller
     public function resubmitStore(Request $r){
         $this->validate($r, [
             'title' => 'required',
-            'name' => 'required',
-            'email' => 'required',
+            
             'category_id' => 'required',
             'paper_file' => 'required|mimes:pdf'
         ]);
         $menuscript= Menuscript::find($r->menuscript_id);
         $menuscript->title = $r->title;
-        $menuscript->name = $r->name;
-        $menuscript->email = $r->email;
+        $menuscript->name = Auth::user()->name;
+        $menuscript->email = Auth::user()->email;
         $menuscript->summery = $r->summery;
-        $menuscript->country_id = $r->country_id;
+       
         $menuscript->category_id = $r->category_id;
         $menuscript->status = 0;
         $menuscript->remark = 1;

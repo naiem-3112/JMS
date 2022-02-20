@@ -17,7 +17,6 @@ class CreateMenuscriptsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('category_id');
-            $table->integer('country_id');
             $table->string('title');
             $table->string('name');
             $table->string('email');

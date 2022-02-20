@@ -135,7 +135,7 @@
 	<div class="main-wr">
 		<div class="summarise-top">
 			<div class="section-title">
-				<h3>Related Menuscripts</h3>
+				<h3>Related Menuscripts </h3>
 				<p>latest menuscripts of popular category</p>
 			</div>
 		</div>

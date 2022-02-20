@@ -6,7 +6,7 @@
             <div class="col-lg-10 offset-lg-1">
                 <div class="card mt-3">
                     <div class="card-header">
-                        <h4>Article Submision Form</h4>
+                        <h4>Article Re-Submision Form</h4>
                         <small><span style="color: red">*</span>Indicates Required Field</small>
                     </div>
                     <!-- /.card-header -->
@@ -24,34 +24,10 @@
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="row" id="dynamicAddRemove">
-                                        <div class="col-5">
-                                            <div class="form-group">
-                                                <label>Your/Author Name</label>
-                                                <input type="text" class="form-control" name="name"
-                                                    placeholder="Enter name">
-                                                @error('name')
-                                                <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label>Author Email</label>
-                                                <input type="email" class="form-control" name="email"
-                                                    placeholder="Enter name">
-                                                @error('email')
-                                                <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-1">
-                                            <div style="margin: 35px 0 0 30px;">
-                                                <button type="button" name="add" id="ad-btn" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                                                {{-- <button class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button> --}}
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
+                                        
+                                       
+                                    
                                     <div class="form-group">
                                         <label>Summery</label>
                                         <textarea name="summery" id="summery" class="form-control">{{$menuscript->summery}}</textarea>
@@ -65,14 +41,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Your Country</label>
-                                        <select class="form-control" name="country_id">
-                                            <option selected disabled>Select Country</option>
-                                            <option value="1" @if($menuscript->country_id == 1) selected @endif>Bangladesh</option>
-                                            <option value="2" @if($menuscript->country_id == 2) selected @endif>India</option>
-                                        </select>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label>Upload Manuscript</label>
                                         <div class="custom-file">

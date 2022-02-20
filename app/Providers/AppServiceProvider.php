@@ -43,10 +43,14 @@ class AppServiceProvider extends ServiceProvider
         // for using Auth
         view()->composer('*', function ($view) {
         $assign_menuscript_reviewer = ReviewerMenuscript::where('status', 0)->where('reviewer_id', Auth::id())->get();
-        $checked_menuscript = Menuscript::where('author_id', Auth::id())->where('status', 3)
-        ->orWhere('status', 4)->get();
-
-        $view->with('assign_menuscript_reviewer', $assign_menuscript_reviewer)->with('checked_menuscript', $checked_menuscript);    
+        $checked_menuscript = Menuscript::where('author_id', Auth::id())->where('status', 3)->orWhere('status', 4)->get();
+        $checked_published_menuscript = Menuscript::where('author_id', Auth::id())->where('status', 3)->get();
+        $checked_rejected_menuscript = Menuscript::where('author_id', Auth::id())->where('status', 4)->get();
+       
+        $view->with('assign_menuscript_reviewer', $assign_menuscript_reviewer)
+        ->with('checked_menuscript', $checked_menuscript)
+        ->with('checked_published_menuscript', $checked_published_menuscript)
+        ->with('checked_rejected_menuscript', $checked_rejected_menuscript );    
     });  
 
         View::share(['menuscript_revision' => $menuscript_revision, 'marked_menuscript' => $marked_menuscript, 

@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 use Barryvdh\DomPDF\Facade as PDF;
-// use Intervention\Image\ImageManagerStatic as Image;
-use Image;
+use Intervention\Image\ImageManagerStatic as Image;
+// use Image;
 use File;
 
 class AdminController extends Controller
@@ -30,10 +30,11 @@ class AdminController extends Controller
 
     public function PdfDownload() {
         $publishedMenuscript = Menuscript::where('status', 3)->get();
+        $rejectedMenuscript = Menuscript::where('status', 4)->get();
         $totalMenuscript = Menuscript::all();
         $pendingMenuscript = Menuscript::where('status', 0)->get();
         $revisionMenuscript = Menuscript::where('status', 1)->get();
-        $pdf = PDF::loadView('admin.menuscript.fullViewPDF', compact('totalMenuscript', 'pendingMenuscript', 'revisionMenuscript', 'publishedMenuscript'));
+        $pdf = PDF::loadView('admin.menuscript.fullViewPDF', compact('totalMenuscript', 'rejectedMenuscript', 'pendingMenuscript', 'revisionMenuscript', 'publishedMenuscript'));
         return $pdf->stream('menuscripPDF.pdf');
     }
    
@@ -143,6 +144,7 @@ class AdminController extends Controller
         $user->designation = $r->designation;
 
         if ($r->hasFile('image')) {
+          
             $originalName = $r->image->getClientOriginalName();
             $uniqueImageName = $r->name.$originalName;
             $image = Image::make($r->image);

@@ -219,6 +219,7 @@
                 @php
                 $total = 0;
                 $total = $assign_menuscript_reviewer->count();
+
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -246,12 +247,14 @@
                 @php
                 $total = 0;
                 $total = $menuscript_revision->count() + $checked_menuscript->count();
+
+                $totalchecked = $menuscript_revision->count() + $checked_published_menuscript->count() + $checked_rejected_menuscript->count();
                 @endphp
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i style="color: #fff" class="far fa-bell"></i>
                         <span style="background: #2C3E50; color: #fff" class="badge navbar-badge">
-                            {{ $total }}</span>
+                            {{ $totalchecked }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-header"> {{ $total }} Notifications </span>
@@ -265,7 +268,7 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('author.checked.menuscript') }}" class="dropdown-item">
-                            <i style="color: #1abc9c" class="fas fa-users mr-2"></i>{{ $checked_menuscript->count()  }}
+                            <i style="color: #1abc9c" class="fas fa-users mr-2"></i>{{$totalchecked}}
                             Checked Menuscripts
                             <span class="float-right text-muted text-sm">
                                 {{ $checked_menuscript->first() ? $checked_menuscript->first()->updated_at->diffForHumans() : '' }}</span>
@@ -390,7 +393,7 @@
                                 <li class="nav-item">
                                     <a href="{{ route('publisher.checked.menuscript') }}" class="nav-link">
                                         <i style="color: #1abc9c" class="fa fa-check nav-icon"></i>
-                                        <p>Published</p>
+                                        <p>Published/Rejected</p>
                                     </a>
                                 </li>
                             </ul>
